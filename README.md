@@ -1,8 +1,8 @@
 # ytdl
-A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.This project is only for educational purpose.
+A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.This project is only for educational purpose.<br />
 ![startup](https://user-images.githubusercontent.com/55890376/115924152-fcea5080-a49c-11eb-8b71-a1e475ef69a2.JPG)
 
-paste url and hit enter to view streams
+paste url and hit enter to view streams<br />
 ![streams](https://user-images.githubusercontent.com/55890376/115923749-5605b480-a49c-11eb-8a8f-c412729a84ad.JPG)
 
 select audio ,video and caption stream(s).
@@ -15,7 +15,7 @@ Download youtube-dl GUI installer here https://github.com/sourabhkv/ytdl/release
 Click the download button
 ![installer_startup](https://user-images.githubusercontent.com/55890376/115924610-99acee00-a49d-11eb-99c5-86e2b1a281b4.JPG)
 
-Click Launch button after downloading.
+Click Launch button after downloading.<br />
 You are ready to go.
 
 #Working
@@ -25,12 +25,12 @@ youtube-dl searches streams available in website and displays streams.
 User selects streams and browse location *default location in downloads*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley.
-Pygame window displays live download progress.
+Pygame window displays live download progress.<br />
 
 
-[Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)
-[youtube-dl](https://github.com/ytdl-org/youtube-dl)
-[ffmpeg](https://ffmpeg.org/ffmpeg.html)
-[AtomicParsley](http://atomicparsley.sourceforge.net/)
-[Pygame](https://www.pygame.org/wiki/about)
-[try VLC for better playback](https://www.videolan.org/')
+[Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br />
+[youtube-dl](https://github.com/ytdl-org/youtube-dl)<br />
+[ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
+[AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
+[Pygame](https://www.pygame.org/wiki/about)<br />
+[try VLC for better playback](https://www.videolan.org/')<br />
