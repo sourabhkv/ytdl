@@ -9,16 +9,16 @@ select audio ,video and caption stream(s).<br />
 
 [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
-<font size="+10">Insatllation</font>
+INSTALLATION
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
-Click the download button
+Click the download button<br />
 ![installer_startup](https://user-images.githubusercontent.com/55890376/115924610-99acee00-a49d-11eb-99c5-86e2b1a281b4.JPG)
 
 Click Launch button after downloading.<br />
-You are ready to go.<br />
+You are ready to go 🤘.<br />
 
-<font size="+10">Working</font>
+WORKING
 
 youtube-dl searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all*.
@@ -33,4 +33,4 @@ Pygame window displays live download progress.<br />
 [ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
 [AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
 [Pygame](https://www.pygame.org/wiki/about)<br />
-[try VLC for better video /audio playback](https://www.videolan.org/)<br />
+[try VLC for better playback](https://www.videolan.org/)<br />
