@@ -5,20 +5,20 @@ A GUI program that runs on top of youtube-dl and ffmpeg to download videos and a
 paste url and hit enter to view streams<br />
 ![streams](https://user-images.githubusercontent.com/55890376/115923749-5605b480-a49c-11eb-8a8f-c412729a84ad.JPG)
 
-select audio ,video and caption stream(s).
+select audio ,video and caption stream(s).<br />
 
-watch demo here-https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4
+[watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
-#Insatllation
+<font size="+10">Insatllation</font>
 
-Download youtube-dl GUI installer here https://github.com/sourabhkv/ytdl/releases
+Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
 Click the download button
 ![installer_startup](https://user-images.githubusercontent.com/55890376/115924610-99acee00-a49d-11eb-99c5-86e2b1a281b4.JPG)
 
 Click Launch button after downloading.<br />
-You are ready to go.
+You are ready to go.<br />
 
-#Working
+<font size="+10">Working</font>
 
 youtube-dl searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all*.
