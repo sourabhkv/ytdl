@@ -1,5 +1,5 @@
 # ytdl
-A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.This project is only for educational purpose.<br />
+A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.**This project is only for educational purpose.**<br />
 ![startup](https://user-images.githubusercontent.com/55890376/115924152-fcea5080-a49c-11eb-8b71-a1e475ef69a2.JPG)
 
 paste url and hit enter to view streams<br />
@@ -9,7 +9,7 @@ select audio ,video and caption stream(s).<br />
 
 [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
-INSTALLATION
+**INSTALLATION
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
 Click the download button<br />
@@ -18,13 +18,13 @@ Click the download button<br />
 Click Launch button after downloading.<br />
 You are ready to go 🤘.<br />
 
-WORKING
+**WORKING
 
 youtube-dl searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all*.
-User selects streams and browse location *default location in downloads*.
+User selects streams and browse location *(default location in downloads)*.
 ffmpeg converts it into videos/audios.
-if m4a is selected audio format ffmpeg uses AtomicParsley.
+if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
 Pygame window displays live download progress.<br />
 
 
