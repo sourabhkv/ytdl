@@ -26,8 +26,11 @@ User selects streams and browse location *default location in downloads*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley.
 Pygame window displays live download progress.
-Supported Websites -http://ytdl-org.github.io/youtube-dl/supportedsites.html
-youtube-dl         -https://github.com/ytdl-org/youtube-dl
-ffmpeg             -https://ffmpeg.org/ffmpeg.html
-AtomicParsley      -http://atomicparsley.sourceforge.net/
-Pygame             -https://www.pygame.org/wiki/about
+
+
+[Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)
+[youtube-dl](https://github.com/ytdl-org/youtube-dl)
+[ffmpeg](https://ffmpeg.org/ffmpeg.html)
+[AtomicParsley](http://atomicparsley.sourceforge.net/)
+[Pygame](https://www.pygame.org/wiki/about)
+[try VLC for better playback](https://www.videolan.org/')
