@@ -33,4 +33,4 @@ Pygame window displays live download progress.<br />
 [ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
 [AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
 [Pygame](https://www.pygame.org/wiki/about)<br />
-[try VLC for better playback](https://www.videolan.org/')<br />
+[try VLC for better video /audio playback](https://www.videolan.org/)<br />
