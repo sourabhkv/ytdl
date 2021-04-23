@@ -9,7 +9,7 @@ select audio ,video and caption stream(s).<br />
 
 [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
-**INSTALLATION
+**INSTALLATION**
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
 Click the download button<br />
@@ -18,7 +18,7 @@ Click the download button<br />
 Click Launch button after downloading.<br />
 You are ready to go 🤘.<br />
 
-**WORKING
+**WORKING**
 
 youtube-dl searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all*.
