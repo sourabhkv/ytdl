@@ -21,7 +21,7 @@ You are ready to go 🤘.<br />
 **WORKING**
 
 youtube-dl searches streams available in website and displays streams.
-*sometimes there may only be only video stream(s) available or no streams at all*.
+*sometimes there may only be only video stream(s) available or no streams at all.Using VPN might help.*
 User selects streams and browse location *(default location in downloads)*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
