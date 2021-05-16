@@ -1,9 +1,11 @@
 # ytdl
-A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.**This project is only for educational purpose.**<br />
-![startup](https://user-images.githubusercontent.com/55890376/115924152-fcea5080-a49c-11eb-8b71-a1e475ef69a2.JPG)
+A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .**<br />
+![window1](https://user-images.githubusercontent.com/55890376/118402205-8816ca80-b686-11eb-8c19-c4a15ec08f77.JPG)
 
-paste url and hit enter to view streams<br />
-![streams](https://user-images.githubusercontent.com/55890376/115923749-5605b480-a49c-11eb-8a8f-c412729a84ad.JPG)
+
+paste url and hit enter to view streams and thumbnail<br />
+![window2](https://user-images.githubusercontent.com/55890376/118402227-a67cc600-b686-11eb-9ea1-d52a33b617ba.JPG)
+
 
 select audio ,video and caption stream(s).<br />
 
@@ -13,7 +15,10 @@ select audio ,video and caption stream(s).<br />
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
 Click the download button<br />
-![installer_startup](https://user-images.githubusercontent.com/55890376/115924610-99acee00-a49d-11eb-99c5-86e2b1a281b4.JPG)
+![setup](https://user-images.githubusercontent.com/55890376/118402262-c57b5800-b686-11eb-9eed-61a32933748b.JPG)
+![setup2](https://user-images.githubusercontent.com/55890376/118402273-d3c97400-b686-11eb-8aca-445a2d26cacc.JPG)
+![start](https://user-images.githubusercontent.com/55890376/118402353-3884ce80-b687-11eb-91a6-d999a675d288.JPG)
+
 
 Click Launch button after downloading.<br />
 You are ready to go 🤘.<br />
