@@ -11,10 +11,9 @@ select audio ,video and caption stream(s).<br />
 
 [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
-**INSTALLATION**
+<h1>INSTALLATION</h1>
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
-Click the download button<br />
 ![setup](https://user-images.githubusercontent.com/55890376/118402262-c57b5800-b686-11eb-9eed-61a32933748b.JPG)
 ![setup2](https://user-images.githubusercontent.com/55890376/118402273-d3c97400-b686-11eb-8aca-445a2d26cacc.JPG)
 ![start](https://user-images.githubusercontent.com/55890376/118402353-3884ce80-b687-11eb-91a6-d999a675d288.JPG)
@@ -23,14 +22,14 @@ Click the download button<br />
 Click Launch button after downloading.<br />
 You are ready to go 🤘.<br />
 
-**WORKING**
+<h1>WORKING</h1>
 
 youtube-dl searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all.Using VPN might help.*
 User selects streams and browse location *(default location in downloads)*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
-Pygame window displays live download progress.<br />
+Pygame window displays live download progress(for older version).<br />
 
 
 [Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br />
