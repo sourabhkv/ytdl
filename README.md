@@ -11,28 +11,28 @@ TO download thumbnail click **Download thumbnail**<br />
 Select audio ,video and caption stream(s).<br />
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
 
-<h1>Stream selection</h1>
+<h2>Stream selection</h2>
 If you have VLC not installed try selecting video with codec avc1 and audio with m4a it will work.
 If audio and video codecs are webm then output is webm else it is mp4<br />
 
-<h3>Music</h3>
+<h4>Music</h4>
 mp3 64K, mp3 320K, m4a, wav, flac available<br />
 m4a,mp3 320K includes thumbnail and Metadata<br />
 
 [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
-<h1>INSTALLATION</h1>
+<h2>INSTALLATION</h2>
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
-![setup](https://user-images.githubusercontent.com/55890376/118402262-c57b5800-b686-11eb-9eed-61a32933748b.JPG)
-![setup2](https://user-images.githubusercontent.com/55890376/118402273-d3c97400-b686-11eb-8aca-445a2d26cacc.JPG)
-![start](https://user-images.githubusercontent.com/55890376/118402353-3884ce80-b687-11eb-91a6-d999a675d288.JPG)
+![setup](https://user-images.githubusercontent.com/55890376/118402262-c57b5800-b686-11eb-9eed-61a32933748b.JPG)<br />
+![setup2](https://user-images.githubusercontent.com/55890376/118402273-d3c97400-b686-11eb-8aca-445a2d26cacc.JPG)<br />
+![start](https://user-images.githubusercontent.com/55890376/118402353-3884ce80-b687-11eb-91a6-d999a675d288.JPG)<br />
 
 
 Click Launch button after downloading.<br />
 You are ready to go 🤘.<br />
 
-<h1>WORKING</h1>
+<h2>WORKING</h2>
 
 youtube-dl searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all.Using VPN might help.*
