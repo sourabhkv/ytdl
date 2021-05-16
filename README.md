@@ -4,10 +4,20 @@ A GUI program that runs on top of youtube-dl and ffmpeg to download videos and a
 
 
 paste url and hit enter to view streams and thumbnail<br />
+TO download thumbnail click **Download thumbnail**<br />
 ![window2](https://user-images.githubusercontent.com/55890376/118402227-a67cc600-b686-11eb-9ea1-d52a33b617ba.JPG)
 
 
-select audio ,video and caption stream(s).<br />
+Select audio ,video and caption stream(s).<br />
+Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
+
+<h1>Stream selection</h1>
+If you have VLC not installed try selecting video with codec avc1 and audio with m4a it will work.
+If audio and video codecs are webm then output is webm else it is mp4<br />
+
+<h3>Music</h3>
+mp3 64K, mp3 320K, m4a, wav, flac available<br />
+m4a,mp3 320K includes thumbnail and Metadata<br />
 
 [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
 
