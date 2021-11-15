@@ -26,9 +26,14 @@ m4a,mp3 320K includes thumbnail and Metadata<br />
 <h2>INSTALLATION</h2>
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
-![setup](https://user-images.githubusercontent.com/55890376/118402262-c57b5800-b686-11eb-9eed-61a32933748b.JPG)<br />
-![setup2](https://user-images.githubusercontent.com/55890376/118402273-d3c97400-b686-11eb-8aca-445a2d26cacc.JPG)<br />
-![start](https://user-images.githubusercontent.com/55890376/118402353-3884ce80-b687-11eb-91a6-d999a675d288.JPG)<br />
+![ytdl3](https://user-images.githubusercontent.com/55890376/141781730-445d6ec8-fb01-4d82-a45c-8f182d08b8a3.jpg)
+
+![ytdl4](https://user-images.githubusercontent.com/55890376/141781775-ca0e0b5d-d869-403d-aba4-30a1c448767e.jpg)
+
+![ytdl5](https://user-images.githubusercontent.com/55890376/141781804-461d41f5-4f6c-487d-92f7-74fa28d92e01.jpg)
+
+![ytdl3](https://user-images.githubusercontent.com/55890376/141781832-a544303b-1b9a-417d-8d3a-7be790ec3a82.jpg)
+
 
 
 Click Launch button after downloading.<br />
