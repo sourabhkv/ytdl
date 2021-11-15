@@ -32,7 +32,8 @@ Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/relea
 
 ![ytdl5](https://user-images.githubusercontent.com/55890376/141781804-461d41f5-4f6c-487d-92f7-74fa28d92e01.jpg)
 
-![ytdl3](https://user-images.githubusercontent.com/55890376/141781832-a544303b-1b9a-417d-8d3a-7be790ec3a82.jpg)
+![ytdl6](https://user-images.githubusercontent.com/55890376/141781963-69e2b0e4-c0bc-4996-8491-d5244c314010.jpg)
+
 
 
 
