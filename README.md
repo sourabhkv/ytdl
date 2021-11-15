@@ -1,18 +1,20 @@
 # ytdl
 A GUI program that runs on top of youtube-dl and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .**<br />
-![window1](https://user-images.githubusercontent.com/55890376/118402205-8816ca80-b686-11eb-8c19-c4a15ec08f77.JPG)
+
+![ytdl2](https://user-images.githubusercontent.com/55890376/141780875-f012dce0-c85e-4b61-9d2e-def9331dbc02.jpg)
 
 
 paste url and hit enter to view streams and thumbnail<br />
 TO download thumbnail click **Download thumbnail**<br />
-![window2](https://user-images.githubusercontent.com/55890376/118402227-a67cc600-b686-11eb-9ea1-d52a33b617ba.JPG)
+![ytd1](https://user-images.githubusercontent.com/55890376/141780921-ade41962-d4e9-4c37-9067-7d46c74547ac.jpg)
+
 
 
 Select audio ,video and caption stream(s).<br />
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
 
 <h2>Stream selection</h2>
-If you have VLC not installed try selecting video with codec avc1 and audio with m4a it will work.
+If you have VLC not installed try selecting video with codec avc1 and audio with m4a it will work and webm audio and webm video.
 If audio and video codecs are webm then output is webm else it is mp4<br />
 
 <h4>Music</h4>
@@ -44,6 +46,7 @@ Pygame window displays live download progress(for older version).<br />
 
 [Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br />
 [youtube-dl](https://github.com/ytdl-org/youtube-dl)<br />
+[yt-dlp](https://github.com/yt-dlp/yt-dlp)<br />
 [ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
 [AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
 [Pygame](https://www.pygame.org/wiki/about)<br />
