@@ -16,18 +16,23 @@ Select audio ,video and caption stream(s).<br />
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
 
 <h2>Stream selection</h2>
-If you have VLC not installed try selecting video with codec avc1 and audio with m4a it will work and webm audio and webm video.
-If audio and video codecs are webm then output is webm else it is mp4<br />
+If you have VLC not installed try using these combination.
+Recommended combination of audio and video codecs<br />
+MP4 -->   video: avc1 & audio: m4a <br />
+WEBM -->  video: webm & audio :webm  *(This combination does not support embeded subtitles)*<br />
+NOTE : If audio and video codecs are webm then output is webm else it is mp4<br />
 
 <h4>Music</h4>
 mp3 64K, mp3 320K, m4a, wav, flac available<br />
 m4a,mp3 320K includes thumbnail and Metadata<br />
+<br />
 
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)</br>
 
 <h2>INSTALLATION</h2>
 
 Download youtube-dl GUI installer [here](https://github.com/sourabhkv/ytdl/releases)<br />
+
 ![ytdl3](https://user-images.githubusercontent.com/55890376/141781730-445d6ec8-fb01-4d82-a45c-8f182d08b8a3.jpg)
 
 ![ytdl4](https://user-images.githubusercontent.com/55890376/141781775-ca0e0b5d-d869-403d-aba4-30a1c448767e.jpg)
@@ -44,9 +49,9 @@ You are ready to go 🤘.<br />
 
 <h2>WORKING</h2>
 
-youtube-dl searches streams available in website and displays streams.
+yt-dlp (youtube-dl for older version) searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all.Using VPN might help.*
-User selects streams and browse location *(default location in downloads)*.
+User selects streams and browse location *(default location in downloads could be changed)*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
 Pygame window displays live download progress(for older version).<br />
