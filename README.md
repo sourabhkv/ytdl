@@ -1,12 +1,14 @@
 # ytdl
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .**<br />
 
-![ytdl2](https://user-images.githubusercontent.com/55890376/141780875-f012dce0-c85e-4b61-9d2e-def9331dbc02.jpg)
+![ytdl new 1](https://user-images.githubusercontent.com/55890376/143569133-6d465e8f-b632-4cc1-b093-2adc76c03fcf.jpg)
+
 
 
 paste url and hit enter to view streams and thumbnail<br />
 TO download thumbnail click **Download thumbnail**<br />
-![ytd1](https://user-images.githubusercontent.com/55890376/141780921-ade41962-d4e9-4c37-9067-7d46c74547ac.jpg)
+![ytdl new 2](https://user-images.githubusercontent.com/55890376/143569182-896f5646-3ae4-40d2-b027-cb5a01a998d1.jpg)
+
 
 
 
