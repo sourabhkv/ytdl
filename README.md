@@ -19,7 +19,7 @@ Click **Browse** to browse the location where video/audio will be saved **if not
 If you have VLC not installed try using these combination.
 Recommended combination of audio and video codecs<br />
 MP4 -->   video: avc1 & audio: m4a <br />
-WEBM -->  video: webm & audio :webm  *(This combination does not support embeded subtitles)*<br />
+WEBM -->  video: webm & audio :webm  *This combination does not support embeded subtitles*
 NOTE : If audio and video codecs are webm then output is webm else it is mp4<br />
 
 <h4>Music</h4>
