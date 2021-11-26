@@ -5,7 +5,7 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 
 
 
-paste url and hit enter to view streams and thumbnail<br />
+paste url and hit enter/GO to view streams and thumbnail<br />
 TO download thumbnail click **Download thumbnail**<br />
 ![ytdl new 2](https://user-images.githubusercontent.com/55890376/143569182-896f5646-3ae4-40d2-b027-cb5a01a998d1.jpg)
 
@@ -23,7 +23,7 @@ If audio and video codecs are webm then output is webm else it is mp4<br />
 mp3 64K, mp3 320K, m4a, wav, flac available<br />
 m4a,mp3 320K includes thumbnail and Metadata<br />
 
-[watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
+Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)</br>
 
 <h2>INSTALLATION</h2>
 
