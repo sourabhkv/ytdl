@@ -1,5 +1,5 @@
 # ytdl
-A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .**<br />
+A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
 
 ![ytdl new 1](https://user-images.githubusercontent.com/55890376/143569133-6d465e8f-b632-4cc1-b093-2adc76c03fcf.jpg)
 
