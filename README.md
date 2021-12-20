@@ -70,6 +70,7 @@ Need help to make this better so that everyone who has poor internet connctivity
 
 <br></br>
 <h2>Useful links</h2>
+<br></br>
 [Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br />
 [youtube-dl](https://github.com/ytdl-org/youtube-dl)<br />
 [yt-dlp](https://github.com/yt-dlp/yt-dlp)<br />
