@@ -1,4 +1,5 @@
-# <br><h1>ytdl ![logo](https://user-images.githubusercontent.com/55890376/147200230-c2d4d11d-7a60-4de3-866a-93c8cd0a6257.png)</h1></br>
+# <br>ytdl ![output-onlinepngtools](https://user-images.githubusercontent.com/55890376/147201322-7cb830c8-9a47-4bbb-ad0b-d79d4c09b58a.png)
+</br>
 
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
