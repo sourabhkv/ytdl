@@ -1,4 +1,6 @@
 # ytdl
+                                                                    YouTube-dl GUI ![logo](https://user-images.githubusercontent.com/55890376/147199631-a9c4746f-a38f-4723-8ed0-ac6f6adbcf45.png)
+
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
 
 ![ytdlgui1](https://user-images.githubusercontent.com/55890376/146916427-30c8501c-0afb-4791-a86e-e3c01062b595.jpg)
