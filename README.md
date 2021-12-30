@@ -13,6 +13,11 @@ paste url and hit enter/GO to view streams and thumbnail<br />
 TO download thumbnail click **Download thumbnail**<br />
 ![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
+<br>Version 22 and above with dark theme</br>
+
+![ytdl_dark](https://user-images.githubusercontent.com/55890376/147733626-018dffbc-ccb6-4617-8640-59c3f1f11634.jpg)
+
+
 
 
 
