@@ -13,4 +13,7 @@ Older version
 ![ytd1](https://user-images.githubusercontent.com/55890376/148569370-37b48559-5333-4686-be6c-22ff97d93473.jpg)
 
 
-You can use the [editor on GitHub](https://github.com/sourabhkv/ytdl/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+
+
+System Requirements
+Windows 7 SP1 or newer (x86 and x64)
