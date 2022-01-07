@@ -1,6 +1,6 @@
 ## Welcome to Downloads page
 
-Download latest release [here](https://github.com/sourabhkv/ytdl/releases/download/v22.010.01/YouTube-dl.GUI.exe')
+Download latest release [here](https://github.com/sourabhkv/ytdl/releases/download/v22.010.01/YouTube-dl.GUI.exe)
 
 Older releases [here](https://github.com/sourabhkv/ytdl/releases)
 
