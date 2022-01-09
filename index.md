@@ -15,5 +15,5 @@ Older version
 
 ytdl is based on Yt-dlp/youtube-dl , ffmpeg and atomicparsley
 
-<br>System Requirements</br>
+<br> **System Requirements** </br>
 Windows 7 SP1 or newer (x86 and x64)
