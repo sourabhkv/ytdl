@@ -19,7 +19,8 @@ TO download thumbnail click **Download thumbnail**<br />
 
 <br>Version 22 and above with dark theme</br>
 
-![ytdl_dark](https://user-images.githubusercontent.com/55890376/147761309-77e88697-e3b3-4190-bee1-a845c5e559fd.jpg)
+![youtube-dl GUI new](https://user-images.githubusercontent.com/55890376/154850769-6037fb95-725c-410f-a061-13bfad6f12c3.jpg)
+
 
 
 
