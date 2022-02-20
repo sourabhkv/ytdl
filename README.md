@@ -17,7 +17,7 @@ paste url and hit enter/GO to view streams and thumbnail<br />
 TO download thumbnail click **Download thumbnail**<br />
 ![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
-<br>Version 22 and above with dark theme</br>
+<br>Version 22.208.02 and above with dark theme and categorized data.</br>
 
 ![youtube-dl GUI new](https://user-images.githubusercontent.com/55890376/154851022-a187920a-cd3e-4b81-8d4d-b4d77b1095d6.jpg)
 
