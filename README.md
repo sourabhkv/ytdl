@@ -4,7 +4,8 @@
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
 <br>Coming soon...</br>
-![me at zoo](https://user-images.githubusercontent.com/55890376/155852528-0397229e-ca6e-4ceb-9ed6-381cf4fa3bd5.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/155852609-de076103-4356-4c08-8bdd-c390e0c6b8e4.png)
+
 
 
 
