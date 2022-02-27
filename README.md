@@ -3,7 +3,7 @@
 
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
-<br>Coming soon...</br>
+<br>Coming soon...       Try [beta](https://github.com/sourabhkv/ytdl/releases/tag/v22.208.02)</br>
 ![me at zoo](https://user-images.githubusercontent.com/55890376/155874938-f783229e-2cd6-4ea7-8f7e-abf3cdb6cb26.png)
 
 
