@@ -3,7 +3,7 @@
 
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
-<br>Coming soon...       Try [beta](https://github.com/sourabhkv/ytdl/releases/tag/v22.208.02)</br>
+<br>Coming soon...       Try [beta](https://github.com/sourabhkv/ytdl/releases/tag/v22.271.02)</br>
 ![me at zoo](https://user-images.githubusercontent.com/55890376/155874938-f783229e-2cd6-4ea7-8f7e-abf3cdb6cb26.png)
 
 
@@ -61,11 +61,6 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 
 Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytdl/releases/latest)<br />
 
-![ytdl3](https://user-images.githubusercontent.com/55890376/141781730-445d6ec8-fb01-4d82-a45c-8f182d08b8a3.jpg)
-
-![ytdl4](https://user-images.githubusercontent.com/55890376/141781775-ca0e0b5d-d869-403d-aba4-30a1c448767e.jpg)
-
-![ytdl5](https://user-images.githubusercontent.com/55890376/141781804-461d41f5-4f6c-487d-92f7-74fa28d92e01.jpg)
 
 ![ytdl6](https://user-images.githubusercontent.com/55890376/141781963-69e2b0e4-c0bc-4996-8491-d5244c314010.jpg)
 
