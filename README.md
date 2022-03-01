@@ -53,9 +53,9 @@ Currently supports Youtube playlist
 Enter playlist url select format(144p,240p...,mp3,m4a) hit download
 
 
-New version demo https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing</br>
+[New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)</br>
 
-Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)
+Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)</br>
 
 <h2>INSTALLATION</h2>
 
@@ -94,7 +94,7 @@ The function popens(cmd) never executed with object oriented programming (OOPs)<
 Tkinter was easy to use and took less space compared to PySide2/PyQt5</br>
 After june,2021 there was no update to youtube-dl. Development stopped for 3 months finally backend changed to yt-dlp</br>
 During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...</br>
-Need help to make this better so that everyone who has poor internet connctivity can learn somthing.</br>
+Need help to make this better so that anyone with poor internet connctivity can learn somthing.</br>
 
 <br></br>
 [Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br />
