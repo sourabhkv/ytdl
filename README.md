@@ -87,10 +87,10 @@ Pygame window displays live download progress(for older version).<br />
 <h2>How development started and was carried?</h2>
 <br>This project development started with wish to download youtube physics video(Center of mass) at 240p in March,2021 because 240p quality was managable and took decent amount of mobile data compared to 360p.</br>
 <br>Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.</br>
-Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this , removing black console screen at startup also was challenging to fix without using -noconsole
+Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this , removing black console window at startup  was also challenging to fix without using --noconsole option.
 <br>
 Threading helped execute many function at same time</br>
-The function popens(cmd) never executed with object oriented programming</br>
+The function popens(cmd) never executed with object oriented programming (OOPs)</br>
 Tkinter was easy to use and took less space compared to PySide2/PyQt5</br>
 After june,2021 there was no update to youtube-dl. Development stopped for 3 months finally backend changed to yt-dlp</br>
 During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...</br>
