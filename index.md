@@ -7,7 +7,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 
 Latest release preview
 
-![youtube-dl GUI new](https://user-images.githubusercontent.com/55890376/155163729-00939c8f-9334-4663-8952-0d4a1c942ae6.jpg)
+![me at zoo](https://user-images.githubusercontent.com/55890376/156894378-b3b54a89-d9ab-4ba5-a8f5-787ab81ab174.png)
+
 
 
 Older version preview
