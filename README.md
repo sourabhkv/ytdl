@@ -100,4 +100,5 @@ Need help to make this better so that anyone with poor internet connctivity can 
 [ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
 [AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
 [Pygame](https://www.pygame.org/wiki/about)<br />
+[Inno Setup](https://jrsoftware.org/isinfo.php)<br />
 [try VLC for better playback](https://www.videolan.org/)<br />
