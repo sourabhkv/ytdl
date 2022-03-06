@@ -15,7 +15,7 @@ Older version preview
 
 ![ytd1](https://user-images.githubusercontent.com/55890376/148569370-37b48559-5333-4686-be6c-22ff97d93473.jpg)
 
-<br> **System Requirements** <br />
+<br><h3> **System Requirements** </h3> <br />
 Windows 7 SP1 or newer (x86 and x64)
 ytdl is based on Yt-dlp/youtube-dl , ffmpeg and atomicparsley
 
