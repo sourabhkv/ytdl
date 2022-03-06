@@ -98,6 +98,7 @@ Need help to make this better so that anyone with poor internet connctivity can 
 [Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br />
 [youtube-dl](https://github.com/ytdl-org/youtube-dl)<br />
 [yt-dlp](https://github.com/yt-dlp/yt-dlp)<br />
+[Pytube](https://pytube.io/en/latest/)<br />
 [ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
 [AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
 [Pygame](https://www.pygame.org/wiki/about)<br />
