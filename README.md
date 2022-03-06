@@ -64,7 +64,8 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytdl/releases/latest)<br />
 
 
-![ytdl6](https://user-images.githubusercontent.com/55890376/141781963-69e2b0e4-c0bc-4996-8491-d5244c314010.jpg)
+![setup complete](https://user-images.githubusercontent.com/55890376/156933091-b3e380c3-0673-4baa-9c1d-4667d5a52f4d.png)
+
 
 
 
