@@ -93,7 +93,7 @@ The function popens(cmd) never executed with object oriented programming (OOPs)<
 Tkinter was easy to use and took less space compared to PySide2/PyQt5</br>
 After june,2021 there was no update to youtube-dl. Development stopped for 3 months finally backend changed to yt-dlp</br>
 During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...</br>
-Need help to make this better so that anyone with poor internet connctivity can learn somthing.</br>
+Need help to make this better so that anyone with poor internet connctivity can learn somthing.<br />
 
 
 
