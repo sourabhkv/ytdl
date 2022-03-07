@@ -42,7 +42,7 @@ If you have VLC not installed try using these combination.
 Recommended combination of audio and video codecs<br />
 MP4 -->   video: avc1 & audio: m4a <br />
 WEBM -->  video: webm & audio :webm <br />
-else file is converted to MKV
+else file is converted to MKV <br />
 NOTE : If audio and video codecs are webm then output is webm else it is mp4<br />
 
 <h4>Music</h4>
