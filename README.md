@@ -47,7 +47,7 @@ NOTE : Files are converted into MKV format since other combination are incompati
 
 <h4>Music</h4>
 mp3 64K, mp3 320K, m4a, wav, flac available<br />
-m4a,mp3 320K includes thumbnail and Metadata<br />
+m4a, mp3 320K, flac includes thumbnail and Metadata<br />
 flac , wav formats takes more space than mp3 and m4a
 <br />
 
