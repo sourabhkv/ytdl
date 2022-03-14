@@ -7,7 +7,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 
 Latest release preview
 
-![me at zoo](https://user-images.githubusercontent.com/55890376/156894378-b3b54a89-d9ab-4ba5-a8f5-787ab81ab174.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/158214923-a09ddff9-6569-4507-bd5d-3dc74ba160db.png)
+
 
 
 
