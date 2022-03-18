@@ -38,6 +38,14 @@ TO download thumbnail click **Download thumbnail**<br />
 Select audio ,video and caption stream(s).<br />
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
 
+<h2>Special features</h2>
+Captions support (YouTube)
+Thumbnail download
+Advanced option to specifically select audio , video separately
+Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA
+Varirty of [supported websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
+File converter
+
 <h2>Coming features</h2>
 Better playlist support.
 Multi video download.
