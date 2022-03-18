@@ -38,6 +38,9 @@ TO download thumbnail click **Download thumbnail**<br />
 Select audio ,video and caption stream(s).<br />
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
 
+<h2>Coming features</h2>
+Better playlist support.
+
 <h2>Stream selection</h2>
 If you have VLC not installed try using these combination.
 Recommended combination of audio and video codecs<br />
