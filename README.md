@@ -40,6 +40,7 @@ Click **Browse** to browse the location where video/audio will be saved **if not
 
 <h2>Coming features</h2>
 Better playlist support.
+Multi video download.
 
 <h2>Stream selection</h2>
 If you have VLC not installed try using these combination.
