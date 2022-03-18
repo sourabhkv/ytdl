@@ -1,0 +1,1228 @@
+import tkinter as tk
+from tkinter import messagebox,filedialog
+from tkinter import *
+from tkinter import ttk
+from PIL import Image, ImageTk
+from tkinter.constants import DISABLED, NORMAL
+import os
+import subprocess,threading
+import tkinter.font as tkFont
+import json, urllib
+import urllib.request
+import requests,datetime
+
+def popens(cmd):
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    process = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    return process.stdout.read()
+
+def kill(cmd):
+    t1s = threading.Thread(target=popens, args=(cmd,))
+    t1s.start()
+    namewa.destroy()
+
+def browse():
+    global download_Directory,ext12fx,ext11
+    download_Directory = filedialog.askdirectory(initialdir="YOUR DIRECTORY PATH")
+    if download_Directory=="":
+        download_Directory=userloc
+    e2.delete(0,END)
+    e2.insert(0,download_Directory)
+
+def Resume():
+    global ext12fx,ext11,btn
+    ext12fx=Button(text="Pause",command=pause,image=img10)
+    #btn['state']=DISABLED
+    #ext12fx.place(x=650,y=502)
+    checkcmbo()
+
+def pause():
+    global ext12fx,ext11,btn
+    a="taskkill /F /IM ffmpeg.exe"
+    b="taskkill /F /IM yt-dlp_x86.exe"
+    ps.append("paused")
+    st=popens(a)
+    sts=popens(b)
+    #btn['state'] = DISABLED
+    ext12fx.configure(command=Resume,image=img11,text="resume")
+    #ext12fx.place(x=650,y=502)
+    messagebox.showinfo("Youtube-dl GUI","Download Paused")
+
+def cmder(ext11,ext12fx):
+    ext11.destroy()
+    ext12fx.destroy()
+    t1 = threading.Thread(target=cmderx)
+    t1.start()
+
+def cmderx():
+    global btn
+    a="taskkill /F /IM ffmpeg.exe"
+    b="taskkill /F /IM yt-dlp_x86.exe"
+    ps.append('cancelled')
+    st=popens(a)
+    sts=popens(b)
+    btn['state'] = NORMAL
+    title=result1.replace("|","_")#title org
+    loc=e2.get()
+
+    basicdata=cmbbsc.get()
+    advvid=cmb.get()
+    advaud=cmb2.get()
+    customname=e3.get()
+    if basicdata=="":
+        codec1=advvid.split()[1]
+        codec2=advaud.split()[1]
+        vid=advvid.split()[0]
+        #print(vid)
+        #print(advaud.split()[0])
+        aud=advaud.split()[0]
+        #print("happen")
+        #print(loc+"/"+title+".f"+vid+"."+codec1+".part")
+        #print(loc+"/"+title+".f"+aud+"."+codec2+".part")
+            
+        if customname!="":
+            title=customname
+            
+        if os.path.exists(loc+"/"+title+".f"+vid+"."+codec1+".part"):
+            os.remove(loc+"/"+title+".f"+vid+"."+codec1+".part")
+            #print("removed")
+        if os.path.exists(loc+"/"+title+".f"+aud+"."+codec2+".part"):
+            os.remove(loc+"/"+title+".f"+aud+"."+codec2+".part")
+            #print("removed2")
+
+        messagebox.showinfo("Youtube-dl GUI","Download Cancelled")
+        
+    elif basicdata!="":
+        if customname!="":
+            title=customname
+        #print(loc+"/"+title+".mp4.part")
+        if os.path.exists(loc+"/"+title+".mp4.part"):
+            os.remove(loc+"/"+title+".mp4.part")
+            #print("removed")
+        messagebox.showinfo("Youtube-dl GUI","Download Cancelled")
+
+
+def link(url):
+    import webbrowser
+    webbrowser.open(url)
+
+def terminal():
+    t1s = threading.Thread(target=popens, args=("start.bat",))
+    t1s.start()
+
+def remove_emoji(string):
+    import re
+    emoji_pattern = re.compile("["
+                           u"\U0001F600-\U0001F64F"  # emoticons
+                           u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+                           u"\U0001F680-\U0001F6FF"  # transport & map symbols
+                           u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+                           u"\U00002500-\U00002BEF"  # chinese char
+                           u"\U00002702-\U000027B0"
+                           u"\U00002702-\U000027B0"
+                           u"\U000024C2-\U0001F251"
+                           u"\U0001f926-\U0001f937"
+                           u"\U00010000-\U0010ffff"
+                           u"\u2640-\u2642"
+                           u"\u2600-\u2B55"
+                           u"\u200d"
+                           u"\u23cf"
+                           u"\u23e9"
+                           u"\u231a"
+                           u"\ufe0f"  # dingbats
+                           u"\u3030"
+                           "]+", flags=re.UNICODE)
+    return emoji_pattern.sub(r'', string)
+
+def title(url):
+    global result1,length
+
+    if "youtube" in url or "youtu.be" in url:
+        from pytube import YouTube
+        yt=YouTube(url)
+        lengthx=yt.length
+        lengthx=str(datetime.timedelta(seconds = lengthx))
+        result1=yt.title
+        channel=yt.author
+        desc=yt.description
+        #data=str(result1)+"\n"+"\nDuration: "+lengthx+" | Channel: "+channel+"\n"+"\nDescription: "+desc
+        try:
+            data=str(result1)+"\n"+"\nDuration: "+str(lengthx)+" | Channel: "+str(channel)+"\n"+"\nDescription: "+str(desc)
+            text_box.delete(1.0,"end")
+            text_box.insert(1.0, data)
+            text_box.configure(state='disabled')
+        except:
+            #print("emoji")
+            data=str(result1)+"\n"+"\nDuration: "+str(lengthx)+" | Channel: "+str(channel)+"\n"+"\nDescription: "+str(desc)
+            
+            data=remove_emoji(data)
+            text_box.delete(1.0,"end")
+            text_box.insert(1.0, data)
+            text_box.configure(state='disabled')
+        
+
+    else:
+        stream=popens('yt-dlp_x86 --get-duration --get-description '+url)
+        result1 = stream.split("\n")
+        lengthx=str(result1.pop(-2))#time
+        desc=""
+        for i in range(0,len(result1)):
+            desc=desc+result1[i]+"\n"
+
+        if "youtu.be" in url:
+            VideoID=url[url.rfind("/")+1:]
+        elif "youtube" in url:
+            VideoID=url[32:]
+            
+        params = {"format": "json", "url": "https://www.youtube.com/watch?v=%s" % VideoID}
+        urlf = "https://www.youtube.com/oembed"
+        query_string = urllib.parse.urlencode(params)
+        urlf = urlf + "?" + query_string
+        with urllib.request.urlopen(urlf) as response:
+            response_text = response.read()
+            data = json.loads(response_text.decode())
+            result1.append(data['title'])
+            result1.append(data['author_name'])
+
+        channel=str(result1[-1])
+        result1=str(result1[-2])
+        #text_box.place(x=652+40,y=235+40)
+        try:
+            data=str(result1)+"\n"+"\nDuration: "+lengthx+" | Channel: "+channel+"\n"+"\nDescription: "+str(desc)
+            text_box.delete(1.0,"end")
+            text_box.insert(1.0, data)
+            text_box.configure(state='disabled')
+        except:
+            #print("emoji")
+            data=str(result1)+"\n"+"\nDuration: "+lengthx+" | Channel: "+channel+"\n"+"\nDescription: "+str(desc)
+            
+            data=remove_emoji(data)
+            text_box.delete(1.0,"end")
+            text_box.insert(1.0, data)
+            text_box.configure(state='disabled')
+
+def about():
+    root2 = tk.Tk()
+    root2.focus_force()
+    y=int((sh-400)/2)
+    x=int((sw-350)/2)
+    root2.geometry('%dx%d+%d+%d' % (350, 400, x, y))
+    root2.title('Youtube-dl GUI')
+    root2.configure(bg='#303135')
+    streams = Label(root2, text = "Youtube-dl GUI",bg="#303135",font=('Arial', 16),fg="white").place(x = 105,y = 2)
+    streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(x = 15,y = 30)
+    streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 10,'bold'),fg="red",bg="#303135").place(x = 30,y = 50)
+    streams4 = Label(root2, text = "HOW TO USE",bg="#303135",fg="white").place(x = 140,y = 70)
+    streams5 = Label(root2, text = "paste URL hit go you will see available streams",bg="#303135",fg="white").place(x = 50,y = 85)
+    streams6 = Label(root2, text = "browse to save location of file",bg="#303135",fg="white").place(x = 110,y = 110)
+    streams7 = Label(root2, text = "*some websites may support video streams only or no streams",bg="#303135",fg="white").place(x = 5,y = 130)
+    streams6 = Label(root2, text = "Youtube-dl GUI VERISION 22.0305.19",bg="#303135",fg="white").place(x = 80,y = 163)
+    streams6 = Label(root2, text = "Changelog- Playlist support, faster loading",bg="#303135",fg="white").place(x = 60,y = 180)
+    streams8 = Label(root2, text = "best quality option added",bg="#303135",fg="white").place(x = 115,y = 200)
+    streams8 = Label(root2, text = "Pause and download now stable , bug fixes",bg="#303135",fg="white").place(x=60,y=220)
+    ext13=Label(root2,text="**Websites not in list might also work",font=('Calibri', 10,'bold'),bg="#303135",fg="yellow")
+    ext13.place(x=75,y=250)
+    name7e = Label(root2, text = "More about this version",fg="#0574FF",cursor="hand2",bg="#303135")
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0305.19'))
+    name7e.place(x = 115,y = 280)
+    name7ex = Label(root2, text = "Click here to watch demo",font=('Arial', 11),fg="green",cursor="hand2",bg="#303135")
+    name7ex.bind("<Button-1>", lambda e: link('https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing'))
+    name7ex.place(x = 92,y = 310)
+    streams8 = Label(root2, text = "sourabhkv",bg="#303135",fg="white").place(x=150,y=330)
+    name74 = Label(root2, text = "CREDITS:",bg="#303135",fg="white").place(x=40,y=355)
+    name74 = Label(root2, text = "yt-dlp",bg="#303135",fg="#0574FF",cursor="hand2")
+    name74.place(x = 95,y = 355)
+    name74.bind("<Button-1>", lambda e: link('https://github.com/yt-dlp/yt-dlp'))
+    name73 = Label(root2, text = "ffmpeg",fg="#0574FF",cursor="hand2",bg="#303135")
+    name73.place(x = 155,y = 355)
+    name73.bind("<Button-1>", lambda e: link('https://www.ffmpeg.org/'))
+    name75 = Label(root2, text = "AtomicParsley",fg="#0574FF",cursor="hand2",bg="#303135")
+    name75.place(x = 220,y = 355)
+    name75.bind("<Button-1>", lambda e: link('http://atomicparsley.sourceforge.net/'))
+    root2.resizable(False, False)
+    root2.iconbitmap(r'logo.ico')
+    root2.mainloop()
+
+def reco():
+    root3 = tk.Tk()
+    root3.configure(bg='#303135')
+    root3.focus_force()
+    y=int((sh-350)/2)
+    x=int((sw-420)/2)
+    root3.geometry('%dx%d+%d+%d' % (420, 350, x, y))
+    root3.title('Youtube-dl GUI')
+    streams = Label(root3, text = "Youtube-dl GUI",font=('Arial', 16),bg="#303135",fg="white").place(x = 150,y = 8)
+    streams3 = Label(root3, text = "Recommended Streams selection/combination",bg="#303135",fg="white").place(x = 90,y = 40)
+    streams4 = Label(root3, text = "1. Video stream --> AVC1",bg="#303135",fg="white").place(x = 150,y = 60)
+    streams5 = Label(root3, text = "   Audio stream --> M4a",bg="#303135",fg="white").place(x = 152,y = 75)
+    streams6 = Label(root3, text = "2. Video stream -->  VP9",bg="#303135",fg="white").place(x = 150,y = 100)
+    streams7 = Label(root3, text = "   Audio stream --> Opus",bg="#303135",fg="white").place(x = 152,y = 115)
+    streams8 = Label(root3, text = "NOTE",font=('Arial', 12),fg="red",bg="#303135").place(x = 195,y = 150)
+    streams8 = Label(root3, text = "Choice 1 ONLY Supports subtitles and embeding metadata for video",bg="#303135",fg="white").place(x = 25,y = 170)
+    streams8 = Label(root3, text = "Music with Flac does not support album art and will take more space",bg="#303135",fg="white").place(x = 20,y = 190)
+    streams8 = Label(root3, text = "If other combination is selected then MKV format is downloaded",bg="#303135",fg="white").place(x = 30,y = 230)
+    streams8 = Label(root3, text = "If custom filename is left blank default name of file will be title of video",bg="#303135",fg="white").place(x = 15,y = 210)
+    streams8 = Label(root3, text = "sourabhkv",bg="#303135",fg="white").place(x = 190,y = 320)
+    root3.resizable(False, False)
+    root3.iconbitmap(r'logo.ico')
+    root3.mainloop()
+
+def viewer(img):
+    t1w = threading.Thread(target=viewers, args=(img,))
+    t1w.start()
+
+def viewers(img):
+    img.show()
+
+def thumbnail(url):
+    from io import BytesIO
+    import requests
+    global image2,vid,thurl,picbtn
+    if "youtube" in url and "music" not in url or "youtu.be" in url and "music" not in url:
+        if "youtube" in url:
+            d=url.find("=")
+            vid=url[d+1:]
+        elif "youtu.be" in url:
+            vid=url[url.rfind("/")+1:]
+        thurl = "https://i.ytimg.com/vi/{}/mqdefault.jpg".format(vid)
+        r = requests.get(thurl)
+        img = Image.open(BytesIO(r.content))
+        img.mode = 'RGB'
+        image = img.resize((270, 160), Image.ANTIALIAS)
+        image2 = ImageTk.PhotoImage(image)
+        panel = Label(root, image=image2)
+        picbtn=ttk.Button(root, text = 'thumbnail', image = image2,command=lambda : viewer(img))
+        picbtn.place(x=690,y=40)
+        dwth()
+    elif "youtube" in url and "music" in url:
+        if url.find("&")==-1:
+            vid=url[1+url.find("="):]
+        else:
+            vid=url[1+url.find("="):url.find("&")]
+        #print(vid)
+        thurl = "https://i.ytimg.com/vi/{}/mqdefault.jpg".format(vid)
+        r = requests.get(thurl)
+        img = Image.open(BytesIO(r.content))
+        img.mode = 'RGB'
+        image = img.resize((270, 160), Image.ANTIALIAS)
+        image2 = ImageTk.PhotoImage(image)
+        panel = Label(root, image=image2)
+        picbtn=ttk.Button(root, text = 'thumbnail', image = image2,command=lambda : viewer(img))
+        picbtn.place(x=690,y=40)
+        dwth()
+    else:
+        u='yt-dlp_x86 --get-thumbnail '+url
+        u=popens(u)
+        url=u
+        url=str(url)
+        thurl=url[:-1]
+        try:
+            r = requests.get(thurl)
+            img = Image.open(BytesIO(r.content))
+            width, height = img.size
+            i=2
+            while (i)>0:
+                if (i*height)<=165 and (i*width)<=260:
+                    break
+                else:
+                    i=i-0.1
+            nw=int(i*width)
+            nh=int(i*height)
+            sp=int((230-nw)/2)
+            #print(nw,nh)
+            image = img.resize(((nw),(nh)), Image.ANTIALIAS)
+            image2 = ImageTk.PhotoImage(image)
+            panel = Label(root, image=image2)
+            picbtn=ttk.Button(root, text = 'thumbnail', image = image2,command=lambda : viewer(img))
+            picbtn.place(x=sp+710,y=40)
+            dwth()
+        except:
+            na= StringVar()
+            na.set("Thumbnail not available")
+            name = Label(root, textvariable = na,bg="#525252",fg="white").place(x = 760,y = 70)
+
+def dwth():
+    global viewbtn
+    viewbtn=Button(root,text="Download thumbnail",image=img13,bd=0,command=thdlrz,activebackground="#202020",highlightthickness = 0)
+    viewbtn.bind('<Enter>',lambda a:changer_red(viewbtn,imgthred))
+    viewbtn.bind('<Leave>',lambda a:changer_blue(viewbtn,img13))
+    viewbtn.place(x=750,y=224)
+
+def thdlrz():
+    tv2 = threading.Thread(target=thdlr)
+    tv2.start()
+
+def thdlr():
+    global customname
+    customname=e3.get()
+    try:
+        loc=download_Directory
+    except:
+        loc=userloc
+    loc=loc.replace("\\","/")
+    #print(loc)
+
+    #print(loc)
+    
+    if "youtube" in url or "youtu.be" in url:
+        if len(customname)==0:
+            url2 = "https://i.ytimg.com/vi/{}/maxresdefault.jpg".format(vid)
+            propername=""
+            for i in result1:
+                if i.isalpha() or i.isspace() or i.isnumeric():
+                    propername=propername+i
+            filename=loc+"/"+propername+"_Thumbnail"+".jpg"
+            response = requests.get(url2)
+            if response.status_code == 200:
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+            response.close()
+            messagebox.showinfo("Youtube-dl GUI",(filename)+" \nDownload completed!")
+        else:
+            url2 = "https://i.ytimg.com/vi/{}/maxresdefault.jpg".format(vid)
+            filename=loc+"/"+customname+".jpg"
+            response = requests.get(url2)
+            if response.status_code == 200:
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+            response.close()
+            messagebox.showinfo("Youtube-dl GUI",(filename)+" \nDownload completed!")
+    else:
+        if len(customname)==0:
+            propername=""
+            for i in result1:
+                if i.isalpha() or i.isspace() or i.isnumeric():
+                    propername=propername+i
+            filename=loc+"/"+propername+"_Thumbnail"+".jpg"
+            response = requests.get(thurl)
+            if response.status_code == 200:
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+            response.close()
+            messagebox.showinfo("Youtube-dl GUI",(filename)+" \nDownload completed!")
+        else:
+            filename=loc+"/"+customname+".jpg"
+            response = requests.get(thurl)
+            if response.status_code == 200:
+                with open(filename, 'wb') as f:
+                    f.write(response.content)
+            response.close()
+            messagebox.showinfo("Youtube-dl GUI",(filename)+" \nDownload completed!")
+
+
+def clearentry():
+    d=cmb.get()
+    f=cmb2.get()
+    r=cmb3.get()
+    if "no captions available" not in r:
+        cmb3.set("")
+    if "Audio combined in video streams" not in f and 'Audio not available' not in f:
+        cmb2.set("")
+    if "Video not available" not in d:
+        cmb.set("")
+
+def bas():
+    d=cmbbsc.get()
+    if d=="Check Advanced option":
+        cmbbsc.set("Check Advanced option")
+
+def captn(url):
+    global cmb3,tab1clr,tab2clr,tab4clr
+    subs=[]
+    rut=popens('yt-dlp_x86 --list-subs '+url)
+    ot=rut
+    b=ot.split("\n")
+    r=0
+    for i in range(-1,-1-len(b),-1):
+        if 'Available subtitles' in b[i]:
+            r=i
+            break
+    b=b[r:]
+    if "no subtitles" not in b[-2]:
+        for i in range(0,len(b)):
+            if "vtt" in b[i] and "srv" in b[i]:
+                subs.append(b[i])
+    #streamscaps.set("Captions")
+
+    #cationlb = Label(root, textvariable = streamscaps,bg="#525252",fg="white").place(x = 30,y = 370) 
+    if len(subs)==0:
+        subs.append("no captions available")
+        cmb3 = ttk.Combobox(tab2, width="47", values=subs,state="readonly")
+        cmb3.place(x=7,y=122)
+        cmb3.current(0)
+    else:
+        cmb3 = ttk.Combobox(tab2, width="47", values=subs,state="readonly")
+        cmb3.place(x=7,y=122)
+
+    tb2cap.set("Captions")
+        
+    
+    tab2clr = Label(tab2, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
+    tab2clr.place(x = 500,y = 120)
+    tab2clr.bind("<Button-1>", lambda g: clearentry())
+
+    tab1clr = Label(tab1, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
+    tab1clr.place(x = 500,y = 120)
+    tab1clr.bind("<Button-1>", lambda g: bas())
+    #print(music,len(music))
+
+    if len(music)!=0:
+        tab4clr = Label(tab4, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
+        tab4clr.place(x = 500,y = 120)
+        tab4clr.bind("<Button-1>", lambda g: cmbmus.set(""))
+
+def srch(url):
+    global cmbbsc,cmb,cmb2,cmbmus,btn,audlst,vidlst,music,basic
+    
+    stream = popens('yt-dlp_x86 -F '+url)
+    output = stream
+    audlst=[]
+    vidlst=[]
+    music=[]
+    basic=[]
+    basic2=[]
+
+    a=(output.split("\n"))
+    for i in range(0,len(a)):
+        if "3gp" in a[i] or "vp9" in a[i] or "video" in a[i] and "[info]" not in a[i] and "[download]" not in a[i] and "[generic]" not in a[i] or "fps" in a[i] or "avc1" in a[i]  or "mp4" in a[i] and "mp4a" not in a[i] and "audio" not in a[i]:
+            if "mp4a" in a[i]:
+                s=a[i]
+                basic.append(s)
+            vidlst.append(a[i])
+
+        if "audio" in a[i] or "mp3" in a[i] or "m4a" in a[i]:
+            audlst.append(a[i])
+    #print(basic)
+    if "youtube" in url or "youtu.be" in url:
+        for i in range(0,len(basic)):
+            k=basic[i].split()
+            data=k[-1]+"         Size  :  "+k[-10]+"    |     format  : "+k[1]+"      |     FPS:   "+k[3]+"    |      Resolution  :    "+k[2]+"    |    id   "+k[0]
+            basic2.append(data)
+        if len(basic2)!=0:
+            basic2.append("Best available")
+            cmbbsc = ttk.Combobox(tab1, width="95", values=basic2,state="readonly")
+            cmbbsc.place(x=7,y=77)
+        elif len(basic2)==0:
+            basic2.append("Check Advanced option")
+            cmbbsc = ttk.Combobox(tab1, width="95", values=basic2,state="readonly")
+            cmbbsc.set(basic2[0])
+            cmbbsc.place(x=7,y=77)
+        
+    if "youtube" not in url and "youtu.be" not in url:
+        if len(basic)==0:
+            basic.append("Check Advanced option")
+            cmbbsc = ttk.Combobox(tab1, width="95", values=basic,state="readonly")
+            cmbbsc.set(basic[0])
+            cmbbsc.place(x=7,y=77)
+        else:
+            cmbbsc = ttk.Combobox(tab1, width="95", values=basic,state="readonly")
+            cmbbsc.place(x=7,y=77)
+
+    #print(len(vidlst))
+
+
+    if len(audlst)==0 and len(vidlst)==0:
+        status.set(" Website not supported")
+        vidlst.append("Video not available")
+        cmb = ttk.Combobox(tab2, width="95", values=vidlst,state="readonly")
+        cmb.place(x=7,y=32)
+        cmb.set(vidlst[0])
+        audlst.append("Audio not available")
+        cmb2 = ttk.Combobox(tab2, width="95", values=audlst,state="readonly")
+        cmb2.place(x=7,y=77)
+        cmb2.set(audlst[0])
+        messagebox.showerror("YouTube-dl GUI","URL not supported or Stream might be DRM protected \nStream might be age-restricted \nTry using VPN \nIf you see this error again with VPN Website is not supported \nSee Supported websites")
+        tb4select.set("No Music available")
+
+    
+    if len(audlst)==0 and len(vidlst)!=0:
+        audlst.append("Audio combined in video streams")
+        cmb2 = ttk.Combobox(tab2, width="95", values=audlst,state="readonly")
+        cmb2.set(audlst[0])
+        cmb2.place(x=7,y=77)
+        tb4select.set("No Music available")
+        
+    if len(audlst)!=0:
+        if audlst[0]!="Audio not available" and audlst[0]!="Audio combined in video streams":
+            print("***")
+            cmb2 = ttk.Combobox(tab2, width="95", values=audlst,state="readonly")
+            cmb2.place(x=7,y=77)
+            music=["Mp3 64 kbps","Mp3 128 kbps","Mp3 320 kbps","M4a High","Wav Lossless","Flac 24 bit Lossless"]
+            cmbmus= ttk.Combobox(tab4, width="45", values=music,state="readonly")
+            cmbmus.place(x=170,y=75)
+            tb4select.set("Select audio format")
+
+    #print(len(audlst))
+
+    if len(vidlst)==0 and len(audlst)!=0:
+        vidlst.append("Video not available")
+        cmb = ttk.Combobox(tab2, width="95", values=vidlst,state="readonly")
+        cmb.current(0)
+        cmb.place(x=7,y=32)
+        
+    if len(vidlst)!=0:
+        if vidlst[0]!="Video not available":
+            cmb = ttk.Combobox(tab2, width="95", values=vidlst,state="readonly")
+            cmb.place(x=7,y=32)
+
+    #print(audlst)
+    #print(vidlst)
+    
+    tb1quality.set("Select quality")
+    tb2vid.set("Video Streams")
+    tb2aud.set("Audio Streams")
+
+        
+    
+    status.set("")
+
+        
+
+    btn = Button(root,image=img9, text="Download",command=checkcmbo,bd=0,relief="flat",bg="#202020",activebackground="#202020",highlightthickness = 0,cursor="hand2")
+    btn.bind('<Enter>',lambda a:changer_red(btn,imgdwred))
+    btn.bind('<Leave>',lambda a:changer_blue(btn,img9))
+    btn.place(x=785,y=502)
+
+    
+def run_command4(cmd):
+    #print(cmd)
+    global ext11,ext12fx,ext17go
+    ext12fx.place(x=690,y=502)
+    ext11.place(x=885,y=502)
+    btn['state'] = DISABLED
+    ext17go['state']=DISABLED
+    zen=""
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    for line in iter(p.stdout.readline, b''):
+        root.title("Youtube-dl GUI  [Downloading...]")
+        status.set(" "+line[0:-1]+"                                                                                                                                                                                                           ")
+        if str(line)=="":
+            break
+        elif str(line)!="":
+            zen=line
+            
+    ext17go['state']=NORMAL
+    p.stdout.close()
+    p.wait()
+    if "\n" in zen:
+        status.set(" Download Complete")
+        btn['state'] = NORMAL
+        #ext17go['state']=NORMAL
+        ext12fx.destroy()
+        ext11.destroy()
+        messagebox.showinfo("Youtube-dl GUI","Download complete")
+    elif "\n" not in zen:
+        if ps[-1]=='paused':
+            status.set(" Download Paused")
+            #ext11.destroy()
+            #ext12fx.destroy()
+        elif ps[-1]=='cancelled':
+            status.set(" Download Cancelled")
+            btn['state'] = NORMAL
+            
+    root.title("Youtube-dl GUI")
+    #print(ps)
+    
+def run_command4pl(cmd):
+    #print(cmd)
+    global ext11,ext12fx
+    ext12fx.place(x=690,y=502)
+    ext11.place(x=885,y=502)
+    progress=""
+    btn['state'] = DISABLED
+    ext17go['state']=DISABLED
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    for line in iter(p.stdout.readline, b''):
+        status.set(" "+line[0:-1]+"                                                                                                                                                                                                           ")
+        if "Downloading video" in line and "of" in line:
+            progress="Youtube-dl GUI  "+line[10:-1]
+        root.title(progress)
+        if str(line)=="":
+            break
+    btn['state'] = NORMAL
+    ext17go['state']=NORMAL
+    p.stdout.close()
+    p.wait()
+    status.set(" Download Complete")
+    root.title("Youtube-dl GUI")
+
+def on_change(e1):
+    global url,play,btn
+
+    na= StringVar()
+    na.set("                                                    ")
+    name = Label(root, textvariable = na,bg="#525252").place(x = 760,y = 70)
+    tb1quality.set("")
+    tb2vid.set("")
+    tb2aud.set("")
+    tb4select.set("")
+    tb2cap.set("")
+    text_box.configure(state='normal')
+    text_box.delete(1.0,"end")
+    ps=[]
+    try:
+        cmb2.destroy()
+        cmb.destroy()
+        cmb3.destroy()
+        cmbmus.destroy()
+        cmbbsc.destroy()
+        tab1clr.destroy()
+        tab2clr.destroy()
+        tab4clr.destroy()
+        btn.destroy()
+    except:
+        pass
+    try:
+        picbtn.destroy()
+        viewbtn.destroy()
+    except:
+        pass
+
+    
+    try:
+        url=e1.widget.get()
+    except:
+        url=e1.get()
+        
+    
+    e3.delete(0,END)
+    if url=="":
+        messagebox.showerror("Youtube-dl GUI","  Enter Valid URL  ")
+    else:
+        if "list=" in url and "youtube" in url:
+            playlistvar.set("Select format")
+            global play,clearplay
+            tabControl.select(2)
+            play = ttk.Combobox(tab3, width="45", values=playlist,state="readonly")
+            play.place(x=170,y=75)
+            clearplay = Label(tab3, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
+            clearplay.place(x = 500,y = 120)
+            clearplay.bind("<Button-1>", lambda g: play.set(""))
+            btn = Button(root,image=img9, text="Download",command=playlister,bd=0,relief="flat",bg="#202020",activebackground="#202020",highlightthickness = 0,cursor="hand2")
+            btn.place(x=745,y=502)
+        else:
+            try:
+                play.destroy()
+                clearplay.destroy()
+            except:
+                pass
+            playlistvar.set("Provide playlist URL")
+            t2 = threading.Thread(target=captn, args=(url,))
+            t2.start()
+            status.set(" [Loading...]                                                                                                                                                                                                          ")
+            tv1 = threading.Thread(target=srch, args=(url,))
+            tv1.start()
+            tv2z = threading.Thread(target=title, args=(url,))
+            tv2z.start()
+            tv2 = threading.Thread(target=thumbnail, args=(url,))
+            tv2.start()
+            
+def checkcmbo():
+    global customname
+    loc="/"+"Downloads"
+    cpt=userloc+"\\Downloads"
+    user=(os.environ['USERPROFILE'])
+    user=user.replace("\\","/")
+    try:
+        loc=download_Directory
+        if "C:" in loc:
+            c=loc.lstrip(user)
+            loc=c.replace("\\","/")
+            loc="/"+loc
+    except:
+        pass
+    
+    basicdata=cmbbsc.get()
+    advvid=cmb.get()
+    advaud=cmb2.get()
+    if "Audio combined in video streams" in advaud or  'Audio not available' in advaud:
+        advaud=""
+    if "Video not available" in advvid:
+        advvid=""
+    advcap=cmb3.get()
+    try:
+        convertaud=cmbmus.get()
+    except:
+        convertaud=""
+    customname=e3.get()
+        
+    if "available" in advcap:
+        advcap=""
+        #print("happedned")
+    if "Check Advanced option" in basicdata:
+        basicdata=""
+    try:
+        playdata=play.get()
+    except:
+        pass
+    output="~"+loc+"/"+"%(title)s.%(ext)s"
+
+    if len(customname)!=0:
+        customname=customname.replace("?","_")
+        customname=customname.replace("<","_")
+        customname=customname.replace(">","_")
+        customname=customname.replace("|","_")
+        customname=customname.replace(":","_")
+        customname=customname.replace("*","_")
+        customname=customname.replace("/","_")
+        customname=customname.replace("\\","_")
+        output="~"+loc+"/"+customname+".%(ext)s"
+
+    global ext12fx,ext11
+    ext12fx=Button(root,text="Pause",bd=0,image=img10,command=pause,activebackground="#202020",highlightthickness = 0)
+    ext11=Button(root,text="Cancel",bd=0,image=img12,command=lambda :cmder(ext11,ext12fx),activebackground="#202020",highlightthickness = 0)
+    
+    #print(basicdata,len(basicdata),"\n",advvid,len(advvid),"\n",advaud,len(advaud),"\n",advcap,len(advcap),"\n",convertaud,len(convertaud))
+
+    if len(basicdata)==0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
+        messagebox.showerror("Youtube-dl GUI","Select Audio/Video/Music stream")
+
+    elif len(basicdata)!=0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
+        #print("basic")
+        if basicdata=="Best available":
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f bv+ba -o {} "+url).format(output)
+        else:
+            w=basicdata.split()
+            id1=w[-1]
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f {} -o {} "+url).format(id1,output)
+        #print(a)
+        tv2w = threading.Thread(target=run_command4, args=(a,))
+        tv2w.start()
+
+    elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
+        #print("adv 12")
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o {} "+url).format(advvid.split()[0],advaud.split()[0],output)
+        #print(a)
+        tv2w = threading.Thread(target=run_command4, args=(a,))
+        tv2w.start()
+
+    elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
+        #print("adv 12")
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o {} "+url).format(advvid.split()[0],output)
+        #print(a)
+        tv2w = threading.Thread(target=run_command4, args=(a,))
+        tv2w.start()
+
+    elif len(basicdata)==0 and len(advvid)==0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
+        #print("adv 12")
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o {} "+url).format(advaud.split()[0],output)
+        #print(a)
+        tv2w = threading.Thread(target=run_command4, args=(a,))
+        tv2w.start()
+
+    elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)!=0 and len(convertaud)==0:
+        #print("adv 123")
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --write-srt --sub-lang {} --add-metadata --no-mtime --embed-metadata -f {}+{} -o {} "+url).format(advcap.split()[0],advvid.split()[0],advaud.split()[0],output)
+        #print(a)
+        tv2w = threading.Thread(target=run_command4, args=(a,))
+        tv2w.start()
+
+    elif len(basicdata)==0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)!=0:
+        #print("msuic")
+        if "Mp3 64 kbps" in convertaud:
+            a=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime -f ba -x --audio-format mp3 --audio-quality 64K -o {} '+url).format(output)
+            #print(a)
+            tv2w = threading.Thread(target=run_command4, args=(a,))
+            tv2w.start()
+        elif "Mp3 128 kbps" in convertaud:
+            a=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format mp3 --audio-quality 128K -o {} '+url).format(output)
+            #print(a)
+            tv2w = threading.Thread(target=run_command4, args=(a,))
+            tv2w.start()
+        elif "Mp3 320 kbps" in convertaud:
+            a=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f {}  -x --audio-format mp3 --audio-quality 320K -o {} '+url).format(output)
+            #print(a)
+            tv2w = threading.Thread(target=run_command4, args=(a,))
+            tv2w.start()
+        elif "M4a High" in convertaud:
+            a=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0  -o {} '+url).format(output)
+            #print(a)
+            tv2w = threading.Thread(target=run_command4, args=(a,))
+            tv2w.start()
+        elif "Wav Lossless" in convertaud:
+            a=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format wav --audio-quality 0 -o {} '+url).format(output)
+            #print(a)
+            tv2w = threading.Thread(target=run_command4, args=(a,))
+            tv2w.start()
+        elif "Flac 24 bit Lossless" in convertaud:
+            a=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format flac --audio-quality 0 -o {} '+url).format(output)
+            #print(a)
+            tv2w = threading.Thread(target=run_command4, args=(a,))
+            tv2w.start()
+    else:
+        messagebox.showerror("Youtube-dl GUI","More than one option detected \nTry to Clear unnecessary option(s) \nSelect one option")
+        cmbbsc.set("")
+        cmbmus.set("")
+        clearentry()
+    print(a)
+            
+def playlister():
+    loc="/"+"Downloads"
+    cpt=userloc+"\\Downloads"
+    user=(os.environ['USERPROFILE'])
+    user=user.replace("\\","/")
+    try:
+        loc=download_Directory
+        if "C:" in loc:
+            c=loc.lstrip(user)
+            loc=c.replace("\\","/")
+            loc="/"+loc
+    except:
+        pass
+    if len(play.get())!=0:
+        link=url[url.rfind("list=")+5:]
+        if "144p" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S 'height:144' -o {}"+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "240p" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S 'height:240' -o {} "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "360p" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S 'height:360' -o {} "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "480p" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S 'height:480' -o {} "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "720p" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S 'height:720' -o {} "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "1080p" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S 'height:1080' "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "Mp3 320 kbps" in play.get():
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o {} --yes-playlist "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "Mp3 64 kbps" in play.get():
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o {} --yes-playlist "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "M4a High" in play.get():
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --embed-thumbnail --no-mtime --audio-format m4a -o {} --yes-playlist "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+        elif "Wav Losless" in play.get():
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o {} --yes-playlist "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+
+
+        #print(a)
+
+        tv2w = threading.Thread(target=run_command4pl, args=(a,))
+        tv2w.start()
+        
+
+def update():
+    t1 = threading.Thread(target=run_command2, args=("yt-dlp_x86 -U",))
+    t1.start()
+
+def run_command2(cmd):
+    global ext11,ext12fx
+    startupinfo = subprocess.STARTUPINFO()
+    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    for line in iter(p.stdout.readline, b''):
+        root.title("Youtube-dl GUI  [Downloading update...]")
+        status.set(" "+line[0:-1]+"                                                                                                                                                                                                           ")
+        if str(line)=="":
+            break
+        
+    p.stdout.close()
+    p.wait()
+    root.title("Youtube-dl GUI")
+    messagebox.showinfo("Youtube-dl GUI","Youtube-dl \nUpdated!")
+
+def run_command4conv(cmd,namez):
+    global namewa
+    onbtn['state'] = DISABLED
+    namewa = Label(tab5, text = "Cancel conversion",fg="#0090FF",cursor="hand2",bg="#525252")
+    namewa.place(x = 20,y = 120)
+    namewa.bind("<Button-1>", lambda g: kill("taskkill /F /IM ffmpeg.exe"))
+    tv2w = threading.Thread(target=popenszz, args=(cmd,namez,))
+    tv2w.start()
+
+def popenszz(cmd,namez):
+    root.title("Youtube-dl GUI [Converting..]")
+    si = subprocess.STARTUPINFO()
+    si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+    subprocess.call(cmd, startupinfo=si)
+    onbtn['state'] = NORMAL
+    namewa.destroy()
+    messagebox.showinfo("Youtube-dl GUI","Conversion completed!\nFile "+namez+" Saved")
+    root.title("Youtube-dl GUI")
+
+def newconvert():
+    a1=ccx.get()
+    a2=ccx2.get()
+    a3=e5x.get()#filename
+    #print(a1,a2,a3,len(a3))
+    if len(ccx.get())==0 or len(ccx2.get())==0 or len(e5x.get())==0:
+        messagebox.showerror("Youtube-dl GUI","Select format or file")
+    elif len(a1)!=0 and len(a2)!=0 and len(a3)!=0:
+        x=a3.replace("\\","/")
+        d=x[x.rfind("/")+1:]
+        d=d.replace("/","\\")
+        s=d.rfind(".")
+        a3=d[:s]
+        #print(a3)
+        namez=e2.get()+"/"+a3+"_copy."+a2.lower()
+        a=('ffmpeg -i "{}" "{}"').format(e5x.get(),namez)
+        print(a)
+        run_command4conv(a,namez)
+        
+        
+    
+def paste():
+    clr()
+    try:
+        AnnoyingWindow=Tk()
+        ClipBoard = AnnoyingWindow.clipboard_get()
+        AnnoyingWindow.destroy()
+        ele=ClipBoard
+        e1.insert(0, ele )
+    except:
+        AnnoyingWindow.destroy()
+        messagebox.showerror("Youtube-dl GUI","URL should be in text")
+        
+def clr():
+    e1.delete(0,END)
+
+def convert():
+    global ccx2,onbtn
+    a="Mp4"
+    if ccx.get()=="Mkv":
+        a="Mkv"
+    elif ccx.get()=="Mp3":
+        a="Mp3"
+    elif ccx.get()=="M4a":
+        a="M4a"
+    ex='*.'+a.lower()
+    filetypes = (
+        (a, ex),
+        )
+    filenamex = filedialog.askopenfilename(title='Select a file...',filetypes=filetypes)
+    #print(filenamex,len(filenamex))
+    if len(filenamex)!=0:
+        global tox
+        tox=[]
+        e5x.delete(0,END)
+        e5x.insert(0,filenamex)
+        convertvar.set("Convert to")
+        if a=="Mp4" or a=="Mkv":
+            for i in range(0,len(convertfrom)):
+                if a!=convertfrom[i]:
+                    tox.append(convertfrom[i])
+        elif a=="M4a":
+            tox=["Mp3"]
+        elif a=="Mp3":
+            tox=["M4a"]
+        ccx2 = ttk.Combobox(tab5, width="12", values=tox,state="readonly")
+        ccx2.place(x=485,y=35)
+        onbtn = ttk.Button(tab5, text="Convert",command=newconvert)
+        onbtn.place(x=250,y=80)
+
+def clearconv():
+    tox=[]
+    ccx2.destroy()
+    onbtn.destroy()
+    e5x.delete(0,END)
+    e5x.insert(0,"File not selected")
+    convertvar.set("")
+
+def changer_red(b,a):
+    b.config(image=a)
+
+def changer_blue(b,a):
+    b.config(image=a)
+
+#-------------------------------------------------------------------------------------------------------------------
+music=[]
+audlst=[]
+vidlst=[]
+basic=[]
+basic2=[]
+subs=[]
+thn=[1]
+ps=[]
+playlist=["144p","240p","360p","480p","720p","1080p","Mp3 64 kbps","Mp3 320 kbps","M4a High","Wav Losless"]
+convertfrom=["Mp4","Mkv","Mp3","M4a"]
+root = tk.Tk()
+root.configure(bg='#303135')
+style= ttk.Style()
+style.configure("TCombobox", fieldbackground= "#525252", background= "#525252",foreground="black")
+style.configure("TButton",background="#525252")
+style.configure("TScrollbar",background="#525252",activebackground="#525252")
+style.configure("TNotebook", background='#424242',borderwidth=0)
+style.layout("TNotebook", [])
+
+md=PhotoImage(file = "Frame 1newer.png")
+canvas1 = Canvas( root, width = 560,height = 1000)
+background_label = Label(image=md,anchor="n")
+background_label.place(x=0, y=-2, relwidth=1, relheight=1)
+canvas1.pack()
+#style.configure("TNotebook.Tab", background='#525252',borderwidth=0)
+sw = root.winfo_screenwidth()
+sh = root.winfo_screenheight()
+y=int((sh-640)/2)
+x=int((sw-1000)/2)
+root.geometry('%dx%d+%d+%d' % (1000, 575, x, y))
+root.resizable(False, False)
+
+tabControl = ttk.Notebook(root,height=160,width=608)
+
+tab1 = Frame(tabControl,background="#525252")
+tab2 = Frame(tabControl,background="#525252")
+tab3 = Frame(tabControl,background="#525252")
+tab4 = Frame(tabControl,background="#525252")
+tab5 = Frame(tabControl,background="#525252")
+streamsvid = Label(tab5,text="Convert From",bg="#525252",fg="white").place(x = 15,y = 10)
+btnz = ttk.Button(tab5, text="Browse File",command=convert)
+btnz.place(x=135,y=33)
+#streamsvid = Label(tab5,text="Convert To",bg="#525252",fg="white").place(x = 30,y = 20)
+#cmb = ttk.Combobox(tab5, width="95", values=[1,2,3,4,6,7,8,34],state="readonly")
+#cmb.place(x=30,y=30)
+
+tabControl.add(tab1, text ='  Basic  ')
+tabControl.add(tab2, text ='  Advanced ')
+tabControl.add(tab3, text ='  Playlist  ')
+tabControl.add(tab4, text =' Convert to Music ')
+tabControl.add(tab5, text ='  Converter ')
+tabControl.place(x=30,y=275)
+
+ccx = ttk.Combobox(tab5, width="12", values=convertfrom,state="readonly")
+ccx.place(x=15,y=35)
+ccx.current(0)
+e5x=ttk.Entry(tab5,width=40)
+e5x.place(x=220,y=35)
+e5x.insert(0,"File not selected")
+name45za = Label(tab5, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
+name45za.place(x = 500,y = 120)
+name45za.bind("<Button-1>", lambda g: clearconv())
+#--------------------------------------------------------------------------------------------------------------
+convertvar=StringVar()
+convertvar.set("")
+urlvar=StringVar()
+playlistvar=StringVar()
+playlistvar.set("")
+
+tb1quality=StringVar()
+tb2aud=StringVar()
+tb2vid=StringVar()
+tb4select=StringVar()
+tb2cap=StringVar()
+tb1quality.set("")
+tb2vid.set("")
+tb2cap.set("")
+tb2aud.set("")
+tb4select.set("")
+
+urlvar.set("URL")
+outvar=StringVar()
+outvar.set("Output")
+cusvar=StringVar()
+cusvar.set("Custom Filename")
+name1 = Label(root, text = "Youtube-dl GUI",bg="#303135",font=('Arial', 18),fg="white").place(x = 230,y = 10) 
+name = Label(root, textvariable = urlvar,bg="#424242",fg="white").place(x = 55,y = 76)
+name = Label(root, textvariable = outvar,bg="#424242",fg="white").place(x = 55,y = 148)
+name = Label(root, textvariable = cusvar,bg="#424242",fg="white").place(x = 55,y = 210)
+streamsvidto = Label(tab5,textvariable=convertvar,bg="#525252",fg="white").place(x = 485,y = 10)
+userloc=(os.environ['USERPROFILE'])+"\\Downloads"
+userloc=userloc.replace("\\","/")
+status= StringVar()
+#streamvids = StringVar()
+#streamauds=StringVar()
+#streamsmuss= StringVar()
+status.set("")
+large_font = tkFont.Font(family='Microsoft Sans Serif',size=9)
+statusbar = tk.Label(root, textvariable=status ,width=150, bd=2,fg="white", relief=tk.SUNKEN, anchor=tk.W,bg='#202125').place(x=-2,y=555)
+
+url=""
+streamsvid = Label(tab3, textvariable = playlistvar,bg="#525252",fg="white").place(x = 170,y = 50)
+streamsvid = Label(tab1, textvariable = tb1quality,bg="#525252",fg="white").place(x = 10,y = 50)
+streamsvid = Label(tab2, textvariable = tb2vid,bg="#525252",fg="white").place(x = 10,y = 10)
+streamsvid = Label(tab2, textvariable = tb2aud,bg="#525252",fg="white").place(x = 10,y = 55)
+streamsvid = Label(tab4, textvariable = tb4select,bg="#525252",fg="white").place(x = 170,y = 50)
+streamsvid = Label(tab2, textvariable = tb2cap,bg="#525252",fg="white").place(x = 10,y = 100)
+
+frame1=Frame(root,bg = "#303135",width=280,height=200)
+frame1.place(x=690,y=275)
+sb_ver= ttk.Scrollbar(frame1)
+text_box = Text(frame1,height=13,width=40,highlightthickness=0,relief=FLAT,yscrollcommand=sb_ver.set)
+fonte = tkFont.Font(family="Arial", size=10)
+
+
+text_box.config(font=large_font,state= NORMAL,background="#404040",fg="grey")
+sb_ver.config(command=text_box.yview)
+sb_ver.pack(side=RIGHT, fill=Y)
+text_box.pack(side=LEFT)
+text_box.configure(state='disabled')
+
+
+e1 = Entry(root,width=82,bg="#A1A1A1",bd=0)
+e1.place(x=52,y=104)
+e1.bind("<Return>", on_change)
+
+e2 = Entry(root,bg="#A1A1A1",width=82,bd=0)
+e2.place(x=52,y=179)
+e2.insert(0, userloc )
+
+e3 = Entry(root,bg="#A1A1A1",width=82,bd=0)
+e3.place(x=52,y=239)
+
+img3 = PhotoImage(file = f"img3.png")
+name7 = Button(root, text = "About",fg="blue",bd=0,bg="#383838",image=img3,command=lambda : about(),activebackground='#383838')
+name7.place(x = 28,y = 502)
+
+img4 = PhotoImage(file = f"img4.png")
+name8 = Button(root, text = "Update",fg="blue",bd=0,bg="#383838",image=img4,command=lambda : update(),activebackground='#383838')
+name8.place(x = 115,y = 502)
+
+img5 = PhotoImage(file = f"img5.png")
+name9 = Button(root, text = "Terminal",fg="blue",bd=0,bg="#383838",image=img5,command=lambda : terminal(),activebackground='#383838')
+name9.place(x = 205,y = 502)
+
+img6 = PhotoImage(file = f"img6.png")
+name10 = Button(root, text = "Github",fg="blue",bd=0,bg="#383838",image=img6,command=lambda : link('https://github.com/sourabhkv/ytdl/'),activebackground='#383838')
+name10.place(x = 307,y = 502)
+
+img7 = PhotoImage(file = f"img7.png")
+name11 = Button(root, text = "Supported  Websites",bd=0,fg="blue",bg="#383838",image=img7,command=lambda : link('https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md'),activebackground='#383838')
+name11.place(x = 403,y = 502)
+
+img14 = PhotoImage(file = f"img14.png")
+name7 = Button(root, text = "Options",fg="blue",bd=0,bg="#383838",image=img14,command=lambda : reco(),activebackground='#383838')
+name7.place(x = 565,y = 502)
+
+image = Image.open("logo.png")
+img9 = PhotoImage(file = "img9.png")
+img10 = PhotoImage(file = "img10.png")
+img11 = PhotoImage(file = "img11.png")
+img12 = PhotoImage(file = "img12.png")
+img13 = PhotoImage(file = "img13.png")
+imggored = PhotoImage(file="gored.png")
+imgdwred = PhotoImage(file="dwred.png")
+imgclearred = PhotoImage(file="clearred.png")
+imgpastered = PhotoImage(file="pastered.png")
+imgbrowred = PhotoImage(file="browred.png")
+imgthred = PhotoImage(file="thred.png")
+resize_image = image.resize((25, 25))
+img = ImageTk.PhotoImage(resize_image)
+label1 = Label(image=img,bg="#303135")
+label1.image = img
+label1.place(x=410,y=10)
+img8 = PhotoImage(file = f"browse.png")
+browse_B = Button(root,image=img8,bd=0, text="Browse", command=browse,relief="flat",bg="#424242",activebackground='#424242')
+browse_B.bind('<Enter>',lambda a:changer_red(browse_B,imgbrowred))
+browse_B.bind('<Leave>',lambda a:changer_blue(browse_B,img8))
+browse_B.place(x=560,y=170)
+img0 = PhotoImage(file = f"paste.png")
+ext15=Button(root,bd=0,image=img0,text="Paste",command=paste,relief="flat",bg="#424242",activebackground='#424242')
+ext15.bind('<Enter>',lambda a:changer_red(ext15,imgpastered))
+ext15.bind('<Leave>',lambda a:changer_blue(ext15,img0))
+ext15.place(x=200,y=134)
+img1 = PhotoImage(file = f"clear.png")
+ext16=Button(root,text="Clear",bd=0,image=img1,command=clr,relief="flat",bg="#424242",activebackground='#424242')
+ext16.bind('<Enter>',lambda a:changer_red(ext16,imgclearred))
+ext16.bind('<Leave>',lambda a:changer_blue(ext16,img1))
+ext16.place(x=300,y=134)
+img2 = PhotoImage(file = f"go.png")
+ext17go=Button(root,text="GO",bd=0,image=img2,command=lambda: on_change(e1),bg="#424242",activebackground='#424242')
+ext17go.bind('<Enter>',lambda a:changer_red(ext17go,imggored))
+ext17go.bind('<Leave>',lambda a:changer_blue(ext17go,img2))
+ext17go.place(x=560,y=96)
+
+root.iconbitmap(r'logo.ico')
+root.title('Youtube-dl GUI')
+root.mainloop()
