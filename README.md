@@ -39,11 +39,11 @@ Select audio ,video and caption stream(s).<br />
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
 
 <h2>Special features</h2>
-Captions support (YouTube)<br />
+Captions support (YouTube)</br>
 Thumbnail download </br>
 Advanced option to specifically select audio , video separately </br>
 Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA</br>
-Varirty of [supported websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)</br>
+Varirty of supported websites</br>
 File converter</br>
 
 <h2>Coming features</h2>
@@ -93,19 +93,19 @@ yt-dlp (youtube-dl for older version) searches streams available in website and 
 User selects streams and browse location *(default location in downloads could be changed)*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
-Pygame window displays live download progress(for older version).<br />
+Pygame window displays live download progress(for older version).
 
 <h2>How development started and was carried?</h2>
-<br>This project development started with wish to download youtube physics video(Center of mass) at 240p in March,2021 because 240p quality was managable and took decent amount of mobile data compared to 360p.<br />
-<br>Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.<br />
-Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this , removing black console window at startup  was also challenging to fix without using `--noconsole` option.
-<br>
-Threading helped execute many function at same time<br />
-The function popens(cmd) never executed with object oriented programming (OOPs)</br>
-Tkinter was easy to use and took less space compared to PySide2/PyQt5</br>
-After june,2021 there was no update to youtube-dl. Development stopped for 3 months finally backend changed to yt-dlp</br>
-During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...</br>
-Need help to make this better so that anyone with poor internet connctivity can learn somthing.<br />
+This project development started with wish to download youtube physics video(Center of mass) at 240p in March,2021 because 240p quality was managable and took decent amount of mobile data compared to 360p.
+Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.
+Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this  removing black console window at startup  was also challenging to fix without using --noconsole option.
+
+Threading helped execute many function at same time
+The function popens(cmd) never executed with object oriented programming (OOPs)
+Tkinter was easy to use and took less space compared to PySide2/PyQt5
+After june,2021 there was no update to youtube-dl. Development stopped for 3 months finally backend changed to yt-dlp
+During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...
+Need help to make this better so that anyone with poor internet connctivity can learn somthing.
 
 
 
