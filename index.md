@@ -5,6 +5,14 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 
 [Older releases](https://github.com/sourabhkv/ytdl/releases)
 
+<h2>Special Features</h2>
+Captions support (YouTube)<br />
+Thumbnail download<br />
+Advanced option to specifically select audio , video separately<br />
+Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA and thumbnail<br />
+Varirty of supported websites<br />
+File converter<br />
+
 Latest release preview
 
 ![me at zoo](https://user-images.githubusercontent.com/55890376/158214923-a09ddff9-6569-4507-bd5d-3dc74ba160db.png)
