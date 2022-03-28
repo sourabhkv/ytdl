@@ -44,6 +44,7 @@ Thumbnail download </br>
 Advanced option to specifically select audio , video separately </br>
 Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA</br>
 Varirty of supported websites</br>
+Tag editor coming soon...</br>
 File converter</br>
 
 <h2>Coming features</h2>
