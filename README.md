@@ -7,7 +7,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) licensed under [The Unlicense](https://unlicense.org/)<br />
 [FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.
 
-![me at zoo](https://user-images.githubusercontent.com/55890376/158213036-ab4a1d93-6661-496e-aae4-27d58658d74e.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/163598475-0607dc57-1955-48a4-9928-b75d23d3838b.png)
+
 
 
 
