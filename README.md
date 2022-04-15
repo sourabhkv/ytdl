@@ -48,12 +48,14 @@ Thumbnail download </br>
 Advanced option to specifically select audio , video separately </br>
 Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA</br>
 Varirty of supported websites</br>
-Tag editor coming soon...</br>
+
 File converter</br>
 
 <h2>Coming features</h2>
 Better playlist support.
 Multi video download.
+tag editor.
+Batch downloader.
 
 <h2>Stream selection</h2>
 If you have VLC not installed try using these combination.
