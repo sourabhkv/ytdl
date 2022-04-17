@@ -54,7 +54,6 @@ File converter</br>
 
 <h2>Coming features</h2>
 Better playlist support.
-Multi video download.
 tag editor.
 Batch downloader.
 
