@@ -2,9 +2,9 @@
 </br>
 
 
-A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**<br />
+A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**</br>
 
-[yt-dlp](https://github.com/yt-dlp/yt-dlp) licensed under [The Unlicense](https://unlicense.org/)<br />
+[yt-dlp](https://github.com/yt-dlp/yt-dlp) licensed under [The Unlicense](https://unlicense.org/)</br>
 [FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.
 
 ![me at zoo](https://user-images.githubusercontent.com/55890376/165731885-d97cb419-2273-4498-a89a-dbe84a19adb2.png)
@@ -25,8 +25,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 
 
 
-paste url and hit enter/GO to view streams and thumbnail<br />
-TO download thumbnail click **Download thumbnail**<br />
+paste url and hit enter/GO to view streams and thumbnail</br>
+TO download thumbnail click **Download thumbnail**</br>
 ![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
 <br>Version 22.208.02 and above with dark theme and categorized data.</br>
@@ -41,8 +41,8 @@ TO download thumbnail click **Download thumbnail**<br />
 
 
 
-Select audio ,video and caption stream(s).<br />
-Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br />
+Select audio ,video and caption stream(s).</br>
+Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**</br>
 
 <h2>Special features</h2>
 Captions support (YouTube)</br>
@@ -50,7 +50,7 @@ Thumbnail download </br>
 Advanced option to specifically select audio , video separately </br>
 Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA</br>
 Supports upto 5 Youtube downloads parallely</br>
-yt-dlp can be updated by clicking on update button (executes `yt-dlp_x86 -U`)</br>
+yt-dlp can be updated by clicking on update button (executes yt-dlp_x86 -U)</br>
 Varirty of supported websites</br>
 
 File converter</br>
