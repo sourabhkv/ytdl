@@ -119,7 +119,8 @@ Need help to make this better so that anyone with poor internet connctivity can 
 
 
 
-<br>[Supported Websites](http://ytdl-org.github.io/youtube-dl/supportedsites.html)</br>
+<br>[Supported Websites youtube-dl](http://ytdl-org.github.io/youtube-dl/supportedsites.html)</br>
+[Supported websites yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)</br>
 [youtube-dl](https://github.com/ytdl-org/youtube-dl)<br />
 [yt-dlp](https://github.com/yt-dlp/yt-dlp)<br />
 [Pytube](https://pytube.io/en/latest/)<br />
