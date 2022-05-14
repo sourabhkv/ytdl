@@ -1,7 +1,7 @@
 ## Welcome to Downloads page
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. This project is only for **educational purpose** **DO NOT SELL**. **USE AT YOUR RISK** .
 
-[Download latest release](https://github.com/sourabhkv/ytdl/releases/download/v22.0427.19/YouTube-dl.GUI.zip)
+[Download latest release](https://github.com/sourabhkv/ytdl/releases/download/v22.0514.22/YouTube-dl.GUI.zip)
 
 [Older releases](https://github.com/sourabhkv/ytdl/releases)
 
