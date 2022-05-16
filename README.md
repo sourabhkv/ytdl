@@ -80,7 +80,7 @@ Enter playlist url select format(144p,240p...,mp3,m4a) hit download
 
 
 [New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)</br>
-
+[Playlist demo](https://user-images.githubusercontent.com/55890376/168638995-183ba08b-91ac-4a72-a6c1-bf152d71c0ea.mp4)</br>
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)</br>
 
 <h2>INSTALLATION</h2>
