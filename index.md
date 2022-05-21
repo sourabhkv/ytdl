@@ -31,3 +31,5 @@ ytdl is based on Yt-dlp/youtube-dl , ffmpeg and atomicparsley
 Any Issues report [here](https://github.com/sourabhkv/ytdl/issues)
 
 [How project started](https://github.com/sourabhkv/ytdl#how-development-started-and-was-carried)
+[ytdl.zip](https://github.com/sourabhkv/ytdl/files/8747013/ytdl.zip)
+
