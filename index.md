@@ -15,7 +15,7 @@ File converter<br />
 
 Latest release preview
 
-![me at zoo](https://user-images.githubusercontent.com/55890376/165731885-d97cb419-2273-4498-a89a-dbe84a19adb2.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
 
 
 
