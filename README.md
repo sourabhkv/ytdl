@@ -2,7 +2,8 @@
 </br>
 
 
-A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL . USE AT YOUR RISK .**</br>
+A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .DO NOT 
+plagiarize. USE AT YOUR RISK .**</br>
 
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [youtube-dl](https://github.com/ytdl-org/youtube-dl) licensed under [The Unlicense](https://unlicense.org/)</br>
 [FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.</br>
