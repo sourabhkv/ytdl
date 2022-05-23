@@ -25,9 +25,9 @@ Older version preview
 ![ytd1](https://user-images.githubusercontent.com/55890376/148569370-37b48559-5333-4686-be6c-22ff97d93473.jpg)
 
 <h3> System Requirements </h3>
-Windows 7 SP1 or newer (x86 and x64)
-Recommended Windows 8.1 (x85 and x64) or newer
-ytdl is based on Yt-dlp/youtube-dl , ffmpeg and atomicparsley
+Windows 7 SP1 or newer (x86 and x64)<br/>
+Recommended Windows 8.1 (x85 and x64) or newer<br/>
+ytdl is based on Yt-dlp/youtube-dl , ffmpeg and atomicparsley<br/>
 
 Any Issues report [here](https://github.com/sourabhkv/ytdl/issues)
 
