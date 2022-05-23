@@ -8,7 +8,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 [FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.</br>
 [pygame](https://www.pygame.org/news) is licensed under  [GNU LGPL version 2.1](https://www.gnu.org/copyleft/lesser.html)
 
-![me at zoo](https://user-images.githubusercontent.com/55890376/165731885-d97cb419-2273-4498-a89a-dbe84a19adb2.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
+
 
 
 
