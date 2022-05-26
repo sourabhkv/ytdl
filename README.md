@@ -78,8 +78,12 @@ flac , wav formats takes more space than mp3 and m4a
 <br />
 
 <h4>Playlist</h4>
-Currently supports Youtube playlist
-Enter playlist url select format(144p,240p...,mp3,m4a) hit download
+Currently supports Youtube playlist</br>
+Enter playlist url select format(144p,240p...,mp3,m4a) hit download</br>
+
+Download specific episodes in playlist</br>
+Playlist video items to download. Specify indices of the videos in the playlist separated by commas like:
+1,2,5,8" if you want to download videos indexed 1, 2, 5, 8 in the playlist. You can specify range: "1-3,7,10-13", it will download the videos at index 1, 2, 3, 7,10, 11, 12 and 13
 
 
 [New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)</br>
