@@ -54,7 +54,7 @@ Thumbnail download </br>
 Advanced option to specifically select audio , video separately </br>
 Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA</br>
 Supports upto 5 Youtube downloads parallely</br>
-Full application can be updated by clicking on update button (including yt-dlp) version 22.0523.22 or higher required</br>
+Full application can be updated by clicking on update button (including yt-dlp) version 22.0526.23 or higher required</br>
 Variety of supported websites</br>
 
 File converter</br>
