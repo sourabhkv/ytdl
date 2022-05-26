@@ -270,7 +270,7 @@ def about():
     ext13=Label(root2,text="**Websites not in list might also work",font=('Calibri', 10,'bold'),bg="#303135",fg="yellow")
     ext13.place(x=75,y=250)
     name7e = Label(root2, text = "More about this version",fg="#0574FF",cursor="hand2",bg="#303135")
-    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0305.19'))
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/latest'))
     name7e.place(x = 115,y = 280)
     name7ex = Label(root2, text = "Click here to watch demo",font=('Arial', 11),fg="green",cursor="hand2",bg="#303135")
     name7ex.bind("<Button-1>", lambda e: link('https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing'))
