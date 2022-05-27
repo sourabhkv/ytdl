@@ -22,7 +22,7 @@ plagiarize. USE AT YOUR RISK .**</br>
 |8K support|yes|yes|yes|no|
 |Ads|no|no|yes|yes|
 |Downlaod limit|no limit|5/day|no limit|no limit|
-|thumbnail downlaod|yes|no|no|no|
+|thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
 |Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[30+](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
 |Create custom command|yes|no|no|no|
