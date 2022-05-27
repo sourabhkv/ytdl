@@ -12,6 +12,24 @@ plagiarize. USE AT YOUR RISK .**</br>
 
 ![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
 
+| Features↓\Application→ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/9) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s online website](https://yt1s.com/en289)|
+|----------------------|------|--------------|----------------|-------------------|
+|Video download YouTube| yes  |yes|yes|yes|
+|playlist download|yes|yes|no|no|
+|Specific video inside playlist|yes|no|no|no|
+|Audio download|[yes](https://github.com/sourabhkv/ytdl/edit/main/README.md#music) |yes |no (only pro)|yes (mp3,m4a)|
+|Converter|yes|no|yes|no|
+|8K support|yes|yes|yes|no|
+|Ads|no|no|yes|yes|
+|Downlaod limit|no limit|5/day|no limit|no limit|
+|thumbnail downlaod|yes|no|no|no|
+|Captions support|yes|yes|no|no|
+|Supported website|[500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[30+](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
+|Create custom command|yes|no|no|no|
+|Metadata|yes|no|no|no|
+|Updates|yes|yes|yes|-|
+|Size of application|37 Mib|78.5 Mib|13.7 Mib|-|
+
 
 
 
