@@ -24,7 +24,7 @@ plagiarize. USE AT YOUR RISK .**</br>
 |Downlaod limit|no limit|5/day|no limit|no limit|
 |thumbnail downlaod|yes|no|no|no|
 |Captions support|yes|yes|no|no|
-|Supported website|[500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[30+](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
+|Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[30+](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
 |Updates|yes|yes|yes|-|
