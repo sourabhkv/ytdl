@@ -16,7 +16,7 @@ plagiarize. USE AT YOUR RISK .**</br>
 |----------------------|------|--------------|----------------|-------------------|
 |Video download YouTube| yes  |yes|yes|yes|
 |playlist download|yes|yes|no|no|
-|Specific video inside playlist|yes|no|no|no|
+|Specific video inside playlist|[yes](https://github.com/sourabhkv/ytdl/blob/main/README.md#playlist)|no|no|no|
 |Audio download|[yes](https://github.com/sourabhkv/ytdl/edit/main/README.md#music) |yes |no (only pro)|yes (mp3,m4a)|
 |Converter|yes|no|yes|no|
 |8K support|yes|yes|yes|no|
