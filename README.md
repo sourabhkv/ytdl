@@ -47,11 +47,11 @@ plagiarize. USE AT YOUR RISK .**</br>
 
 
 
-paste url and hit enter/GO to view streams and thumbnail</br>
-TO download thumbnail click **Download thumbnail**</br>
+paste url and hit enter/GO to view streams and thumbnail<br>
+TO download thumbnail click **Download thumbnail**<br>
 ![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
-<br>Version 22.208.02 and above with dark theme and categorized data.</br>
+Version 22.208.02 and above with dark theme and categorized data.<br>
 
 ![youtube-dl GUI new](https://user-images.githubusercontent.com/55890376/154851022-a187920a-cd3e-4b81-8d4d-b4d77b1095d6.jpg)
 
@@ -63,19 +63,19 @@ TO download thumbnail click **Download thumbnail**</br>
 
 
 
-Select audio ,video and caption stream(s).</br>
-Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**</br>
+Select audio ,video and caption stream(s).<br>
+Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br>
 
 <h2>Special features</h2>
-Captions support (YouTube)</br>
-Thumbnail download </br>
-Advanced option to specifically select audio , video separately </br>
-Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA</br>
-Supports upto 5 Youtube downloads parallely</br>
+Captions support (YouTube)<br>
+Thumbnail download <br>
+Advanced option to specifically select audio , video separately <br>
+Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA<br>
+Supports upto 5 Youtube downloads parallely<br>
 Full application can be updated by clicking on update button (including yt-dlp) version 22.0526.23 or higher required</br>
-Variety of supported websites</br>
+Variety of supported websites<br>
 
-File converter</br>
+File converter<br>
 
 <h2>Coming features</h2>
 Better playlist support.
@@ -84,35 +84,36 @@ Batch downloader.
 
 <h2>Stream selection</h2>
 If you have VLC not installed try using these combination.
-Recommended combination of audio and video codecs<br />
-MP4 -->   video: avc1 & audio: m4a <br />
-WEBM -->  video: webm & audio :webm <br />
-NOTE : Files are converted into MKV format since other combination are incompatible<br />
+Recommended combination of audio and video codecs<br>
+MP4 -->   video: avc1 & audio: m4a <br>
+WEBM -->  video: webm & audio :webm <br>
+NOTE : Files are converted into MKV format since other combination are incompatible<br>
 
 <h4>Music</h4>
-mp3 64K, mp3 320K, m4a, wav, flac available<br />
-m4a, mp3 320K, flac includes thumbnail and Metadata<br />
+mp3 64K, mp3 320K, m4a, wav, flac available<br>
+m4a, mp3 320K, flac includes thumbnail and Metadata<br>
 flac , wav formats takes more space than mp3 and m4a
-<br />
+<br>
 
 <h4>Playlist</h4>
-Currently supports Youtube playlist</br>
+Currently supports Youtube playlist<br>
 Enter playlist url select format(144p,240p...,mp3,m4a) hit download</br>
 
-Download specific episodes in playlist</br>
+Download specific episodes in playlist<br>
 Playlist video items to download. Specify indices of the videos in the playlist separated by commas like:
 1,2,5,8" if you want to download videos indexed 1, 2, 5, 8 in the playlist. You can specify range: "1-3,7,10-13", it will download the videos at index 1, 2, 3, 7,10, 11, 12 and 13
 
 
-[New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)</br>
-[Playlist demo](https://user-images.githubusercontent.com/55890376/168638995-183ba08b-91ac-4a72-a6c1-bf152d71c0ea.mp4)</br>
-Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)</br>
+[New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)<br>
+[Playlist demo](https://user-images.githubusercontent.com/55890376/168638995-183ba08b-91ac-4a72-a6c1-bf152d71c0ea.mp4)<br>
+Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
 <h2>INSTALLATION</h2>
-Currently this is supported only on windows.</br>
+Currently this is supported only on windows.<br>
 System Requirement : Windows 7 or above (x86 & x64)
 
-Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.zip)<br />
+Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.zip)<br>
+Download Web installer 
 
 
 ![setup complete](https://user-images.githubusercontent.com/55890376/156933091-b3e380c3-0673-4baa-9c1d-4667d5a52f4d.png)
@@ -121,8 +122,8 @@ Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytd
 
 
 
-Click Launch button after downloading.<br />
-You are ready to go 🤘.<br />
+Click Launch button after downloading.<br>
+You are ready to go 🤘.<br>
 
 <h2>WORKING</h2>
 
@@ -147,12 +148,12 @@ Need help to make this better so that anyone with poor internet connctivity can 
 
 
 
-<br>[Supported Websites youtube-dl](http://ytdl-org.github.io/youtube-dl/supportedsites.html)</br>
-[Supported websites yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)</br>
-[youtube-dl](https://github.com/ytdl-org/youtube-dl)<br />
-[yt-dlp](https://github.com/yt-dlp/yt-dlp)<br />
-[Pytube](https://pytube.io/en/latest/)<br />
-[ffmpeg](https://ffmpeg.org/ffmpeg.html)<br />
-[AtomicParsley](http://atomicparsley.sourceforge.net/)<br />
-[Pygame](https://www.pygame.org/wiki/about)<br />
-[Inno Setup](https://jrsoftware.org/isinfo.php)<br />
+<br>[Supported Websites youtube-dl](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br>
+[Supported websites yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)<br>
+[youtube-dl](https://github.com/ytdl-org/youtube-dl)<br>
+[yt-dlp](https://github.com/yt-dlp/yt-dlp)<br>
+[Pytube](https://pytube.io/en/latest/)<br>
+[ffmpeg](https://ffmpeg.org/ffmpeg.html)<br>
+[AtomicParsley](http://atomicparsley.sourceforge.net/)<br>
+[Pygame](https://www.pygame.org/wiki/about)<br>
+[Inno Setup](https://jrsoftware.org/isinfo.php)<br>
