@@ -111,7 +111,7 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 <h2>INSTALLATION</h2>
 Currently this is supported only on windows.<br>
 System Requirement : Windows 7 or above (x86 & x64)<br>
-
+<br>
 
 |Installer Type |Name|
 |---------------|:---: |
