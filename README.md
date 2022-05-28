@@ -13,7 +13,7 @@ plagiarize. USE AT YOUR RISK .**</br>
 ![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
 
 | Features↓\Application→ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/9) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s online website](https://yt1s.com/en289)|
-|----------------------|------|--------------|----------------|-------------------|
+|:---: |:---: |:---: |:---: |:---: |
 |Video download YouTube| yes  |yes|yes|yes|
 |playlist download|yes|yes|no|no|
 |Specific video inside playlist|[yes](https://github.com/sourabhkv/ytdl/blob/main/README.md#playlist)|no|no|no|
