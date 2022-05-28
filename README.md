@@ -112,6 +112,10 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 Currently this is supported only on windows.<br>
 System Requirement : Windows 7 or above (x86 & x64)
 
+|Installer Type |Name|
+|---------------|----|
+|Full Installer|Wbinstaller|
+
 Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.zip)<br>
 Download Web installer 
 
