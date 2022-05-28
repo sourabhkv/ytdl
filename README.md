@@ -1,5 +1,5 @@
 # <br>ytdl ![output-onlinepngtools](https://user-images.githubusercontent.com/55890376/147201322-7cb830c8-9a47-4bbb-ad0b-d79d4c09b58a.png)
-</br>
+![GitHub all releases](https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub) ![GitHub repo size](https://img.shields.io/github/repo-size/sourabhkv/ytdl) ![GitHub](https://img.shields.io/github/license/sourabhkv/ytdl) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/sourabhkv/ytdl) ![GitHub last commit](https://img.shields.io/github/last-commit/sourabhkv/ytdl)
 
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .DO NOT 
