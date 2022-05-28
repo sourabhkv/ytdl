@@ -110,14 +110,13 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 
 <h2>INSTALLATION</h2>
 Currently this is supported only on windows.<br>
-System Requirement : Windows 7 or above (x86 & x64)
+System Requirement : Windows 7 or above (x86 & x64)<br>
 
 |Installer Type |Name|
 |---------------|----|
-|Full Installer|Wbinstaller|
+|Full Installer|[Youtube-dl GUI.exe](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.exe)|
+|Web Installer |[Youtube-dl GUI Webinstaller.exe](https://github.com/sourabhkv/ytdl/blob/main/Youtube-dl%20Webinstaller.exe)|
 
-Download youtube-dl GUI latest installer [here](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.zip)<br>
-Download Web installer 
 
 
 ![setup complete](https://user-images.githubusercontent.com/55890376/156933091-b3e380c3-0673-4baa-9c1d-4667d5a52f4d.png)
