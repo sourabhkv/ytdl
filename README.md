@@ -14,6 +14,9 @@ plagiarize. USE AT YOUR RISK .**</br>
 
 ![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
 
+[Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
+[Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
+
 | Features↓\Application→ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/9) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s online website](https://yt1s.com/en289)|
 |:---: |:---: |:---: |:---: |:---: |
 |Video download YouTube| yes  |yes|yes|yes|
@@ -111,8 +114,6 @@ Playlist video items to download. Specify indices of the videos in the playlist 
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
 <h2>INSTALLATION</h2>
-[Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
-[Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
 Currently this is supported only on windows.<br>
 System Requirement : Windows 7 or above (x86 & x64)<br>
 <br>
