@@ -111,6 +111,8 @@ Playlist video items to download. Specify indices of the videos in the playlist 
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
 <h2>INSTALLATION</h2>
+[Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
+[Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
 Currently this is supported only on windows.<br>
 System Requirement : Windows 7 or above (x86 & x64)<br>
 <br>
