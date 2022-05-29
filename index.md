@@ -9,6 +9,7 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 |---------------|:---: |
 |Full Installer|[Youtube-dl GUI.exe](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.zip)|
 |Web Installer |[Youtube-dl GUI Webinstaller.exe](https://github.com/sourabhkv/ytdl/blob/main/Youtube-dl%20Webinstaller.exe)|
+|Portable Installer|[Youtube-dl GUI Portable.zip](https://github.com/sourabhkv/ytdl/releases/latest/download/Youtube-dl.GUI.Portable.zip)|
 
 
 [Older releases](https://github.com/sourabhkv/ytdl/releases)
@@ -21,6 +22,10 @@ Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA and
 Varirty of supported websites<br />
 File converter<br />
 
+<h3> System Requirements </h3>
+Windows 7 SP1 or newer (x86 and x64)<br/>
+Recommended Windows 8.1 (x86 and x64) or newer<br/>
+
 Latest release preview
 
 ![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
@@ -32,9 +37,7 @@ Older version preview
 
 ![ytd1](https://user-images.githubusercontent.com/55890376/148569370-37b48559-5333-4686-be6c-22ff97d93473.jpg)
 
-<h3> System Requirements </h3>
-Windows 7 SP1 or newer (x86 and x64)<br/>
-Recommended Windows 8.1 (x86 and x64) or newer<br/>
+
 ytdl is based on Yt-dlp/youtube-dl , ffmpeg and atomicparsley<br/>
 
 Any Issues report [here](https://github.com/sourabhkv/ytdl/issues)
