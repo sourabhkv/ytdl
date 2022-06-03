@@ -28,7 +28,7 @@ Recommended Windows 8.1 (x86 and x64) or newer<br/>
 
 Latest release preview
 
-![me at zoo](https://user-images.githubusercontent.com/55890376/169775456-aefaea03-3018-44ab-a281-3355d885ec92.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/171219893-79cd943a-9678-4ba6-92d7-a07160fc3567.png)
 
 
 
