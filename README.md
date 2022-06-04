@@ -8,7 +8,7 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 plagiarize. USE AT YOUR RISK .**</br>
 
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [youtube-dl](https://github.com/ytdl-org/youtube-dl) licensed under [The Unlicense](https://unlicense.org/)</br>
-[FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.</br>
+[FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.<br>
 [AtomicParsley](https://github.com/wez/atomicparsley) is licensed under [GPL-2.0 license](https://github.com/wez/atomicparsley/blob/master/COPYING)</br>
 [pygame](https://www.pygame.org/news) is licensed under  [GNU LGPL version 2.1](https://www.gnu.org/copyleft/lesser.html)
 
@@ -84,9 +84,12 @@ Variety of supported websites<br>
 File converter<br>
 
 <h2>Coming features</h2>
-Better playlist support.
-tag editor.
-Batch downloader.
+Better playlist support.<br>
+tag editor.<br>
+Batch downloader.<br>
+Proxy support.<br>
+Rate limit<br>
+Full settings menu<br>
 
 <h2>Stream selection</h2>
 If you have VLC not installed try using these combination.
