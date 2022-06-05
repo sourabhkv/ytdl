@@ -47,5 +47,4 @@ elif ver>curver:
     else:
         print("UPDATED")
         os.startfile("Youtube-dl GUI.exe")
-        exit()
         
