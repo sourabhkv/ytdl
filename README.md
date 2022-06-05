@@ -34,7 +34,7 @@ plagiarize. USE AT YOUR RISK .**</br>
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
 |Updates|yes|yes|yes|-|
-|Size of application|37 Mib|78.5 Mib|13.7 Mib|-|
+|Size of application|36 Mib|78.5 Mib|13.7 Mib|-|
 
 
 
