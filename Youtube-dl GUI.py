@@ -1352,7 +1352,7 @@ def playlister():
     if len(play.get())!=0:
         link=url[url.rfind("list=")+5:]
         if "144p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o {}"+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
         elif "240p" in play.get():
             a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+"%(title)s.%(ext)s")
         elif "360p" in play.get():
