@@ -5,11 +5,11 @@
 
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .DO NOT 
-plagiarize. USE AT YOUR RISK .**</br>
+plagiarize. USE AT YOUR RISK .**<br>
 
-[yt-dlp](https://github.com/yt-dlp/yt-dlp) and [youtube-dl](https://github.com/ytdl-org/youtube-dl) licensed under [The Unlicense](https://unlicense.org/)</br>
+[yt-dlp](https://github.com/yt-dlp/yt-dlp) and [youtube-dl](https://github.com/ytdl-org/youtube-dl) licensed under [The Unlicense](https://unlicense.org/)<br>
 [FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.<br>
-[AtomicParsley](https://github.com/wez/atomicparsley) is licensed under [GPL-2.0 license](https://github.com/wez/atomicparsley/blob/master/COPYING)</br>
+[AtomicParsley](https://github.com/wez/atomicparsley) is licensed under [GPL-2.0 license](https://github.com/wez/atomicparsley/blob/master/COPYING)<br>
 [pygame](https://www.pygame.org/news) is licensed under  [GNU LGPL version 2.1](https://www.gnu.org/copyleft/lesser.html)
 
 ![me at zoo](https://user-images.githubusercontent.com/55890376/172413009-69e1ee12-4eb0-4c48-ae19-d362af05d36b.png)
@@ -45,8 +45,8 @@ plagiarize. USE AT YOUR RISK .**</br>
 
 
 
-
-
+Screenshots of changes 
+![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
 ![new](https://user-images.githubusercontent.com/55890376/148672374-69d952c3-3cb8-4193-b537-dac05f2a74b2.png)
 
@@ -54,9 +54,6 @@ plagiarize. USE AT YOUR RISK .**</br>
 
 
 
-paste url and hit enter/GO to view streams and thumbnail<br>
-TO download thumbnail click **Download thumbnail**<br>
-![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
 Version 22.208.02 and above with dark theme and categorized data.<br>
 
@@ -79,7 +76,7 @@ Thumbnail download <br>
 Advanced option to specifically select audio , video separately <br>
 Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA<br>
 Supports upto 5 Youtube downloads parallely<br>
-Full application can be updated by clicking on update button (including yt-dlp) version 22.0526.23 or higher required</br>
+Full application can be updated by clicking on update button (including yt-dlp) version 22.0526.23 or higher required<br>
 Variety of supported websites<br>
 
 File converter<br>
@@ -91,6 +88,7 @@ Batch downloader.<br>
 Proxy support.<br>
 Rate limit<br>
 Full settings menu<br>
+
 
 <h2>Stream selection</h2>
 If you have VLC not installed try using these combination.
@@ -107,7 +105,7 @@ flac , wav formats takes more space than mp3 and m4a
 
 <h4>Playlist</h4>
 Currently supports Youtube playlist<br>
-Enter playlist url select format(144p,240p...,mp3,m4a) hit download</br>
+Enter playlist url select format(144p,240p...,mp3,m4a) hit download<br>
 
 Download specific episodes in playlist<br>
 Playlist video items to download. Specify indices of the videos in the playlist separated by commas like:
