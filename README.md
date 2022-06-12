@@ -81,14 +81,18 @@ Full application can be updated by clicking on update button (including yt-dlp) 
 Variety of supported websites<br>
 Proxy support.<br>
 Rate limit<br>
+File converter
 
-File converter<br>
+<h2>Roadamap of releases</h2>
+Alsina-Settings menu, history of saved files (Jun end)<br>
+Meteor-Lyrics support (July-Aug)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
 tag editor.<br>
 Batch downloader.<br>
-Full settings menu<br>
+Full settings menu
+
 
 
 <h2>Stream selection</h2>
