@@ -79,6 +79,8 @@ Convert video into music MP3(64,128,320 KB/S), M4A , WAV ,FLAC WITH METADATA<br>
 Supports upto 5 Youtube downloads parallely<br>
 Full application can be updated by clicking on update button (including yt-dlp) version 22.0526.23 or higher required<br>
 Variety of supported websites<br>
+Proxy support.<br>
+Rate limit<br>
 
 File converter<br>
 
@@ -86,8 +88,6 @@ File converter<br>
 Better playlist support.<br>
 tag editor.<br>
 Batch downloader.<br>
-Proxy support.<br>
-Rate limit<br>
 Full settings menu<br>
 
 
