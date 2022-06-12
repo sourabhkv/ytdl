@@ -117,6 +117,9 @@ Playlist video items to download. Specify indices of the videos in the playlist 
 [Playlist demo](https://user-images.githubusercontent.com/55890376/168638995-183ba08b-91ac-4a72-a6c1-bf152d71c0ea.mp4)<br>
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
+<h2>⚠️ DEPRECATION WARNING</h2>
+Options menu will be discontinued in future.
+
 <h2>INSTALLATION</h2>
 Currently this is supported only on windows.<br>
 System Requirement : Windows 7 or above (x86 & x64)<br>
