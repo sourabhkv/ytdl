@@ -19,7 +19,7 @@ plagiarize. USE AT YOUR RISK .**<br>
 [Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
 [Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
 
-| Features↓\Application→ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/9) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s online website](https://yt1s.com/en289)|
+| Features↓\Application→ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/10) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s online website](https://yt1s.com/en300)|
 |:---: |:---: |:---: |:---: |:---: |
 |Video download YouTube| yes  |yes|yes|yes|
 |playlist download|yes|yes|no|no|
@@ -31,11 +31,11 @@ plagiarize. USE AT YOUR RISK .**<br>
 |Downlaod limit|no limit|5/day|no limit|no limit|
 |thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
-|Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[30+](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
+|Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
 |Updates|yes|yes|yes|-|
-|Size of application|36 Mib|78.5 Mib|13.7 Mib|-|
+|Size of application|37 Mib|78.5 Mib|13.7 Mib|-|
 
 
 
