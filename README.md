@@ -32,6 +32,7 @@ plagiarize. USE AT YOUR RISK .**<br>
 |thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
 |Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
+|Simultaneous downloads |upto 5|Pro|Pro|No|
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
 |Updates|yes|yes|yes|-|
@@ -83,9 +84,9 @@ Proxy support.<br>
 Rate limit<br>
 File converter
 
-<h2>Roadamap of releases</h2>
-Alsina-Settings menu, history of saved files (Jun end)<br>
-Meteor-Lyrics support (July-Aug)
+<h2>Roadmap of releases</h2>
+Alsina -Settings menu, history of saved files (Jun end)<br>
+Meteor -Lyrics support (July-Aug)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
