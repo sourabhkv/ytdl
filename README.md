@@ -19,18 +19,19 @@ plagiarize. USE AT YOUR RISK .**<br>
 [Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
 [Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
 
-| Features↓\Application→ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/10) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s online website](https://yt1s.com/en300)|
+| Features⬇️\Application➡️ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/10) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s website](https://yt1s.com/en300)|
 |:---: |:---: |:---: |:---: |:---: |
 |Video download YouTube| yes  |yes|yes|yes|
 |playlist download|yes|yes|no|no|
 |Specific video inside playlist|[yes](https://github.com/sourabhkv/ytdl/blob/main/README.md#playlist)|no|no|no|
-|Audio download|[yes](https://github.com/sourabhkv/ytdl/edit/main/README.md#music) |yes |no (only pro)|yes (mp3,m4a)|
+|Audio download|[yes](https://github.com/sourabhkv/ytdl/edit/main/README.md#music) |yes |no (Pro)|yes (mp3,m4a)|
 |Converter|yes|no|yes|no|
 |8K support|yes|yes|yes|no|
 |Ads|no|no|yes|yes|
 |Downlaod limit|no limit|5/day|no limit|no limit|
 |thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
+|Proxy support|yes|no|no|no|
 |Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
 |Simultaneous downloads |upto 5|Pro|Pro|No|
 |Create custom command|yes|no|no|no|
@@ -72,7 +73,7 @@ Version 22.208.02 and above with dark theme and categorized data.<br>
 Select audio ,video and caption stream(s).<br>
 Click **Browse** to browse the location where video/audio will be saved **if not clicked default browse location is downloads**<br>
 
-<h2>Special features</h2>
+## Special features<br>
 Captions support (YouTube)<br>
 Thumbnail download <br>
 Advanced option to specifically select audio , video separately <br>
@@ -84,9 +85,9 @@ Proxy support.<br>
 Rate limit<br>
 File converter
 
-<h2>Roadmap of releases</h2>
-Alsina -Settings menu, history of saved files (Jun end)<br>
-Meteor -Lyrics support (July-Aug)
+## Roadmap of releases<br>
+`Alsina` - Settings menu, history of saved files (Jun end)<br>
+`Meteor` - Lyrics support (July-Aug)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
@@ -96,39 +97,39 @@ Full settings menu
 
 
 
-<h2>Stream selection</h2>
+## Stream selection<br>
 If you have VLC not installed try using these combination.
 Recommended combination of audio and video codecs<br>
 MP4 -->   video: avc1 & audio: m4a <br>
-WEBM -->  video: webm & audio :webm <br>
+WEBM -->  video: webm & audio : webm <br>
 NOTE : Files are converted into MKV format since other combination are incompatible<br>
 
-<h4>Music</h4>
+### Music<br>
 mp3 64K, mp3 320K, m4a, wav, flac available<br>
 m4a, mp3 320K, flac includes thumbnail and Metadata<br>
 flac , wav formats takes more space than mp3 and m4a
 <br>
 
-<h4>Playlist</h4>
+### Playlist<br>
 Currently supports Youtube playlist<br>
-Enter playlist url select format(144p,240p...,mp3,m4a) hit download<br>
+Enter playlist url select format (144p,240p...,mp3,m4a) hit download<br>
 
 Download specific episodes in playlist<br>
 Playlist video items to download. Specify indices of the videos in the playlist separated by commas like:
-1,2,5,8" if you want to download videos indexed 1, 2, 5, 8 in the playlist. You can specify range: "1-3,7,10-13", it will download the videos at index 1, 2, 3, 7,10, 11, 12 and 13
+`1,2,5,8` if you want to download videos indexed 1, 2, 5, 8 in the playlist. You can specify range: `1-3,7,10-13`, it will download the videos at index 1, 2, 3, 7,10, 11, 12 and 13.<br>
+If nothing is specified whole playlist will be downloaded.
 
 
 [New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)<br>
 [Playlist demo](https://user-images.githubusercontent.com/55890376/168638995-183ba08b-91ac-4a72-a6c1-bf152d71c0ea.mp4)<br>
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
-<h2>⚠️ DEPRECATION WARNING</h2>
+## ⚠️ DEPRECATION WARNING
 Options menu will be discontinued in future.
 
-<h2>INSTALLATION</h2>
+## INSTALLATION
 Currently this is supported only on windows.<br>
-System Requirement : Windows 7 or above (x86 & x64)<br>
-<br>
+System Requirement : Windows 7 SP1 or above (x86 & x64)<br>
 
 |Installer Type |Name|
 |---------------|:---: |
@@ -147,21 +148,20 @@ System Requirement : Windows 7 or above (x86 & x64)<br>
 
 
 Click Launch button after downloading.<br>
-You are ready to go 🤘.<br>
+You are ready to go 🚀.<br>
 
-<h2>WORKING</h2>
-
+## WORKING
 yt-dlp (youtube-dl for older version) searches streams available in website and displays streams.
 *sometimes there may only be only video stream(s) available or no streams at all.Using VPN might help.*
 User selects streams and browse location *(default location in downloads could be changed)*.
 ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
-Pygame window displays live download progress(for older version).
+Pygame window displays live download progress (for older version).
 
-<h2>How development started and was carried?</h2>
+## How development started and was carried?<br>
 This project development started with wish to download youtube physics video(Center of mass) at 240p in March,2021 because 240p quality was managable and took decent amount of mobile data compared to 360p.
 Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.
-Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this  removing black console window at startup  was also challenging to fix without using --noconsole option.
+Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this  removing black console window at startup  was also challenging to fix without using `--noconsole` option.
 
 Threading helped execute many function at same time
 The function popens(cmd) never executed with object oriented programming (OOPs)
@@ -171,8 +171,8 @@ During this development period many bugs were encountered and fixed , many featu
 Need help to make this better so that anyone with poor internet connctivity can learn somthing.
 
 
-
-<br>[Supported Websites youtube-dl](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br>
+## Useful Links
+[Supported Websites youtube-dl](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br>
 [Supported websites yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)<br>
 [youtube-dl](https://github.com/ytdl-org/youtube-dl)<br>
 [yt-dlp](https://github.com/yt-dlp/yt-dlp)<br>
