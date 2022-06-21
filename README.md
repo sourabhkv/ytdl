@@ -32,7 +32,7 @@ plagiarize. USE AT YOUR RISK .**<br>
 |thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
 |Proxy support|yes|no|no|no|
-|Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|1 (YouTube only)|
+|Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|2|
 |Simultaneous downloads |upto 5|Pro|Pro|No|
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
