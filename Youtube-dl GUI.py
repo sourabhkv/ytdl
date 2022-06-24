@@ -13,6 +13,14 @@ import json, urllib
 import urllib.request
 import requests,datetime
 
+if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl"):
+    print("H")
+else:
+    os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl", exist_ok=False)
+    file = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'w+')
+    file.write(os.path.expanduser('~')+"\\Downloads")
+    file.close()
+
 def popens(cmd):
     startupinfo = subprocess.STARTUPINFO()
     startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
@@ -32,6 +40,9 @@ def browse():
         download_Directory=userloc
     e2.delete(0,END)
     e2.insert(0,download_Directory)
+    file = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'w+')
+    file.write(download_Directory)
+    file.close()
 
 def Resume():
     global ext12fx,ext11,btn
@@ -1825,7 +1836,10 @@ e1.bind("<Return>", on_change)
 
 e2 = Entry(root,bg="#A1A1A1",width=82,bd=0)
 e2.place(x=52,y=179)
-e2.insert(0, userloc )
+zzz = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'r')
+download_Directory=str(zzz.readlines()[0])
+e2.insert(0, download_Directory )
+zzz.close()
 
 
 ex=Entry(tab6,bg="#303135",width=55,bd=0,fg="white",font=('Microsoft Sans Serif',10))
