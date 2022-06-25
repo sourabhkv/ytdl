@@ -37,7 +37,9 @@ def browse():
     global download_Directory,ext12fx,ext11
     download_Directory = filedialog.askdirectory(initialdir="YOUR DIRECTORY PATH")
     if download_Directory=="":
-        download_Directory=userloc
+        file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'r')
+        download_Directory=file.readlines()[0]
+        file.close()
     e2.delete(0,END)
     e2.insert(0,download_Directory)
     file = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'w+')
