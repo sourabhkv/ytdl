@@ -86,7 +86,7 @@ Rate limit<br>
 File converter
 
 ## Roadmap of releases<br>
-`Alsina` - Settings menu, history of saved files (Jun end)<br>
+`Alsina` - Settings menu, history of saved files , auto update(Jun end)<br>
 `Meteor` - Lyrics support (July-Aug)
 
 <h2>Coming features</h2>
