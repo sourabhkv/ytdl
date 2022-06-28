@@ -126,6 +126,7 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 
 ## ⚠️ DEPRECATION WARNING
 Options menu will be discontinued in future.
+Playlist items selector will no longer be based on text input.
 
 ## INSTALLATION
 Currently this is supported only on windows.<br>
