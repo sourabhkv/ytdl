@@ -16,10 +16,16 @@ import requests,datetime
 if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl"):
     print("H")
 else:
-    os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl", exist_ok=False)
-    file = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'w+')
+    os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\ytdl", exist_ok=False)
+    file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'w+')
     file.write(os.path.expanduser('~')+"\\Downloads")
     file.close()
+    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'w+')
+    file2.close()
+    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'w+')
+    file3.close()
+    file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'w+')
+    file4.close()
 
 def popens(cmd):
     startupinfo = subprocess.STARTUPINFO()
