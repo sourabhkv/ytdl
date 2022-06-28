@@ -18,7 +18,7 @@ if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl"):
 else:
     os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\ytdl", exist_ok=False)
     file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'w+')
-    file.write(os.path.expanduser('~')+"\\Downloads")
+    file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
     file.close()
     file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'w+')
     file2.close()
