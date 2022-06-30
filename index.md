@@ -11,8 +11,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 |Web Installer |[Youtube-dl GUI Webinstaller.exe](https://github.com/sourabhkv/ytdl/blob/main/Youtube-dl%20Webinstaller.exe)|
 |Portable Installer|[Youtube-dl GUI Portable.zip](https://github.com/sourabhkv/ytdl/releases/latest/download/Youtube-dl.GUI.Portable.zip)|
 
-
-[Older releases](https://github.com/sourabhkv/ytdl/releases)
+Latest release `Alsina`<br>
+[Release notes](https://github.com/sourabhkv/ytdl/releases/tag/v22.0630.18)
 
 <h2>Special Features</h2>
 Captions support (YouTube)<br>
