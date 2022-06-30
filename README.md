@@ -12,7 +12,7 @@ plagiarize. USE AT YOUR RISK .**<br>
 [AtomicParsley](https://github.com/wez/atomicparsley) is licensed under [GPL-2.0 license](https://github.com/wez/atomicparsley/blob/master/COPYING)<br>
 [pygame](https://www.pygame.org/news) is licensed under  [GNU LGPL version 2.1](https://www.gnu.org/copyleft/lesser.html)
 
-![me at zoo](https://user-images.githubusercontent.com/55890376/172413009-69e1ee12-4eb0-4c48-ae19-d362af05d36b.png)
+![Me at the zoo](https://user-images.githubusercontent.com/55890376/176704621-85839e8b-22c5-4471-a9d3-e6ba5fe5d959.png)
 
 
 
