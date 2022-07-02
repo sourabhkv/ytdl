@@ -16,6 +16,7 @@ plagiarize. USE AT YOUR RISK .**<br>
 
 
 
+[More Screenshots](https://github.com/sourabhkv/ytdl/tree/main/screenshots)<br>
 [Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
 [Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
 
@@ -51,8 +52,6 @@ Screenshots of changes <br>
 
 ![ytdlgui3](https://user-images.githubusercontent.com/55890376/146916497-d6422aaa-ea57-4bdc-bf44-e336a1034aba.jpg)
 
-![new](https://user-images.githubusercontent.com/55890376/148672374-69d952c3-3cb8-4193-b537-dac05f2a74b2.png)
-
 
 
 
@@ -86,8 +85,8 @@ Rate limit<br>
 File converter
 
 ## Roadmap of releases<br>
-`Alsina` - Settings menu, history of saved files , auto update(Jun end)<br>
-`Meteor` - Lyrics support (July-Aug)
+:ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(Jun end)<br>
+:black_square_button:`Meteor` - Lyrics support (July-Aug)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
