@@ -12,8 +12,30 @@ import tkinter.font as tkFont
 import json, urllib
 import urllib.request
 import requests,datetime
+from datetime import datetime
 
-if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl"):
+def check_for_update(a):
+    r = requests.get(a)
+    if r.status_code == 200:
+        ver=""
+        title_re=re.compile(r'<title>(.*?)</title>', re.UNICODE )
+        match = title_re.search(r.text)
+        title=str(match.group(1))
+        for i in title:
+            if i.isdigit():
+                ver=ver+i
+        ver=int(ver)
+        f=open("version.txt","r")
+        curver=int(f.readlines()[0])
+        f.close()
+        if ver>curver:
+            messagebox.showinfo("Youtube-dl GUI","Updates available!")
+            os.system('powershell.exe powershell start updater.exe -v runas')
+
+t1xz = threading.Thread(target=check_for_update, args=("https://github.com/sourabhkv/ytdl/releases/latest",))
+t1xz.start()
+
+if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\ytdl"):
     print("H")
 else:
     os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\ytdl", exist_ok=False)
@@ -26,7 +48,7 @@ else:
     file3.close()
     file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'w+')
     file4.close()
-
+    
 def popens(cmd):
     startupinfo = subprocess.STARTUPINFO()
     startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
@@ -48,7 +70,7 @@ def browse():
         file.close()
     e2.delete(0,END)
     e2.insert(0,download_Directory)
-    file = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'w+')
+    file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'w+')
     file.write(download_Directory)
     file.close()
 
@@ -296,14 +318,14 @@ def about():
     streams5 = Label(root2, text = "paste URL hit go you will see available streams",bg="#303135",fg="white").place(x = 50,y = 85)
     streams6 = Label(root2, text = "browse to save location of file",bg="#303135",fg="white").place(x = 110,y = 110)
     streams7 = Label(root2, text = "*some websites may support video streams only or no streams",bg="#303135",fg="white").place(x = 5,y = 130)
-    streams6 = Label(root2, text = "Youtube-dl GUI VERISION 22.0605.14",bg="#303135",fg="white").place(x = 80,y = 163)
-    streams6 = Label(root2, text = "Changelog- select mp4, mkv , webm as output",bg="#303135",fg="white").place(x = 45,y = 180)
-    streams8 = Label(root2, text = "Proxy , rate limiter added",bg="#303135",fg="white").place(x = 110,y = 200)
-    streams8 = Label(root2, text = "Custom command added  , bug fixes",bg="#303135",fg="white").place(x=70,y=220)
+    streams6 = Label(root2, text = "Youtube-dl GUI VERISION 22.0702.20",bg="#303135",fg="white").place(x = 80,y = 163)
+    streams6 = Label(root2, text = "Changelog- added history , settings menu",bg="#303135",fg="white").place(x = 60,y = 180)
+    streams8 = Label(root2, text = "Auto updater added",bg="#303135",fg="white").place(x = 120,y = 200)
+    streams8 = Label(root2, text = "Custom command added  , bug fixes",bg="#303135",fg="white").place(x=80,y=220)
     ext13=Label(root2,text="**Websites not in list might also work",font=('Calibri', 10,'bold'),bg="#303135",fg="yellow")
     ext13.place(x=75,y=250)
     name7e = Label(root2, text = "More about this version",fg="#0574FF",cursor="hand2",bg="#303135")
-    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0305.19'))
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0702.20'))
     name7e.place(x = 115,y = 280)
     name7ex = Label(root2, text = "Click here to watch demo",font=('Arial', 11),fg="green",cursor="hand2",bg="#303135")
     name7ex.bind("<Button-1>", lambda e: link('https://www.youtube.com/watch?v=EZfyzXdNv9s'))
@@ -323,26 +345,64 @@ def about():
     root2.iconbitmap(r'logo.ico')
     root2.mainloop()
 
+def updateback():
+    t1 = threading.Thread(target=run_command2, args=("yt-dlp_x86 -U",))
+    t1.start()
+
+def cookieselect():
+    r = filedialog.askopenfilename()
+    cookiepath.delete(0,END)
+    cookiepath.insert(0,r)
+    root3.focus_force()
+    
+def save():
+    c1=optnentry.get()
+    c2=cookiepath.get()
+    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'w+')
+    file2.write(c2)
+    file2.close()
+    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'w+')
+    file3.write(c1)
+    file3.close()
+    root3.destroy()
+    messagebox.showinfo("Youtube-dl GUI", "Settings saved!")
+    
 def reco():
+    global root3
     root3 = tk.Tk()
     root3.configure(bg='#303135')
     root3.focus_force()
-    y=int((sh-350)/2)
-    x=int((sw-420)/2)
-    root3.geometry('%dx%d+%d+%d' % (420, 350, x, y))
+    y=int((sh-500)/2)-30
+    x=int((sw-500)/2)
+    root3.geometry('%dx%d+%d+%d' % (500, 500, x, y))
     root3.title('Youtube-dl GUI')
-    streams = Label(root3, text = "Youtube-dl GUI",font=('Arial', 16),bg="#303135",fg="white").place(x = 150,y = 8)
-    streams3 = Label(root3, text = "Recommended Streams selection/combination",bg="#303135",fg="white").place(x = 90,y = 40)
-    streams4 = Label(root3, text = "1. Video stream --> AVC1",bg="#303135",fg="white").place(x = 150,y = 60)
-    streams5 = Label(root3, text = "   Audio stream --> M4a",bg="#303135",fg="white").place(x = 152,y = 75)
-    streams6 = Label(root3, text = "2. Video stream -->  VP9",bg="#303135",fg="white").place(x = 150,y = 100)
-    streams7 = Label(root3, text = "   Audio stream --> Opus",bg="#303135",fg="white").place(x = 152,y = 115)
-    streams8 = Label(root3, text = "NOTE",font=('Arial', 12),fg="red",bg="#303135").place(x = 195,y = 150)
-    streams8 = Label(root3, text = "Choice 1 ONLY Supports subtitles and embeding metadata for video",bg="#303135",fg="white").place(x = 25,y = 170)
-    streams8 = Label(root3, text = "Music with Flac does not support album art and will take more space",bg="#303135",fg="white").place(x = 20,y = 190)
-    streams8 = Label(root3, text = "If other combination is selected then MKV format is downloaded",bg="#303135",fg="white").place(x = 30,y = 230)
-    streams8 = Label(root3, text = "If custom filename is left blank default name of file will be title of video",bg="#303135",fg="white").place(x = 15,y = 210)
-    streams8 = Label(root3, text = "sourabhkv",bg="#303135",fg="white").place(x = 190,y = 320)
+    Label(root3, text = "Settings",font=('Arial', 16),bg="#303135",fg="white").place(x = 210,y = 10)
+    Label(root3, text = "Default Download Options",bg="#303135",fg="white").place(x = 175,y = 50)
+    dd=Label(root3, text = "Update backend",fg="#0574FF",cursor="hand2",bg="#303135")
+    dd.place(x = 390,y = 355)
+    dd.bind("<Button-1>", lambda e: updateback())
+    ttk.Button(root3, text ="Save", command = save).place(x=215,y=256)
+    global cookiepath,optnentry
+    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    data1=file2.readlines()
+    file2.close()
+    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    data2=file3.readlines()
+    file3.close()
+    optnentry=ttk.Entry(root3,width=74)
+    cookiepath=ttk.Entry(root3,width=71)
+    if len(data2)!=0:
+        optnentry.insert(0,data2[0])
+    elif len(data1)!=0:
+        cookiepath.insert(0,data1[0])
+    optnentry.place(x=20,y=78)
+    #cookiepath.insert(0,data3)
+    cookiepath.place(x=20,y=158)
+    Button(root3, text =".", command = cookieselect).place(x=455,y=156)
+    Label(root3, text = "Path to Cookie file",bg="#303135",fg="white").place(x = 195,y = 130)
+    name75 = Label(root3, text = "Report issue",fg="#0574FF",cursor="hand2",bg="#303135")
+    name75.place(x = 15,y = 355)
+    name75.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/issues'))
     root3.resizable(False, False)
     root3.iconbitmap(r'logo.ico')
     root3.mainloop()
@@ -866,14 +926,43 @@ def srch(url):
     btn = Button(root,image=img9, text="Download",command=checkcmbo,bd=0,relief="flat",bg="#202020",activebackground="#202020",highlightthickness = 0,cursor="hand2")
     btn.bind('<Enter>',lambda a:changer_red(btn,imgdwred))
     btn.bind('<Leave>',lambda a:changer_blue(btn,img9))
-    btn.place(x=800,y=506)
+    btn.place(x=805,y=506)
 
+def history():
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    url=e1.get()
+    try:
+        title=str(result1)
+    except:
+        if len(e3.get())!=0:
+            title=e3.get()
+        else:
+            title=""
+    file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'a')
+    fmt=cmbmus.get()
+    location=download_Directory
+    log=title+"^"+url+"^"+dt_string+"^"+location+"^"+"\n"
+    try:
+        file4.write(log)
+    except:
+        pass
+    file4.close()
     
 def run_command4(cmd):
     #print(cmd)
+    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    if len(file2.readlines())!=0:
+        cmd=cmd+" --cookies "+file2.readlines()[0]
+    file2.close()
+    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    if len(file3.readlines())!=0:
+        cmd=cmd+" "+file3.readlines()[0]
+
+    file3.close()
     global ext11,ext12fx,ext17go
-    ext12fx.place(x=690,y=502)
-    ext11.place(x=885,y=502)
+    ext12fx.place(x=690+20,y=506)
+    ext11.place(x=885+20,y=506)
     btn['state'] = DISABLED
     ext17go['state']=DISABLED
     root.title("Youtube-dl GUI  [Downloading...]")
@@ -896,6 +985,8 @@ def run_command4(cmd):
     if "\n" in zen:
         status.set(" Download Complete")
         root.title("Youtube-dl GUI")
+        history()
+        refresh()
         btn['state'] = NORMAL
         #ext17go['state']=NORMAL
         ext12fx.destroy()
@@ -921,9 +1012,17 @@ def run_command4(cmd):
     
 def run_command4pl(cmd):
     #print(cmd)
+    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    if len(file2.readlines())!=0:
+        cmd=cmd+" --cookies "+file2.readlines()[0]
+    file2.close()
+    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    if len(file3.readlines())!=0:
+        cmd=cmd+" "+file3.readlines()[0]
+    file3.close()
     global ext11,ext12fx
-    ext12fx.place(x=690+15,y=506)
-    ext11.place(x=900,y=506)
+    ext12fx.place(x=690+20,y=506)
+    ext11.place(x=885+20,y=506)
     progress=""
     btn['state'] = DISABLED
     ext17go['state']=DISABLED
@@ -949,6 +1048,14 @@ def run_command4pl(cmd):
 
 def run_command4multi(cmd,gg):
     #print(cmd)
+    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    if len(file2.readlines())!=0:
+        cmd=cmd+" --cookies "+file2.readlines()[0]
+    file2.close()
+    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    if len(file3.readlines())!=0:
+        cmd=cmd+" "+file3.readlines()[0]
+    file3.close()
     btn['state'] = DISABLED
     ext17go['state']=DISABLED
     startupinfo = subprocess.STARTUPINFO()
@@ -1067,13 +1174,14 @@ def multi(url_lst):
     #print(url1,url2,url3,url4,url5)
     #print(len(url1),len(url2),len(url3),len(url4),len(url5))
     from pytube import YouTube
+    import time
     data=""
 
     if len(url1)!=0:
         yt=YouTube(url1)
         title=yt.title
         lengthx=yt.length
-        lengthx=str(datetime.timedelta(seconds = lengthx))
+        lengthx=str(time.strftime('%H:%M:%S', time.gmtime(lengthx)))
         data="1. "+url1+"\n"+str(title)+"\nDuration : "+lengthx
         if len(title)>25:
             title=title[:23]+".."
@@ -1085,7 +1193,7 @@ def multi(url_lst):
         yt=YouTube(url2)
         title=yt.title
         lengthx=yt.length
-        lengthx=str(datetime.timedelta(seconds = lengthx))
+        lengthx=str(time.strftime('%H:%M:%S', time.gmtime(lengthx)))
         data=data+"\n\n2. "+url2+"\n"+str(title)+"\nDuration : "+lengthx
         if len(title)>25:
             title=title[:23]+".."
@@ -1097,7 +1205,7 @@ def multi(url_lst):
         yt=YouTube(url3)
         title=yt.title
         lengthx=yt.length
-        lengthx=str(datetime.timedelta(seconds = lengthx))
+        lengthx=str(time.strftime('%H:%M:%S', time.gmtime(lengthx)))
         data=data+"\n\n3. "+url3+"\n"+str(title)+"\nDuration : "+lengthx
         if len(title)>25:
             title=title[:23]+".."
@@ -1109,7 +1217,7 @@ def multi(url_lst):
         yt=YouTube(url4)
         title=yt.title
         lengthx=yt.length
-        lengthx=str(datetime.timedelta(seconds = lengthx))
+        lengthx=str(time.strftime('%H:%M:%S', time.gmtime(lengthx)))
         data=data+"\n\n4. "+url4+"\n"+str(title)+"\nDuration : "+lengthx
         if len(title)>25:
             title=title[:23]+".."
@@ -1121,7 +1229,7 @@ def multi(url_lst):
         yt=YouTube(url5)
         title=yt.title
         lengthx=yt.length
-        lengthx=str(datetime.timedelta(seconds = lengthx))
+        lengthx=str(time.strftime('%H:%M:%S', time.gmtime(lengthx)))
         data=data+"\n\n5. "+url5+"\n"+str(title)+"\nDuration : "+lengthx
         if len(title)>25:
             title=title[:23]+".."
@@ -1320,6 +1428,7 @@ def checkcmbo():
     cpt=userloc+"\\Downloads"
     user=(os.environ['USERPROFILE'])
     user=user.replace("\\","/")
+    print(download_Directory)
     try:
         loc=download_Directory
         if "C:" in loc:
@@ -1366,7 +1475,7 @@ def checkcmbo():
         customname=customname.replace("\\","_")
         output="~"+loc+"/"+customname+".%(ext)s"
 
-    global ext12fx,ext11
+    global ext12fx,ext11,a
     ext12fx=Button(root,text="Pause",bd=0,image=img10,command= pause,activebackground="#202020",highlightthickness = 0)
     ext11=Button(root,text="Cancel",bd=0,image=img12,command=lambda :cmder(ext11,ext12fx),activebackground="#202020",highlightthickness = 0)
 
@@ -1388,6 +1497,8 @@ def checkcmbo():
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
         a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\"  --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o {} "+url).format(advvid.split()[0],advaud.split()[0],output)
+        #a=a+" --download-sections *1:11-4:40 --newline"
+        #print("download section")
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
@@ -1457,6 +1568,7 @@ def checkcmbo():
             a=a+" --merge-output-format mkv"
             tv2w = threading.Thread(target=run_command4, args=(a,))
             tv2w.start()
+        print(a)
     else:
         messagebox.showerror("Youtube-dl GUI","More than one option detected \nTry to Clear unnecessary option(s) \nSelect one option")
         cmbbsc.set("")
@@ -1533,6 +1645,7 @@ def run_command2(cmd):
     p.wait()
     root.title("Youtube-dl GUI")
     messagebox.showinfo("Youtube-dl GUI","yt-dlp \nUpdated!")
+    root3.focus_force()
 
 def run_command4conv(cmd,namez):
     global namewa
@@ -1712,6 +1825,7 @@ tab3 = Frame(tabControl,background="#525252")
 tab4 = Frame(tabControl,background="#525252")
 tab5 = Frame(tabControl,background="#525252")
 tab6 = Frame(tabControl,background="#525252")
+tab7 = Frame(tabControl,background="#525252")
 streamsvid = Label(tab5,text="Convert From",bg="#525252",fg="white").place(x = 15,y = 10)
 btnz = ttk.Button(tab5, text="Browse File",command=convert)
 btnz.place(x=135,y=33)
@@ -1722,6 +1836,7 @@ tabControl.add(tab3, text ='  Playlist  ')
 tabControl.add(tab4, text =' Multi video ')
 tabControl.add(tab5, text ='  Converter ')
 tabControl.add(tab6, text ='  Custom command ')
+tabControl.add(tab7, text =' History ')
 tabControl.place(x=35,y=215)#275
 
 ccx = ttk.Combobox(tab5, width="12", values=convertfrom,state="readonly")
@@ -1736,11 +1851,89 @@ name45za.bind("<Button-1>", lambda g: clearconv())
 
 from tkinter import scrolledtext
 s=Label(tab6, text="yt-dlp ARGS",fg="white",bg="#525252").place(x=8,y=10)
-text_area = scrolledtext.ScrolledText(tab6, wrap=tk.WORD,width=83, height=11,font=('Microsoft Sans Serif',9),background="#404040",fg="white",highlightthickness=0,relief=FLAT)
-  
+text_area = scrolledtext.ScrolledText(tab6, wrap=tk.WORD,width=83, height=11,font=('Microsoft Sans Serif',9),background="#404040",fg="white",highlightthickness=0,relief=FLAT)  
 text_area.grid(column=0, row=2, pady=40, padx=10)
+#history
+def clearhistory():
+    answer = messagebox.askquestion('Youtube-dl GUI','Are you sure that you want to clear history?')
+    if answer=="yes":
+        file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'w+')
+        file4.write("")
+        file4.close()
+        refresh()
+    
+def sel(a):
+    selected=my_game.focus()
+    val=my_game.item(selected,'values')
+    print(val)
+    files=os.listdir(val[3])
+    for i in range(0,len(files)):
+        if val[0] in files[i]:
+            print(val[-1]+"/"+files[i])
+            try:#bug : work for ascii filenames
+                if ".vtt" not in files[i]:
+                    os.startfile(val[-1]+"/"+files[i])
+                    break
+            except:
+                messagebox.showerror("Youtube-dl GUI","File not found")
+                break
+
+def cl(a):
+    sel(a)
+
+def refresh():
+    global my_game,verscrlbar
+    try:
+        my_game.destroy()
+        verscrlbar.destroy()
+    except:
+        pass
+    my_game = ttk.Treeview(tab7,height=9)
+    my_game.bind("<Double-Button-1>", lambda g: cl(my_game))
+    verscrlbar = ttk.Scrollbar(tab7,orient ="vertical",command = my_game.yview)
+    verscrlbar.pack(side ='right', fill ='x')
+    my_game.configure(xscrollcommand = verscrlbar.set)
+    my_game['columns'] = ('Title', 'URL', 'Date time', 'Location')
+    my_game.column("#0", width=0,  stretch=NO)
+    my_game.column("Title",anchor=CENTER, width=180)
+    my_game.column("URL",anchor=CENTER,width=120)
+    my_game.column("Date time",anchor=CENTER,width=120)
+    my_game.column("Location",anchor=CENTER,width=180)
+    my_game.heading("#0",text="",anchor=CENTER)
+    my_game.heading("Title",text="Title",anchor=CENTER)
+    my_game.heading("URL",text="URL",anchor=CENTER)
+    my_game.heading("Date time",text="Date time",anchor=CENTER)
+    my_game.heading("Location",text="Location",anchor=CENTER)
+    file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'r')
+    log=file4.readlines()
+    file4.close()
+    my_game.pack()
+    if len(log)!=0:
+        for i in range(-1,-1-len(log),-1):
+            zc=log[i].split("^")[0]
+            zc=zc.replace("?","")
+            zc=zc.replace("<","")
+            zc=zc.replace(">","")
+            zc=zc.replace("|","")
+            zc=zc.replace(":","")
+            zc=zc.replace("*","")
+            zc=zc.replace("/","")
+            zc=zc.replace("\\","")
+            zv=log[i].split("^")[1]
+            zb=log[i].split("^")[2]
+            zn=log[i].split("^")[-2]
+            my_game.insert(parent='',index='end',iid=i,text='',values=(zc,zv,zb,zn))
+            
 
 
+refresh()
+name3r = Label(tab7, text="Refresh",bg="#525252",fg="orange",cursor='hand2')
+name3r.bind("<Button-1>", lambda e: refresh())
+name3r.place(x=525,y=210)
+name4r = Label(tab7, text="Clear history",bg="#525252",fg="yellow",cursor='hand2')
+name4r.bind("<Button-1>", lambda e: clearhistory())
+name4r.place(x=5,y=210)
+Label(tab7, text="Double click to open files",bg="#525252",fg="white").place(x=230,y=210)
 #--------------------------------------------------------------------------------------------------------------
 p1=StringVar()
 p2=StringVar()
@@ -1844,7 +2037,7 @@ e1.bind("<Return>", on_change)
 
 e2 = Entry(root,bg="#A1A1A1",width=82,bd=0)
 e2.place(x=52,y=179)
-zzz = open(os.path.expanduser('~')+"\\AppData\\Local\\Temp\\ytdl\\loc.txt",'r')
+zzz = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'r')
 download_Directory=str(zzz.readlines()[0])
 e2.insert(0, download_Directory )
 zzz.close()
@@ -1919,11 +2112,11 @@ name11.bind('<Enter>',lambda a:changer_red(name11,supd))
 name11.bind('<Leave>',lambda a:changer_blue(name11,img7))
 name11.place(x = 420,y = 510)
 
-img14 = PhotoImage(file = f"img14.png")
+img14 = PhotoImage(file = f"settings.png")
 name7 = Button(root, text = "Options",fg="blue",bd=0,bg="#383838",image=img14,command=lambda : reco(),activebackground='#383838')
 name7.bind('<Enter>',lambda a:changer_red(name7,optionsd))
 name7.bind('<Leave>',lambda a:changer_blue(name7,img14))
-name7.place(x = 585,y = 502+8)
+name7.place(x = 585,y = 510)
 
 image = Image.open("logo.png")
 img9 = PhotoImage(file = "img9.png")
@@ -1938,7 +2131,7 @@ updated=PhotoImage(file="updatedark.png")
 githubd=PhotoImage(file="githubdark.png")
 terminald=PhotoImage(file="terminaldark.png")
 supd=PhotoImage(file="supportedwebsitesdark.png")
-optionsd=PhotoImage(file="optionsdark.png")
+optionsd=PhotoImage(file="settingsdark.png")
 imgclearred = PhotoImage(file="clearred.png")
 imgpastered = PhotoImage(file="pastered.png")
 imgbrowred = PhotoImage(file="browred.png")
