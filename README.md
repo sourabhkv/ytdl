@@ -138,6 +138,7 @@ System Requirement : Windows 7 SP1 or above (x86 & x64)<br>
 |Portable Installer|[Youtube-dl GUI Portable.zip](https://github.com/sourabhkv/ytdl/releases/latest/download/Youtube-dl.GUI.Portable.zip)|
 
 ⚠️ Note : Some browsers may block this download because of lack of certificate , select keep anyway
+        : Updates will be delivered automatically. Latest 2 releases will be supported for updates.
 
 
 
@@ -149,6 +150,31 @@ System Requirement : Windows 7 SP1 or above (x86 & x64)<br>
 
 Click Launch button after downloading.<br>
 You are ready to go 🚀.<br>
+
+## FAQ
+**Youtube-dl GUI not installing**<br>
+*Click on more info then run anyway.*<br>
+<br>
+![IMG-20210412-WA0007](https://user-images.githubusercontent.com/55890376/177182681-ecd68e0c-c8f8-433f-978b-70f6cbb7aa84.jpg)<br>
+
+**URL not loading**<br>
+*Sometime it takes 1-2 minute to load URL try restarting router or reconnecting internet.*<br>
+
+**How to use multi video download?**<br>
+*It only supports 5 YouTube url at max (only video playlist excluded). Paste 1st URL then copy 2nd URL then paste spaces will be automatically added. If using keyboard add spaces manually between each URL*.<br>
+
+**How to download YouTube playlist?**<br>
+*Paste Youtube URL of form `https://www.youtube.com/playlist?list=<playlist-id>`*<br>
+
+**How to download specific videos in playlist?**<br>
+*`1,2,5,8` if you want to download videos indexed 1, 2, 5, 8 in the playlist.<br>
+You can specify range: `1-3,7,10-13`, it will download the videos at index 1, 2, 3, 7,10, 11, 12 and 13.<br>
+If nothing is specified whole playlist will be downloaded.*<br>
+
+**How to download music (MP3,M4A,WAV,FLAC) ?**<br>
+*After loading URL in `basic` tab click on checkbox which will enable music formats. Select your desired format and download.*
+
+
 
 ## WORKING
 yt-dlp (youtube-dl for older version) searches streams available in website and displays streams.
