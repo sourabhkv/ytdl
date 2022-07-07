@@ -173,6 +173,7 @@ If nothing is specified whole playlist will be downloaded.*<br>
 
 **How to download music (MP3,M4A,WAV,FLAC) ?**<br>
 *After loading URL in `basic` tab click on checkbox which will enable music formats. Select your desired format and download.*
+[screenshot](https://github.com/sourabhkv/ytdl/blob/main/screenshots/ytdl2.png)
 
 
 
