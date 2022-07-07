@@ -29,7 +29,7 @@ def check_for_update(a):
         curver=int(f.readlines()[0])
         f.close()
         if ver>curver:
-            messagebox.showinfo("Youtube-dl GUI","Updates available!")
+            messagebox.showinfo("Youtube-dl GUI","Updates available!\n\nAdmin privilage required\n\nThis version will loose support if not updated")
             os.system('powershell.exe powershell start updater.exe -v runas')
 
 t1xz = threading.Thread(target=check_for_update, args=("https://github.com/sourabhkv/ytdl/releases/latest",))
