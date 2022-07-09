@@ -1,6 +1,7 @@
 # <br>ytdl ![output-onlinepngtools](https://user-images.githubusercontent.com/55890376/147201322-7cb830c8-9a47-4bbb-ad0b-d79d4c09b58a.png)
 ![GitHub all releases](https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub) ![GitHub repo size](https://img.shields.io/github/repo-size/sourabhkv/ytdl) <a href="https://github.com/sourabhkv/ytdl/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/sourabhkv/ytdl"></a>
 <a href="https://github.com/sourabhkv/ytdl/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/sourabhkv/ytdl"></a>
+<img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCdr0BYy90kbqE2AN4GU2-oQ?style=social">
 <a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a>
 
 
