@@ -1,12 +1,15 @@
 # <br>ytdl ![output-onlinepngtools](https://user-images.githubusercontent.com/55890376/147201322-7cb830c8-9a47-4bbb-ad0b-d79d4c09b58a.png)
 ![GitHub all releases](https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub) <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/downloads/sourabhkv/ytdl/latest/total?logo=github"> ![GitHub repo size](https://img.shields.io/github/repo-size/sourabhkv/ytdl) <a href="https://github.com/sourabhkv/ytdl/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/sourabhkv/ytdl"></a>
-<a href="https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.exe"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/sourabhkv/ytdl?color=violet&label=Download%20version&logo=windows"></a>
 <a href="https://www.youtube.com/channel/UCdr0BYy90kbqE2AN4GU2-oQ/featured"><img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCdr0BYy90kbqE2AN4GU2-oQ?style=social"></a>
-<a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a>
-
+<a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a> ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=flat&logo=c-sharp&logoColor=white) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white)
+<p align="center">
+<a href="https://sourabhkv.github.io/ytdl/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/sourabhkv/ytdl?color=violet&label=Download%20latest&logo=windows&logoColor=%230574FF&style=for-the-badge"></a>
+</p>
 
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.**This project is only for educational purpose DO NOT SELL .DO NOT 
 plagiarize. USE AT YOUR RISK .**<br>
+
+
 
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) and [youtube-dl](https://github.com/ytdl-org/youtube-dl) licensed under [The Unlicense](https://unlicense.org/)<br>
 [FFmpeg](https://ffmpeg.org/) is licensed under the [GNU Lesser General Public License (LGPL)](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html) version 2.1 or later.<br>
@@ -20,6 +23,7 @@ plagiarize. USE AT YOUR RISK .**<br>
 [More Screenshots](https://github.com/sourabhkv/ytdl/tree/main/screenshots)<br>
 [Installation demo](https://www.youtube.com/watch?v=PUY7VNR4Ql8)<br>
 [Full demo](https://www.youtube.com/watch?v=EZfyzXdNv9s)<br>
+
 
 | Features⬇️\Application➡️ | [Ytdl](https://github.com/sourabhkv/ytdl) | [4k downlader](https://www.4kdownload.com/products/videodownloader/10) | [YTD Downloader](https://www.ytddownloader.com/) |[yt1s website](https://yt1s.com/en300)|
 |:---: |:---: |:---: |:---: |:---: |
@@ -40,7 +44,6 @@ plagiarize. USE AT YOUR RISK .**<br>
 |Metadata|yes|no|no|no|
 |Updates|yes|yes|yes|-|
 |Size of application|37 Mib|78.5 Mib|13.7 Mib|-|
-
 
 
 
