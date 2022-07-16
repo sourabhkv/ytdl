@@ -5,8 +5,9 @@
 <p align="center">
 <a href="https://sourabhkv.github.io/ytdl/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/sourabhkv/ytdl?color=violet&label=Download%20latest&logo=windows&logoColor=%230574FF&style=for-the-badge"></a>
 </p>
-A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio.* This project is only for educational purpose DO NOT SELL .DO NOT 
-plagiarize. USE AT YOUR RISK . *<br>
+
+A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. **This project is only for educational purpose DO NOT SELL .DO NOT 
+plagiarize. USE AT YOUR RISK .**<br>
 
 
 
@@ -182,7 +183,7 @@ NOTE for Windows 7 users<br>
 ![image](https://user-images.githubusercontent.com/55890376/178449538-824d6501-5404-47b0-a2db-f9bd14b0c999.png)<br>
 <br>
 Source python.org<br>
-This project is based on python 3.8.10. In future this may use python 3.10+ which is not supported in Windows 7.<br>
+This project is based on python 3.8.10. In future this may use python 3.9+ which is not supported in Windows 7.<br>
 
 ## WORKING
 yt-dlp (youtube-dl for older version) searches streams available in website and displays streams.
