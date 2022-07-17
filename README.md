@@ -6,8 +6,8 @@
 <a href="https://sourabhkv.github.io/ytdl/"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/sourabhkv/ytdl?color=violet&label=Download%20latest&logo=windows&logoColor=%230574FF&style=for-the-badge"></a>
 </p>
 
-A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. **This project is only for educational purpose DO NOT SELL .DO NOT 
-plagiarize. USE AT YOUR RISK .**<br>
+A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. **This project is only for educational purpose DO NOT SELL . DO NOT 
+plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 
 
 
