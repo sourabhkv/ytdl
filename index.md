@@ -1,9 +1,10 @@
 ## Welcome to Downloads page
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. This project is only for **educational purpose** **DO NOT SELL**. **USE AT YOUR RISK** .
 <br>
-<br>![GitHub all releases](https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub) ![GitHub repo size](https://img.shields.io/github/repo-size/sourabhkv/ytdl) <a href="https://github.com/sourabhkv/ytdl/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/sourabhkv/ytdl"></a>
-<a href="https://github.com/sourabhkv/ytdl/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/sourabhkv/ytdl"></a>
-<a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a>
+
+![GitHub all releases](https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub) <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/downloads/sourabhkv/ytdl/latest/total?logo=github"> <a href="https://github.com/sourabhkv/ytdl/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/sourabhkv/ytdl"></a>
+<a href="https://www.youtube.com/channel/UCdr0BYy90kbqE2AN4GU2-oQ/featured"><img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCdr0BYy90kbqE2AN4GU2-oQ?style=social"></a>
+<a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a> ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54) ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=flat&logo=c-sharp&logoColor=white) ![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white)
 
 |Installer Type |Name|
 |---------------|:---: |
@@ -11,8 +12,8 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 |Web Installer |[Youtube-dl GUI Webinstaller.exe](https://github.com/sourabhkv/ytdl/blob/main/Youtube-dl%20Webinstaller.exe)|
 |Portable Installer|[Youtube-dl GUI Portable.zip](https://github.com/sourabhkv/ytdl/releases/latest/download/Youtube-dl.GUI.Portable.zip)|
 
-Latest release `Alsina`<br>
-[Release notes](https://github.com/sourabhkv/ytdl/releases/tag/v22.0630.18)
+Latest release [`Alsina 2`](https://github.com/sourabhkv/ytdl/releases/latest)<br>
+[Screenshots](https://github.com/sourabhkv/ytdl/tree/main/screenshots)
 
 <h2>Special Features</h2>
 Captions support (YouTube)<br>
