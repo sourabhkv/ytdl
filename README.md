@@ -89,7 +89,7 @@ Rate limit<br>
 File converter
 
 ## Roadmap of releases<br>
-:ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(Jun end)<br>
+:ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(June end)<br>
 :black_square_button:`Meteor` - Lyrics support (July-Aug)
 
 <h2>Coming features</h2>
@@ -128,8 +128,9 @@ If nothing is specified whole playlist will be downloaded.
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
 ## ⚠️ DEPRECATION WARNING
-Options menu will be discontinued in future.
+Options menu will be discontinued in future.(DISCONTINUED)
 Playlist items selector will no longer be based on text input.
+Direct terminal option will be shifted to custom command section.
 
 ## INSTALLATION
 Currently this is supported only on windows.<br>
