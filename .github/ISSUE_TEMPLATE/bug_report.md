@@ -11,7 +11,7 @@ assignees: ''
 A clear and concise description of what the bug is.
 Mention details
 1. Windows version
-2. Youtube-dl GUI version (only latest version)
+2. Youtube-dl GUI version
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
