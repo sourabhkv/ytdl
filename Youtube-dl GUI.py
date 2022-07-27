@@ -6,7 +6,6 @@ from PIL import Image, ImageTk
 from tkinter.constants import DISABLED, NORMAL
 import os
 from yt_dlp import YoutubeDL
-#from yt_dlp.postprocessor import MetadataParserPP
 import subprocess,threading
 import tkinter.font as tkFont
 import json, urllib
@@ -29,8 +28,9 @@ def check_for_update(a):
         curver=int(f.readlines()[0])
         f.close()
         if ver>curver:
-            messagebox.showinfo("Youtube-dl GUI","Updates available!\n\nAdmin privilage required\n\nThis version will loose support if not updated")
-            os.system('powershell.exe powershell start updater.exe -v runas')
+            res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)+"\nLatest : "+str(ver)+"\n\nDownload update?")
+            if res=="yes":
+                os.system('powershell.exe powershell start updater.exe -v runas')
 
 t1xz = threading.Thread(target=check_for_update, args=("https://github.com/sourabhkv/ytdl/releases/latest",))
 t1xz.start()
