@@ -2081,6 +2081,9 @@ name75.bind("<Button-1>", lambda e: link('https://github.com/yt-dlp/yt-dlp#usage
 name75 = Label(tab6, text = "eg. -F <URL>",fg="white",bg="#525252")
 name75.place(x = 535,y = 210)
 
+name75 = Label(tab6, text = "Terminal",fg="cyan",cursor="hand2",bg="#525252")
+name75.place(x = 290,y = 210)
+name75.bind("<Button-1>", lambda e : terminal())
 
 img3 = PhotoImage(file = f"img3.png")
 name7z = Button(root, text = "About",fg="blue",bd=0,bg="#383838",image=img3,command=lambda : about(),activebackground='#383838')
