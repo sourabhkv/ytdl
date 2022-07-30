@@ -9,7 +9,6 @@ def popens(cmd):
 
 t2 = threading.Thread(target=popens, args=("yt-dlp_x86 -U",))
 t2.start()
-os.system('del /f "script.bat"')
 ver=""
 url='https://github.com/sourabhkv/ytdl/releases/latest'
 r = requests.get(url)
@@ -27,12 +26,12 @@ s.close()
 if curver==ver or curver>ver:
     os.system('PowerShell -Command "Add-Type -AssemblyName PresentationFramework;[System.Windows.MessageBox]::Show(\'Up to date\')"')
 elif ver>curver:
+    os.system('del /f "script.bat"')
     try:
         popens("taskkill /F /IM yt-dlp_x86.exe")
     except:
         pass
     os.system('taskkill /F /IM "Youtube-dl GUI.exe"')
-    #popens("del /f D:\\vx\\v3\\files\\dist\\Youtube-dl GUIYoutube-dl GUI.exe")
     os.system('del /f "Youtube-dl GUI.exe"')
     print("downloading update")
     r = requests.get(url2)
