@@ -93,7 +93,7 @@ File converter
 
 ## Roadmap of releases<br>
 :ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(June end)<br>
-:black_square_button:`Meteor` - Lyrics support (July-Aug)
+:black_square_button:`Meteor` - Lyrics support , updater changes stable(July-Aug)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
@@ -133,7 +133,8 @@ Older version [watch demo here](https://user-images.githubusercontent.com/558903
 ## ⚠️ DEPRECATION WARNING
 Options menu will be discontinued in future.(DISCONTINUED)
 Playlist items selector will no longer be based on text input.
-Direct terminal option will be shifted to custom command section.
+Direct terminal option will be shifted to custom command section.<br>
+Full installer will not use program files instead will use `{localappdata}` dir, it will remove admin requirement. Program folder will not be used in future. To update uninstall existing version and install August version when available (Updater will not work for older version).
 
 ## INSTALLATION
 Currently this is supported only on windows.<br>
