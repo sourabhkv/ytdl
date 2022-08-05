@@ -2167,4 +2167,5 @@ ext17go.place(x=570,y=96)
 
 root.iconbitmap(r'logo.ico')
 root.title('Youtube-dl GUI')
+messagebox.showinfo("Youtube-dl GUI","This version is out of support & will not get future updates.\nTo get latest version uninstall this version & Check on 8 August or later : https://sourabhkv.github.io/ytdl")
 root.mainloop()
