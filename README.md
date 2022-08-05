@@ -213,6 +213,16 @@ After june,2021 there was no update to youtube-dl. Development stopped for 3 mon
 During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...
 Need help to make this better so that anyone with poor internet connctivity can learn somthing.
 
+## If you have liked my work and want to support please consider donating
+```
+PhonePe UPI ID : sourabhkv96@ibl 
+```
+**Want Early build access?**<br>
+<br>
+<a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=flate&logo=telegram&logoColor=white"></a><br>
+
+
+⚠️ Do note these builds may be buggy and features in this builds may or may not go to stable release.
 
 ## Useful Links
 [Supported Websites youtube-dl](http://ytdl-org.github.io/youtube-dl/supportedsites.html)<br>
