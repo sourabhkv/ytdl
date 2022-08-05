@@ -41,7 +41,7 @@ plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 |thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
 |Proxy support|yes|no|no|no|
-|Supported website|[1500+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|2|
+|Supported website|[1600+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|2|
 |Simultaneous downloads |upto 5|Pro|Pro|No|
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
@@ -93,6 +93,7 @@ File converter
 
 ## Roadmap of releases<br>
 :ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(June end)<br>
+:ballot_box_with_check:`Transition release` - Help users with old version to migrate to Meteor release<br>
 :black_square_button:`Meteor` - Lyrics support , updater changes stable(July-Aug)
 
 <h2>Coming features</h2>
