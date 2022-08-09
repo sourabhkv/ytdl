@@ -9,14 +9,14 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 <a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
 </p>
 
-Latest release [`Meteor`](https://github.com/sourabhkv/ytdl/releases/latest)<br>
+
 |Installer Type |Name|
 |---------------|:---: |
 |Full Installer|[Youtube-dl GUI.exe](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.zip)|
 |Web Installer |[Youtube-dl GUI Webinstaller.exe](https://github.com/sourabhkv/ytdl/blob/main/Youtube-dl%20Webinstaller.exe)|
 |Portable Installer|[Youtube-dl GUI Portable.zip](https://github.com/sourabhkv/ytdl/releases/latest/download/Youtube-dl.GUI.Portable.zip)|
 
-
+Latest release [`Meteor`](https://github.com/sourabhkv/ytdl/releases/latest)<br>
 [Screenshots](https://github.com/sourabhkv/ytdl/tree/main/screenshots)
 
 <h2>Special Features</h2>
