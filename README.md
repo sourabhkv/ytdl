@@ -19,7 +19,8 @@ plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 [AtomicParsley](https://github.com/wez/atomicparsley) is licensed under [GPL-2.0 license](https://github.com/wez/atomicparsley/blob/master/COPYING)<br>
 [pygame](https://www.pygame.org/news) is licensed under  [GNU LGPL version 2.1](https://www.gnu.org/copyleft/lesser.html)
 
-![Me at the zoo](https://user-images.githubusercontent.com/55890376/176704621-85839e8b-22c5-4471-a9d3-e6ba5fe5d959.png)
+![Me at the zoo](https://user-images.githubusercontent.com/55890376/183611347-cc46235d-ce51-464b-9373-45d666b9b493.png)
+
 
 
 
