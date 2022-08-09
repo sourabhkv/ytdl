@@ -217,9 +217,15 @@ Need help to make this better so that anyone with poor internet connctivity can 
 ```
 PhonePe UPI ID : sourabhkv96@ibl 
 ```
+<p align="center">
+<a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://user-images.githubusercontent.com/55890376/183584964-2a998011-f2d4-471a-ab28-a0b39d96edc7.png">
+
+
+
 **Want Early build access?**<br>
 <br>
-<a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=flate&logo=telegram&logoColor=white"></a><br>
+<a href="https://t.me/sourabhkv"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=flate&logo=telegram&logoColor=white"></a><br>
+</p>
 
 
 ⚠️ Do note these builds may be buggy and features in this builds may or may not go to stable release.
