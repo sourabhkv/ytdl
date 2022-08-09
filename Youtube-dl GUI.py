@@ -14,29 +14,49 @@ import requests,datetime
 from datetime import datetime
 
 def check_for_update(a):
-    r = requests.get(a)
-    if r.status_code == 200:
-        ver=""
-        title_re=re.compile(r'<title>(.*?)</title>', re.UNICODE )
-        match = title_re.search(r.text)
-        title=str(match.group(1))
-        for i in title:
-            if i.isdigit():
-                ver=ver+i
-        ver=int(ver)
-        f=open("version.txt","r")
-        curver=int(f.readlines()[0])
-        f.close()
-        if ver>curver:
-            res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)+"\nLatest : "+str(ver)+"\n\nDownload update?")
-            if res=="yes":
-                os.system('powershell.exe powershell start updater.exe -v runas')
-
-t1xz = threading.Thread(target=check_for_update, args=("https://github.com/sourabhkv/ytdl/releases/latest",))
-t1xz.start()
+    rs=open(os.getcwd()+"\\database\\log.txt","r")
+    if float(time.time())-float(rs.readlines()[0])>=86400*2:
+        r = requests.get(a)
+        if r.status_code == 200:
+            f=open("version.txt","r")
+            curver=int(f.readlines()[0])
+            f.close()
+            result=r.text
+            s=0
+            d=""
+            f=result.split("\n")
+            for i in range(30,len(f)):
+                if "Version in support" in f[i]:
+                    s=i
+            for j in range(0,len(f[s])):
+                if f[s][j].isnumeric() or f[s][j]==",":
+                    d=d+f[s][j]
+            supported=d.split(",")
+            version=[]
+            for k in range(0,len(supported)):
+                version.append(int(supported[k]))
+            print(version)
+            rs.close()
+            rs=open(os.getcwd()+"\\database\\log.txt","w")
+            rs.write(str(time.time()))
+            rs.close()
+            if curver==version[-2]:
+                res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)[0:2]+"."+str(curver)[2:7]+"."+str(curver)[6:]+"\nLatest    : "+str(version[-1])[0:2]+"."+str(version[-1])[2:7]+"."+str(version[-1])[6:]+"\n\nDownload update?")
+                if res=="yes":
+                    os.startfile("updater.exe")
+            elif curver==version[-3]:
+                res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)[0:2]+"."+str(curver)[2:7]+"."+str(curver)[6:]+"\nLatest    : "+str(version[-1])[0:2]+"."+str(version[-1])[2:7]+"."+str(version[-1])[6:]+"\n\nUpdate now otherwise this version will not get updates in future\n\nDownload update?")
+                if res=="yes":
+                    os.startfile("updater.exe")
+            elif curver==version[-1]:
+                messagebox.showinfo("Youtube-dl GUI","Up to date")
+            elif curver not in version:
+                messagebox.showwarning("Youtube-dl GUI","This version is not supported\nVisit : https://github.com/sourabhkv/ytdl#installation")
+    else:
+        rs.close()
 
 if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\ytdl"):
-    print("H")
+    pass
 else:
     os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\ytdl", exist_ok=False)
     file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'w+')
@@ -48,6 +68,9 @@ else:
     file3.close()
     file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'w+')
     file4.close()
+
+t1xz = threading.Thread(target=check_for_update, args=("https://github.com/sourabhkv/ytdl/releases/latest",))
+t1xz.start()
     
 def popens(cmd):
     startupinfo = subprocess.STARTUPINFO()
