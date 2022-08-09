@@ -33,7 +33,7 @@ Version in support 22.0808.19<br>
 
 Latest release preview
 
-![Me at the zoo](https://user-images.githubusercontent.com/55890376/176704621-85839e8b-22c5-4471-a9d3-e6ba5fe5d959.png)
+![Me at the zoo](https://user-images.githubusercontent.com/55890376/183611347-cc46235d-ce51-464b-9373-45d666b9b493.png)
 
 
 
