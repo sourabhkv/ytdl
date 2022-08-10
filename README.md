@@ -162,6 +162,9 @@ System Requirement : Windows 7 SP1 or above (x86 & x64)<br>
 Click Launch button after downloading.<br>
 You are ready to go 🚀.<br>
 
+### Update application
+Starting with `Meteor` latest 2 version will be eligible for updates. User will get warning before support ends. Auto-Updater will check for updates every 2 days, can also be checked manually by clicking update button.
+
 ## FAQ
 **Youtube-dl GUI not installing**<br>
 *Click on more info then run anyway.*<br>
