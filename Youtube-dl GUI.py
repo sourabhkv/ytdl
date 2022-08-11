@@ -55,19 +55,22 @@ def check_for_update(a):
     else:
         rs.close()
 
-if  os.path.exists(os.path.expanduser('~')+"\\AppData\\Local\\ytdl"):
+if  os.path.exists(os.getcwd()+"\\database\\):
     pass
 else:
-    os.makedirs(os.path.expanduser('~')+"\\AppData\\Local\\ytdl", exist_ok=False)
-    file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'w+')
+    os.makedirs(os.getcwd()+"\\database", exist_ok=False)
+    file = open(os.getcwd()+"\\database\\loc.txt",'w+')
     file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
     file.close()
-    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'w+')
+    file2=open(os.getcwd()+"\\database\\cookies.txt",'w+')
     file2.close()
-    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'w+')
+    file3=open(os.getcwd()+"\\database\\args.txt",'w+')
     file3.close()
-    file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'w+')
+    file4=open(os.getcwd()+"\\database\\history.txt",'w+')
     file4.close()
+    file5=open(os.getcwd()+"\\database\\log.txt",'w+')
+    file5.write(str(time.time()))
+    file5.close()
 
 t1xz = threading.Thread(target=check_for_update, args=("https://github.com/sourabhkv/ytdl/releases/latest",))
 t1xz.start()
@@ -88,12 +91,12 @@ def browse():
     global download_Directory,ext12fx,ext11
     download_Directory = filedialog.askdirectory(initialdir="YOUR DIRECTORY PATH")
     if download_Directory=="":
-        file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'r')
+        file = open(os.getcwd()+"\\database\\loc.txt",'r')
         download_Directory=file.readlines()[0]
         file.close()
     e2.delete(0,END)
     e2.insert(0,download_Directory)
-    file = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'w+')
+    file = open(os.getcwd()+"\\database\\loc.txt",'w+')
     file.write(download_Directory)
     file.close()
 
@@ -381,10 +384,10 @@ def cookieselect():
 def save():
     c1=optnentry.get()
     c2=cookiepath.get()
-    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'w+')
+    file2=open(os.getcwd()+"\\database\\cookies.txt",'w+')
     file2.write(c2)
     file2.close()
-    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'w+')
+    file3=open(os.getcwd()+"\\database\\args.txt",'w+')
     file3.write(c1)
     file3.close()
     root3.destroy()
@@ -406,10 +409,10 @@ def reco():
     dd.bind("<Button-1>", lambda e: updateback())
     ttk.Button(root3, text ="Save", command = save).place(x=215,y=256)
     global cookiepath,optnentry
-    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
     data1=file2.readlines()
     file2.close()
-    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    file3=open(os.getcwd()+"\\database\\args.txt",'r')
     data2=file3.readlines()
     file3.close()
     optnentry=ttk.Entry(root3,width=74)
@@ -962,7 +965,7 @@ def history():
             title=e3.get()
         else:
             title=""
-    file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'a')
+    file4=open(os.getcwd()+"\\database\\history.txt",'a')
     fmt=cmbmus.get()
     location=download_Directory
     log=title+"^"+url+"^"+dt_string+"^"+location+"^"+"\n"
@@ -974,11 +977,11 @@ def history():
     
 def run_command4(cmd):
     #print(cmd)
-    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
-    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    file3=open(os.getcwd()+"\\database\\args.txt",'r')
     if len(file3.readlines())!=0:
         cmd=cmd+" "+file3.readlines()[0]
 
@@ -1035,11 +1038,11 @@ def run_command4(cmd):
     
 def run_command4pl(cmd):
     #print(cmd)
-    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
-    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    file3=open(os.getcwd()+"\\database\\args.txt",'r')
     if len(file3.readlines())!=0:
         cmd=cmd+" "+file3.readlines()[0]
     file3.close()
@@ -1071,11 +1074,11 @@ def run_command4pl(cmd):
 
 def run_command4multi(cmd,gg):
     #print(cmd)
-    file2=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\cookies.txt",'r')
+    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
-    file3=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\args.txt",'r')
+    file3=open(os.getcwd()+"\\database\\args.txt",'r')
     if len(file3.readlines())!=0:
         cmd=cmd+" "+file3.readlines()[0]
     file3.close()
@@ -1880,7 +1883,7 @@ text_area.grid(column=0, row=2, pady=40, padx=10)
 def clearhistory():
     answer = messagebox.askquestion('Youtube-dl GUI','Are you sure that you want to clear history?')
     if answer=="yes":
-        file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'w+')
+        file4=open(os.getcwd()+"\\database\\history.txt",'w+')
         file4.write("")
         file4.close()
         refresh()
@@ -1927,7 +1930,7 @@ def refresh():
     my_game.heading("URL",text="URL",anchor=CENTER)
     my_game.heading("Date time",text="Date time",anchor=CENTER)
     my_game.heading("Location",text="Location",anchor=CENTER)
-    file4=open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\history.txt",'r')
+    file4=open(os.getcwd()+"\\database\\history.txt",'r')
     log=file4.readlines()
     file4.close()
     my_game.pack()
@@ -2060,7 +2063,7 @@ e1.bind("<Return>", on_change)
 
 e2 = Entry(root,bg="#A1A1A1",width=82,bd=0)
 e2.place(x=52,y=179)
-zzz = open(os.path.expanduser('~')+"\\AppData\\Local\\ytdl\\loc.txt",'r')
+zzz = open(os.getcwd()+"\\database\\loc.txt",'r')
 download_Directory=str(zzz.readlines()[0])
 e2.insert(0, download_Directory )
 zzz.close()
