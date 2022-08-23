@@ -1108,8 +1108,8 @@ def multibuster(z,b,c):
     try:
         loc=download_Directory
         if "C:" in loc:
-            c=loc.lstrip(user)
-            loc=c.replace("\\","/")
+            cd=loc.lstrip(user)#bug removed of multi video
+            loc=cd.replace("\\","/")
             loc="/"+loc
     except:
         pass
