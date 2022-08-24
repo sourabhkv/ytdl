@@ -107,8 +107,8 @@ File converter
 <h2>Coming features</h2>
 Better playlist support.<br>
 tag editor.<br>
-Batch downloader.<br>
-Full settings menu
+Output template with regex support.
+
 
 
 
@@ -134,8 +134,8 @@ Playlist video items to download. Specify indices of the videos in the playlist 
 `1,2,5,8` if you want to download videos indexed 1, 2, 5, 8 in the playlist. You can specify range: `1-3,7,10-13`, it will download the videos at index 1, 2, 3, 7,10, 11, 12 and 13.<br>
 If nothing is specified whole playlist will be downloaded.
 
-
-[New version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)<br>
+[New version demo](https://drive.google.com/file/d/1CWW5YTK7MjIQ3ZyQdsN7TSNu_K-F3hxN/view?usp=sharing)<br>
+[old version demo](https://drive.google.com/file/d/1OaQTnjXC8wvLKSkWYx_8j8pEyUu7IYXq/view?usp=sharing)<br>
 [Playlist demo](https://user-images.githubusercontent.com/55890376/168638995-183ba08b-91ac-4a72-a6c1-bf152d71c0ea.mp4)<br>
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
@@ -228,7 +228,7 @@ The function popens(cmd) never executed with object oriented programming (OOPs)
 Tkinter was easy to use and took less space compared to PySide2/PyQt5
 After june,2021 there was no update to youtube-dl. Development stopped for 3 months finally backend changed to yt-dlp
 During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...
-Need help to make this better so that anyone with poor internet connctivity can learn somthing.
+Need help to make this better so that anyone with poor internet connctivity can learn something.
 
 ## If you have liked my work and want to support please consider donating
 ```
@@ -236,13 +236,12 @@ PhonePe UPI ID : sourabhkv96@ibl
 PayPal         : 3HSMNWXWHDZN4
 ```
 <p align="center">
-<a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://user-images.githubusercontent.com/55890376/183584964-2a998011-f2d4-471a-ab28-a0b39d96edc7.png">
+<img alt="GitHub release (latest by date)" src="https://user-images.githubusercontent.com/55890376/183584964-2a998011-f2d4-471a-ab28-a0b39d96edc7.png">
 
 
 
 **Want Early build access?**<br>
-<br>
-<a href="https://t.me/sourabhkv"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=flate&logo=telegram&logoColor=white"></a><br>
+<br><a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a><br>
 </p>
 
 
