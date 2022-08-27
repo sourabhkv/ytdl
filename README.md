@@ -6,8 +6,8 @@
 <a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/c%23-%23239120.svg?style=flat&logo=c-sharp&logoColor=white" ></a> <img alt="Windows" src="https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white" ></a>
 </p>
 <p align="center">
-<a href="https://github.com/sourabhkv/ytdl/edit/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
-<a href="https://github.com/sourabhkv/ytdl/edit/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" ></a>
+<a href="https://github.com/sourabhkv/ytdl/blob/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
+<a href="https://github.com/sourabhkv/ytdl/blob/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" ></a>
 </p>
 <p align="center">
 <a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
