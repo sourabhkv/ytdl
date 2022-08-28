@@ -6,6 +6,8 @@
 <a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/c%23-%23239120.svg?style=flat&logo=c-sharp&logoColor=white" ></a> <img alt="Windows" src="https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white" ></a>
 </p>
 <p align="center">
+<a href="https://python.org"><img alt="python" src="https://user-images.githubusercontent.com/55890376/187068580-eabf12eb-cfce-49cb-a026-664087963ffe.png" ></a>
+<br>
 <a href="https://github.com/sourabhkv/ytdl/blob/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
 <a href="https://github.com/sourabhkv/ytdl/blob/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" ></a>
 </p>
@@ -102,7 +104,8 @@ File converter
 ## Roadmap of releases<br>
 :ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(June end)<br>
 :ballot_box_with_check:`Transition release` - Help users with old version to migrate to Meteor release<br>
-:black_square_button:`Meteor` - Lyrics support , updater changes stable(July-Aug)
+:black_square_button:`Meteor` - updater changes stable(July-Aug)<br>
+:black_square_button:`Clang` - Regex support in output template, (Sept-Oct)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
