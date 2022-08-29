@@ -961,7 +961,6 @@ def history():
         else:
             title=""
     file4=open(os.getcwd()+"\\database\\history.txt",'a')
-    fmt=cmbmus.get()
     location=download_Directory
     log=title+"^"+url+"^"+dt_string+"^"+location+"^"+"\n"
     try:
