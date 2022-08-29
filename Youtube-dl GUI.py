@@ -1901,6 +1901,9 @@ def sel(a):
 def cl(a):
     sel(a)
 
+def dir_open():
+    subprocess.Popen(r'explorer /open, '+e2.get().replace("/","\\"))
+
 def refresh():
     global my_game,verscrlbar
     try:
@@ -2014,7 +2017,7 @@ cusvar.set("")
 name1 = Label(root, text = "Youtube-dl GUI",bg="#303135",font=('Arial', 18),fg="white").place(x = 230,y = 10) 
 name = Label(root, textvariable = urlvar,bg="#424242",fg="white").place(x = 55,y = 76)
 name3r = Label(root, textvariable = outvar,bg="#424242",fg="white",cursor='hand2')
-name3r.bind("<Button-1>", lambda e: os.startfile(e2.get()))
+name3r.bind("<Button-1>", lambda e: dir_open())
 name3r.bind('<Enter>',lambda a:name3r.config(fg="#0574FF"))
 name3r.bind('<Leave>',lambda a:name3r.config(fg="white"))
 name3r.place(x = 55,y = 148)
