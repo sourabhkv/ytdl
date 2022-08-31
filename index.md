@@ -37,7 +37,7 @@ File converter<br>
 <h3> System Requirements </h3>
 Windows 7 SP1 or newer (x86 and x64)<br>
 Recommended Windows 8.1 (x86 and x64) or newer<br>
-Version in support 22.0808.19,22.0821.12<br>
+Version in support 22.0808.19<br>
 
 Latest release preview
 
