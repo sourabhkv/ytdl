@@ -22,8 +22,7 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 
 ⚠️ ALERT CURRENTLY SUPPORTED VERSIONS WILL NO LONGER RECEIVE UPDATES ,YTDL WILL USE **PYTHON 3.10.6** with latest libraries<br>
-**⚠️ Windows 7 support dropped**<br>
-[Want Windows 7 builds](https://t.me/ytdlgui)<br>
+**⚠️ Windows 7 version will be released separately which will be based on python 3.8.10**<br>
 
 
 
