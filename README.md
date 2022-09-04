@@ -236,7 +236,9 @@ After june,2021 there was no update to youtube-dl. Development stopped for 3 mon
 During this development period many bugs were encountered and fixed , many features were added ,hope this project will be active in future...
 Need help to make this better so that anyone with poor internet connctivity can learn something.
 
-## If you have liked my work and want to support please consider donating
+## Support Us
+If you have liked my work and want to support please consider donating.<br>
+Help to keep Ytdl active and running by donating. It will be really helpful and appreciated if you donate or contribute to us. Any amount is appreciated.
 ```
 PhonePe UPI ID : sourabhkv96@ibl
 ```
