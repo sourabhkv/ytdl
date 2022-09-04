@@ -8,7 +8,7 @@
 <p align="center">
 <a href="https://python.org"><img alt="python" src="https://user-images.githubusercontent.com/55890376/187068580-eabf12eb-cfce-49cb-a026-664087963ffe.png" ></a>
 <br>
-<a href="https://github.com/sourabhkv/ytdl/blob/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
+<a href="https://github.com/sourabhkv/ytdl#support-us"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
 <a href="https://www.paypal.com/paypalme/PinakiSahu"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" ></a>
 </p>
 <p align="center">
@@ -238,10 +238,12 @@ Need help to make this better so that anyone with poor internet connctivity can 
 
 ## Support Us
 If you have liked my work and want to support please consider donating.<br>
-Help to keep Ytdl active and running by donating. It will be really helpful and appreciated if you donate or contribute to us. Any amount is appreciated.
-```
-PhonePe UPI ID : sourabhkv96@ibl
-```
+Help to keep Ytdl active and running by donating. It will be really helpful and appreciated if you donate or contribute to us. Any amount is appreciated.<br><br>
+<a href="https://github.com/sourabhkv/ytdl#support-us"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=flat&logo=phonepe&logoColor=white" ></a>
+: `sourabhkv96@ibl`
+<br><br>
+<a href="https://www.paypal.com/paypalme/PinakiSahu"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=flat&logo=paypal&logoColor=white" ></a>
+:[`PinakiSahu`](https://www.paypal.com/paypalme/PinakiSahu)
 <p align="center">
 <img alt="GitHub release (latest by date)" src="https://user-images.githubusercontent.com/55890376/183584964-2a998011-f2d4-471a-ab28-a0b39d96edc7.png">
 
