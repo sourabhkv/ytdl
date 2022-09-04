@@ -10,7 +10,7 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 </p>
 <p align="center">
 <a href="https://github.com/sourabhkv/ytdl#support-us"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
-<a href="https://github.com/sourabhkv/ytdl/blob/main/README.md#if-you-have-liked-my-work-and-want-to-support-please-consider-donating"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" ></a>
+<a href="https://github.com/sourabhkv/ytdl#support-us"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white" ></a>
 </p>
 <p align="center">
 <a href="https://t.me/ytdlgui"><img alt="GitHub release (latest by date)" src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
