@@ -176,7 +176,38 @@ Click Launch button after downloading.<br>
 You are ready to go 🚀.<br>
 
 ### Update application
-Starting with `Meteor` latest 2 version will be eligible for updates. User will get warning before support ends. Auto-Updater will check for updates every 2 days, can also be checked manually by clicking update button.
+Few update model were tested in past to update application.
+Model 1 : Manual updates with admin rights (to make changes directly in programs folder)<br>
+Model 2 : Auto updates without admin rights (using `C:\Users\<username>\AppData\Local\Youtube-dl GUI`)<br>
+Model 1 & 2 required additional component like `updater.exe` where as upcoming Model 3 no such additional component is required.<br>
+Model 3 : Updater will be baked in main executable. Resulting in size reduction. ytdl will store temporary folder to store update. Each update.zip will contain script.bat to guide how changes will be made.<br>
+*ytdl build with python 3.10.7 will support model 3 update*.<br>
+
+```
+.
+..
+Youtube-dl GUI
+|--certify
+        *.*
+|--Cryptodome
+        *.*
+|--database
+        args.txt
+        cookies.txt
+        history.txt
+        loc.txt
+        log.txt
+        output_temp_vid.txt
+        output_temp_plst.txt
+|--temp
+        script.bat
+        Youtube-dl GUI.exe
+        *.*(Other files depending upon update)
+*.*
+```
+
+If any updates are available ytdl will clear temp dir contents before downloading.<br>
+After downloading update script.bat will launch to taskill & delete current Youtube-dl GUI.exe and place new Youtube-dl GUI.exe at same location to prior and perform any other task depending upon update.<br>
 
 ## FAQ
 **Youtube-dl GUI not installing**<br>
