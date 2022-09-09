@@ -357,7 +357,7 @@ def about():
     name76.bind("<Button-1>", lambda e: link('https://t.me/ytdlgui'))
     name77 = Label(root2, text = "DONATE",fg="yellow",cursor="hand2",bg="#303135")
     name77.place(x = 190,y = 390)
-    name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#if-you-have-liked-my-work-and-want-to-support-please-consider-donating'))
+    name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#support-us'))
     name7e = Label(root2, text = "Changelog",fg="#0574FF",cursor="hand2",bg="#303135")
     name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0808.19'))
     name7e.place(x = 195,y = 315)
