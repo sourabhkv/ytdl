@@ -176,12 +176,13 @@ Click Launch button after downloading.<br>
 You are ready to go 🚀.<br>
 
 ### Update application
-Few update model were tested in past to update application.
+Few update model were tested in past to update application.<br>
 Model 1 : Manual updates with admin rights (to make changes directly in programs folder)<br>
 Model 2 : Auto updates without admin rights (using `C:\Users\<username>\AppData\Local\Youtube-dl GUI`)<br>
 Model 1 & 2 required additional component like `updater.exe` where as upcoming Model 3 no such additional component is required.<br>
 Model 3 : Updater will be baked in main executable. Resulting in size reduction. ytdl will store temporary folder to store update. Each update.zip will contain script.bat to guide how changes will be made.<br>
 *ytdl build with python 3.10.7 will support model 3 update*.<br>
+*Model 3 is under development*<br>
 
 ```
 .
