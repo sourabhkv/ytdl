@@ -21,8 +21,10 @@
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. **This project is only for educational purpose DO NOT SELL . DO NOT 
 plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 
-⚠️ ALERT CURRENTLY SUPPORTED VERSIONS WILL NO LONGER RECEIVE UPDATES ,YTDL WILL USE **PYTHON 3.10.7** with latest libraries<br>
-**⚠️ Windows 7 version will be released separately which will be based on python 3.8.10**<br>
+Update model 3 will built using python 3.8.10 <br>
+Windows 7 support will be dropped in Oct 2024.<br>
+~~⚠️ ALERT CURRENTLY SUPPORTED VERSIONS WILL NO LONGER RECEIVE UPDATES ,YTDL WILL USE **PYTHON 3.10.7** with latest libraries<br>
+**⚠️ Windows 7 version will be released separately which will be based on python 3.8.10**<br>~~
 
 
 
@@ -146,7 +148,7 @@ If nothing is specified whole playlist will be downloaded.
 Older version [watch demo here](https://user-images.githubusercontent.com/55890376/114445050-398c9100-9bed-11eb-9b17-aea0be0704d8.mp4)<br>
 
 ## ⚠️ DEPRECATION WARNING
-Options menu will be discontinued in future.(DISCONTINUED)
+Windows 7 support will be dropped in Oct 2024.<br>
 Playlist items selector will no longer be based on text input.
 Direct terminal option will be shifted to custom command section.(Discontinued)<br>
 Full installer will not use program files instead will use `{localappdata}` dir, it will remove admin requirement. Program folder will not be used in future. To update uninstall existing version and install August version when available (Updater will not work for older version).
@@ -181,7 +183,6 @@ Model 1 : Manual updates with admin rights (to make changes directly in programs
 Model 2 : Auto updates without admin rights (using `C:\Users\<username>\AppData\Local\Youtube-dl GUI`)<br>
 Model 1 & 2 required additional component like `updater.exe` where as upcoming Model 3 no such additional component is required.<br>
 Model 3 : Updater will be baked in main executable. Resulting in size reduction. ytdl will store temporary folder to store update. Each update.zip will contain script.bat to guide how changes will be made.<br>
-*ytdl build with python 3.10.7 will support model 3 update*.<br>
 *Model 3 is under development*<br>
 
 ```
