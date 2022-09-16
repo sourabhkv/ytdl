@@ -273,12 +273,14 @@ Need help to make this better so that anyone with poor internet connctivity can 
 If you have liked my work and want to support please consider donating.<br>
 Help to keep Ytdl active and running by donating. It will be really helpful and appreciated if you donate or contribute to us. Any amount is appreciated.<br><br>
 <a href="https://github.com/sourabhkv/ytdl#support-us"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=flat&logo=phonepe&logoColor=white" ></a>
-: `sourabhkv96@ibl`
+: `sourabhkv@upi`
 <br><br>
 <a href="https://www.paypal.com/paypalme/PinakiSahu"><img alt="python" src="https://img.shields.io/badge/PayPal-00457C?style=flat&logo=paypal&logoColor=white" ></a>
 :[`PinakiSahu`](https://www.paypal.com/paypalme/PinakiSahu)
 <p align="center">
-<img alt="GitHub release (latest by date)" src="https://user-images.githubusercontent.com/55890376/183584964-2a998011-f2d4-471a-ab28-a0b39d96edc7.png">
+<img alt="GitHub release (latest by date)" src="https://user-images.githubusercontent.com/55890376/190670832-71eda095-3b87-4d9a-b7cb-1433ed2f4fe5.png">
+
+
 
 
 
