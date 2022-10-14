@@ -7,5 +7,4 @@ Copy-Item version.txt -Destination ".\dist\Youtube-dl GUI"
 Copy-Item ffmpeg.exe -Destination ".\dist\Youtube-dl GUI"
 Copy-Item update_starter.bat -Destination ".\dist\Youtube-dl GUI"
 Remove-Item ".\dist\Youtube-dl GUI\websockets-10.3.dist-info"
-Write-Host -NoNewLine 'Press any key to continue...';
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+read-host “`r`nPress ENTER to continue...”
