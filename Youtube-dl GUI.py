@@ -8,14 +8,20 @@ import os
 from yt_dlp import YoutubeDL
 import subprocess,threading,time
 import tkinter.font as tkFont
-import json, urllib
+import json, urllib,sys
 import urllib.request
 import requests,datetime
 from datetime import datetime
+from urllib.request import urlopen
+import shutil
+from io import BytesIO
+from zipfile import ZipFile
 
-def check_for_update(a):
+    
+
+def check_for_update(a,b=1):
     rs=open(os.getcwd()+"\\database\\log.txt","r")
-    if float(time.time())-float(rs.readlines()[0])>=86400*1:
+    if float(time.time())-float(rs.readlines()[0])>=86400*b:
         r = requests.get(a)
         if r.status_code == 200:
             f=open("version.txt","r")
@@ -40,19 +46,23 @@ def check_for_update(a):
             rs=open(os.getcwd()+"\\database\\log.txt","w")
             rs.write(str(time.time()))
             rs.close()
+            print(curver,version[-1])
 
             if curver==version[-1]:
                 messagebox.showinfo("Youtube-dl GUI","Up to date")
             elif curver==version[-2]:
-                res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)[0:2]+"."+str(curver)[2:7]+"."+str(curver)[6:]+"\nLatest    : "+str(version[-1])[0:2]+"."+str(version[-1])[2:7]+"."+str(version[-1])[6:]+"\n\nDownload update?")
+                res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)[0:2]+"."+str(curver)[2:6]+"."+str(curver)[6:]+"\nLatest    : "+str(version[-1])[0:2]+"."+str(version[-1])[2:6]+"."+str(version[-1])[6:]+"\n\nDownload update?")
                 if res=="yes":
-                    os.startfile("updater.exe")
+                    #os.startfile("updater.exe")
+                    update_handler("https://github.com/sourabhkv/ytdl/releases/latest/download/ytdl-v1.zip",(str(version[-1])[0:2]+str(version[-1])[2:6]+str(version[-1])[6:]))
             elif curver==version[-3]:
-                res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)[0:2]+"."+str(curver)[2:7]+"."+str(curver)[6:]+"\nLatest    : "+str(version[-1])[0:2]+"."+str(version[-1])[2:7]+"."+str(version[-1])[6:]+"\n\nUpdate now otherwise this version will not get updates in future\n\nDownload update?")
+                res=messagebox.askquestion("Youtube-dl GUI","Updates available! \nCurrent : "+str(curver)[0:2]+"."+str(curver)[2:6]+"."+str(curver)[6:]+"\nLatest    : "+str(version[-1])[0:2]+"."+str(version[-1])[2:6]+"."+str(version[-1])[6:]+"\n\nUpdate now otherwise this version will not get updates in future\n\nDownload update?")
                 if res=="yes":
-                    os.startfile("updater.exe")
+                    #os.startfile("updater.exe")
+                    update_handler("https://github.com/sourabhkv/ytdl/releases/latest/download/ytdl-v2.zip",(str(version[-1])[0:2]+str(version[-1])[2:6]+str(version[-1])[6:]))
             elif curver not in version:
-                messagebox.showwarning("Youtube-dl GUI","This version is not supported\nVisit : https://github.com/sourabhkv/ytdl#installation")
+                messagebox.showwarning("Youtube-dl GUI","This version is not supported anymore")
+                
             
     else:
         rs.close()
@@ -61,6 +71,7 @@ if  os.path.exists(os.getcwd()+"\\database"):
     pass
 else:
     os.makedirs(os.getcwd()+"\\database", exist_ok=False)
+    os.makedirs(os.getcwd()+"\\update", exist_ok=False)
     file = open(os.getcwd()+"\\database\\loc.txt",'w+')
     file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
     file.close()
@@ -80,8 +91,35 @@ else:
     file7.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     file7.close()
     
-#t1xz = threading.Thread(target=check_for_update, args=("https://sourabhkv.github.io/ytdl",))
-#t1xz.start()
+t1xz = threading.Thread(target=check_for_update, args=("https://sourabhkv.github.io/ytdl",))
+t1xz.start()
+
+def update_handler(link,ver):
+    print(ver)
+    t2 = threading.Thread(target=popens, args=("yt-dlp_x86 -U",))
+    t2.start()
+    CREATE_NO_WINDOW = 0x08000000
+    my_dir=os.getcwd()+"\\update"
+    for f in os.listdir(my_dir):
+        os.remove(os.path.join(my_dir, f))
+    with urlopen(link) as zipresp:
+        with ZipFile(BytesIO(zipresp.read())) as zfile:
+            for member in zfile.namelist():
+                filename = os.path.basename(member)
+                source = zfile.open(member)
+                target = open(os.path.join(my_dir, filename), "wb")
+                with source, target:
+                    shutil.copyfileobj(source, target)
+    lst=os.listdir(my_dir)
+    if "script.bat" in lst:
+        res=messagebox.askquestion("Youtube-dl GUI","Apply update?")
+        if res=="yes":
+            t=open("version.txt","w")
+            t.write(ver)
+            t.close()
+            os.startfile("update_starter.bat")
+            exit()
+    
 
 def popens(cmd):
     startupinfo = subprocess.STARTUPINFO()
@@ -340,7 +378,7 @@ def about():
     resize_image = image.resize((200, 200))
     img = ImageTk.PhotoImage(resize_image)
     streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-    streams2 = Label(root2, text = "Youtube-dl GUI  v22.0831.12",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+    streams2 = Label(root2, text = "Youtube-dl GUI  v22.1002.19",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
     streams2 = Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
     streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
     streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
@@ -373,9 +411,6 @@ def about():
     root2.iconbitmap(r'logo.ico')
     root2.mainloop()
 
-def updateback():
-    t1 = threading.Thread(target=run_command2, args=("yt-dlp_x86 -U",))
-    t1.start()
 
 def cookieselect():
     r = filedialog.askopenfilename()
@@ -1410,12 +1445,14 @@ def on_change(e1):
     except:
         pass
 
-    
-    try:
-        url=e1.widget.get()
-    except:
-        url=e1.get()
-        
+    if len(sys.argv)<=1:
+        try:
+            url=e1.widget.get()
+        except:
+            url=e1.get()
+    elif len(sys.argv)>=2:
+        url=e1
+        print(url)
     
     if url=="":
         messagebox.showerror("Youtube-dl GUI","  Enter Valid URL  ")
@@ -1680,7 +1717,7 @@ def playlister():
         if len(items.get())!=0:
             a=a+" --playlist-items "+str(items.get())
 
-        #print(a)
+        print(a)
 
         tv2w = threading.Thread(target=run_command4pl, args=(a,))
         global ext12fx,ext11
@@ -1691,7 +1728,8 @@ def playlister():
 
 def update():
     #os.system('powershell.exe powershell start updater.exe -v runas')
-    os.startfile('updater.exe')
+    a="https://sourabhkv.github.io/ytdl"
+    check_for_update(a,0)
 
 def run_command2(cmd):
     global ext11,ext12fx
@@ -1847,6 +1885,28 @@ def custom():
         
 
 #-------------------------------------------------------------------------------------------------------------------
+def on_change2(url):
+    time.sleep(1)
+    e1.insert(0, url)
+    on_change(url)
+    
+n = len(sys.argv)
+if n>=3:
+    url=""
+    for i in range(1,len(sys.argv)):
+        url=url+" "+str(sys.argv[i])
+    print(url)
+    if "http" in url:
+        t1xz = threading.Thread(target=on_change2, args=(url,))
+        t1xz.start()
+
+if n==2:
+    url=sys.argv[1]
+    print(url)
+    if "http" in url:
+        t1xz = threading.Thread(target=on_change2, args=(url,))
+        t1xz.start()
+
 music=[]
 audlst=[]
 vidlst=[]
