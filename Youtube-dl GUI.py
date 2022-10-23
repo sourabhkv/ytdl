@@ -16,7 +16,7 @@ from urllib.request import urlopen
 import shutil
 from io import BytesIO
 from zipfile import ZipFile
-
+import webbrowser
     
 
 def check_for_update(a,b=1):
@@ -214,7 +214,6 @@ def cmderx():
 
 
 def link(url):
-    import webbrowser
     webbrowser.open(url)
 
 def terminal():
