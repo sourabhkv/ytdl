@@ -106,6 +106,14 @@ Proxy support.<br>
 Rate limit<br>
 File converter
 
+## Ytdl unlocked (Pro)
+Expanded supported websites
+made with python 3.8 and 3.10
+multi video supports que
+multi video supports more URLs other than youtube.com
+Hyper user
+Wav format for playlist and more.
+
 ## Roadmap of releases<br>
 :ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(June end)<br>
 :ballot_box_with_check:`Transition release` - Help users with old version to migrate to Meteor release<br>
