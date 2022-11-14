@@ -16,8 +16,7 @@ from urllib.request import urlopen
 import shutil
 from io import BytesIO
 from zipfile import ZipFile
-import webbrowser
-    
+
 
 def check_for_update(a,b=1):
     rs=open(os.getcwd()+"\\database\\log.txt","r")
@@ -214,6 +213,7 @@ def cmderx():
 
 
 def link(url):
+    import webbrowser
     webbrowser.open(url)
 
 def terminal():
@@ -377,7 +377,7 @@ def about():
     resize_image = image.resize((200, 200))
     img = ImageTk.PhotoImage(resize_image)
     streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-    streams2 = Label(root2, text = "Youtube-dl GUI  v22.1002.19",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+    streams2 = Label(root2, text = "Youtube-dl GUI  v22.1113.22",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
     streams2 = Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
     streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
     streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
@@ -398,10 +398,10 @@ def about():
     name77.place(x = 190,y = 390)
     name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#support-us'))
     name7e = Label(root2, text = "Changelog",fg="#0574FF",cursor="hand2",bg="#303135")
-    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0808.19'))
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.1113.22'))
     name7e.place(x = 195,y = 315)
     name8e = Label(root2, text = "Check for updates",fg="#0574FF",cursor="hand2",bg="#303135")
-    name8e.bind("<Button-1>", lambda e: os.startfile("updater.exe"))
+    #name8e.bind("<Button-1>", lambda e: os.startfile("updater.exe"))
     name8e.place(x = 295,y = 315)
     streams2 = Label(root2, text = "https://github.com/sourabhkv/ytdl",bg="#303135",fg="white").place(relx=.5, rely=.87,anchor= CENTER)
     streams2 = Label(root2, text = "Developed by sourabhkv",bg="#303135",fg="green").place(relx=.5, rely=.93,anchor= CENTER)
@@ -562,7 +562,7 @@ def thumbnail(url):
             width, height = img.size
             i=2
             while (i)>0:
-                if (i*height)<=165 and (i*width)<=270:
+                if (i*height)<=170 and (i*width)<=270:
                     break
                 else:
                     i=i-0.02
@@ -570,7 +570,7 @@ def thumbnail(url):
             nh=int(i*height)
             sp=int((230-nw)/2)
             #print(nw,nh)
-            image = img.resize(((nw),(nh)), Image.LANCZOS)
+            image = img.resize(((nw),(nh)), Image.Resampling.LANCZOS)
             image2 = ImageTk.PhotoImage(image)
             panel = Label(root, image=image2)
             picbtn=ttk.Button(root, text = 'thumbnail', image = image2,command=lambda : viewer(img))
@@ -1893,18 +1893,30 @@ n = len(sys.argv)
 if n>=3:
     url=""
     for i in range(1,len(sys.argv)):
-        url=url+" "+str(sys.argv[i])
+        url=url+str(sys.argv[i])+" "
     print(url)
     if "http" in url:
         t1xz = threading.Thread(target=on_change2, args=(url,))
         t1xz.start()
 
 if n==2:
-    url=sys.argv[1]
-    print(url)
-    if "http" in url:
+    if "http" in sys.argv[1]:
+        url=sys.argv[1]
+        print(url)
         t1xz = threading.Thread(target=on_change2, args=(url,))
         t1xz.start()
+    if ".txt" in sys.argv[1]:
+        r=open(sys.argv[1],"r")
+        url=""
+        p=r.readlines()
+        print(p)
+        r.close()
+        for i in range(0,len(p)):
+            if "http" in p[i]:
+                url=url+p[i][0:-1]+" "
+        t1xz = threading.Thread(target=on_change2, args=(url,))
+        t1xz.start()
+                
 
 music=[]
 audlst=[]
@@ -2153,7 +2165,7 @@ streamsvidto = Label(tab5,textvariable=convertvar,bg="#525252",fg="white").place
 userloc=(os.environ['USERPROFILE'])+"\\Downloads"
 userloc=userloc.replace("\\","/")
 status= StringVar()
-status.set("")
+status.set(" Help to keep Ytdl active and running by donating "+" "*205+"Join telegram t.me/ytdlgui")
 large_font = tkFont.Font(family='Microsoft Sans Serif',size=9)
 statusbar = tk.Label(root, textvariable=status ,width=150, bd=2,fg="white", relief=tk.SUNKEN, anchor=tk.W,bg='#202125').place(x=-2,y=560)
 
@@ -2210,6 +2222,10 @@ def paste2():
 def clr2():
     ex.delete(0,END)
     text_area.delete(0.0,END)
+
+name77 = Label(root, text = "Explore  ytdl  Unlocked",fg="yellow",cursor="hand2",bg="#303135")
+name77.place(x = 530,y = 20)
+name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/blob/main/README.md#ytdl-unlocked-pro'))
 
 imgpst = PhotoImage(file = os.getcwd()+"/images/"+"paste2.png")
 namepst = Button(tab6, text = "Paste",fg="blue",bd=0,bg="#525252",image=imgpst,command=lambda : paste2(),activebackground='#525252')
