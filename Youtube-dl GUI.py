@@ -1930,7 +1930,7 @@ basic2=[]
 subs=[]
 thn=[1]
 ps=[]
-playlist=["144p","240p","360p","480p","720p","1080p","best bv+ba","bv+wa","worst wv+wa","Mp3 64 kbps","Mp3 320 kbps","M4a High","Wav Losless"]
+playlist=["144p","240p","360p","480p","720p","1080p","best bv+ba","bv+wa","wv[fps=30]+wa[abr>43]/wv+wa","worst wv+wa","Mp3 64 kbps","Mp3 320 kbps","M4a High","Wav Losless"]
 convertfrom=["Mp4","Mkv","Mp3","M4a"]
 root = tk.Tk()
 root.configure(bg='#303135')
