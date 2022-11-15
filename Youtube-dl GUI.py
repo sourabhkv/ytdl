@@ -343,7 +343,7 @@ def pltitle(url):
         r = requests.get(thurl)
         img = Image.open(BytesIO(r.content))
         img.mode = 'RGB'
-        image = img.resize((270, 160), Image.LANCZOS)
+        image = img.resize((270, 160), Image.Resampling.LANCZOS)
         image2 = ImageTk.PhotoImage(image)
         panel = Label(root, image=image2)
         picbtn=ttk.Button(root, text = 'thumbnail', image = image2,command=lambda : viewer(img))
@@ -358,7 +358,7 @@ def pltitle(url):
         r = requests.get(thurl)
         img = Image.open(BytesIO(r.content))
         img.mode = 'RGB'
-        image = img.resize((160, 160), Image.LANCZOS)
+        image = img.resize((160, 160), Image.Resampling.LANCZOS)
         image2 = ImageTk.PhotoImage(image)
         panel = Label(root, image=image2)
         picbtn=ttk.Button(root, text = 'thumbnail', image = image2,command=lambda : viewer(img))
@@ -1704,11 +1704,15 @@ def playlister():
         elif "1080p" in play.get():
             a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a "+link).format("~"+loc+"/"+out_temp)
         elif "best" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o {} "+link).format("~"+loc+"/"+out_temp)    
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o {} "+link).format("~"+loc+"/"+out_temp)
+        elif "worst" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f wv+wa -o {} "+link).format("~"+loc+"/"+out_temp)
         elif "Mp3 320 kbps" in play.get():
             a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "Mp3 64 kbps" in play.get():
             a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+        elif "bv+wa" in play.get():
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+wa -o {} "+link).format("~"+loc+"/"+out_temp)
         elif "M4a High" in play.get():
             a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime --audio-format m4a -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "Wav Losless" in play.get():
@@ -1926,7 +1930,7 @@ basic2=[]
 subs=[]
 thn=[1]
 ps=[]
-playlist=["144p","240p","360p","480p","720p","1080p","best","Mp3 64 kbps","Mp3 320 kbps","M4a High","Wav Losless"]
+playlist=["144p","240p","360p","480p","720p","1080p","best bv+ba","bv+wa","worst wv+wa","Mp3 64 kbps","Mp3 320 kbps","M4a High","Wav Losless"]
 convertfrom=["Mp4","Mkv","Mp3","M4a"]
 root = tk.Tk()
 root.configure(bg='#303135')
