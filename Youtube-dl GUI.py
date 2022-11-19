@@ -1692,31 +1692,31 @@ def playlister():
     elif len(play.get())!=0:
         link=url[url.rfind("list=")+5:]
         if "144p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "240p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "360p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "480p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "720p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "1080p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "best" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "worst" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f wv+wa -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f wv+wa -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "Mp3 320 kbps" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "Mp3 64 kbps" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "bv+wa" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+wa -o {} "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+wa -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "M4a High" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime --audio-format m4a -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime --audio-format m4a -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "Wav Losless" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o {} --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         if len(items.get())!=0:
             a=a+" --playlist-items "+str(items.get())
 
