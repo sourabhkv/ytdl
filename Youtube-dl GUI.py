@@ -377,7 +377,7 @@ def about():
     resize_image = image.resize((200, 200))
     img = ImageTk.PhotoImage(resize_image)
     streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-    streams2 = Label(root2, text = "Youtube-dl GUI  v22.1113.22",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+    streams2 = Label(root2, text = "Youtube-dl GUI  v22.1119.20",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
     streams2 = Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
     streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
     streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
@@ -398,7 +398,7 @@ def about():
     name77.place(x = 190,y = 390)
     name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#support-us'))
     name7e = Label(root2, text = "Changelog",fg="#0574FF",cursor="hand2",bg="#303135")
-    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.1113.22'))
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.1119.20'))
     name7e.place(x = 195,y = 315)
     name8e = Label(root2, text = "Check for updates",fg="#0574FF",cursor="hand2",bg="#303135")
     #name8e.bind("<Button-1>", lambda e: os.startfile("updater.exe"))
@@ -1180,27 +1180,27 @@ def multibuster(z,b,c):
     file4.close()
     if len(b)!=0:
         if "144p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "240p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "360p" in b:
-            a=("yt-dlp --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "480p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "720p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "1080p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "best" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -f bv+ba -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "Mp3 320 kbps" in b:
-            a=("yt-dlp --ignore-errors --format bestaudio --audio-quality 0 --extract-audio --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o {} --yes-playlist "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp --ignore-errors --format bestaudio --audio-quality 0 --extract-audio --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o \"{}\" --yes-playlist "+z).format("~"+loc+"/"+out_temp)
         elif "Mp3 64 kbps" in b:
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "M4a High" in b:
-            a=("yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0 -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0 -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "Wav Losless" in b:
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --audio-quality 0 --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o {} "+z).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --audio-quality 0 --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
 
 
         print(a)
@@ -1582,62 +1582,62 @@ def checkcmbo():
 
     elif len(basicdata)!=0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
         if basicdata=="Best available":
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f bv+ba -o {} "+url).format(output)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f bv+ba -o \"{}\" "+url).format(output)
         else:
             w=basicdata.split()
             id1=w[-1]
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f {} -o {} "+url).format(id1,output)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f {} -o \"{}\" "+url).format(id1,output)
         #print(a)
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\"  --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o {} "+url).format(advvid.split()[0],advaud.split()[0],output)
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\"  --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(advvid.split()[0],advaud.split()[0],output)
         #a=a+" --download-sections *1:11-4:40 --newline"
         #print("download section")
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o {} "+url).format(advvid.split()[0],output)
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(advvid.split()[0],output)
         
 
     elif len(basicdata)==0 and len(advvid)==0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o {} "+url).format(advaud.split()[0],output)
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(advaud.split()[0],output)
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)!=0 and len(convertaud)==0:
         #print("adv 123")
         u=advcap.split()[0]
         #print(u)
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --write-srt --sub-lang {} --add-metadata --no-mtime --embed-metadata -f {}+{} -o {} "+url).format(u,advvid.split()[0],advaud.split()[0],output)
+        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --write-srt --sub-lang {} --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(u,advvid.split()[0],advaud.split()[0],output)
         
 
     elif len(basicdata)==0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)!=0:
         if "Mp3 64 kbps" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f ba -x --audio-format mp3 --audio-quality 64K -o {} '+url).format(output)
+            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f ba -x --audio-format mp3 --audio-quality 64K -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
             
         elif "Mp3 128 kbps" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format mp3 --audio-quality 128K -o {} '+url).format(output)
+            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format mp3 --audio-quality 128K -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "Mp3 320 kbps" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba  -x --audio-format mp3 --audio-quality 320K -o {} '+url).format(output)
+            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba  -x --audio-format mp3 --audio-quality 320K -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "M4a High" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0  -o {} '+url).format(output)
+            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0  -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "Wav Lossless" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format wav --audio-quality 0 -o {} '+url).format(output)
+            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format wav --audio-quality 0 -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "Flac 24 bit Lossless" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format flac --audio-quality 0 -o {} '+url).format(output)
+            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format flac --audio-quality 0 -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
     if a:
