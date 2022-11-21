@@ -37,11 +37,11 @@ File converter<br>
 <h3> System Requirements </h3>
 Windows 7 SP1 or newer (x86 and x64)<br>
 Recommended Windows 8.1 (x86 and x64) or newer<br>
-Version in support 22.0808.20,22.0811.29,22.0901.22<br>
+Version in support 22.0808.20,22.0811.29,22.1119.20<br>
 
 Latest release preview
 
-![Me at the zoo](https://user-images.githubusercontent.com/55890376/183611347-cc46235d-ce51-464b-9373-45d666b9b493.png)
+![me at zoo](https://user-images.githubusercontent.com/55890376/203128753-56e932a5-89fc-4470-bc9c-bfb8300f6f2b.png)
 
 
 
