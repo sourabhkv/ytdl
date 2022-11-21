@@ -33,7 +33,8 @@ Windows 7 support will be dropped in Oct 2024.<br>
 [AtomicParsley](https://github.com/wez/atomicparsley) is licensed under [GPL-2.0 license](https://github.com/wez/atomicparsley/blob/master/COPYING)<br>
 [pygame](https://www.pygame.org/news) is licensed under  [GNU LGPL version 2.1](https://www.gnu.org/copyleft/lesser.html)
 
-![Me at the zoo](https://user-images.githubusercontent.com/55890376/183611347-cc46235d-ce51-464b-9373-45d666b9b493.png)
+
+![me at zoo](https://user-images.githubusercontent.com/55890376/203128753-56e932a5-89fc-4470-bc9c-bfb8300f6f2b.png)
 
 
 
