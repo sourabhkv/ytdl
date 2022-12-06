@@ -2209,9 +2209,7 @@ zzz.close()
 
 if os.path.exists(download_Directory):
     e2.insert(0, download_Directory )
-    print("sdgsd")
 else:
-    print("faf")
     user=(os.environ['USERPROFILE'])+"\\Downloads"
     user=user.replace("\\","/")
     zzz2 = open(os.getcwd()+"\\database\\loc.txt",'w')
