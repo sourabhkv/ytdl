@@ -2202,10 +2202,25 @@ e1.bind("<Return>", on_change)
 
 e2 = Entry(root,bg="#A1A1A1",width=82,bd=0)
 e2.place(x=52,y=179)
+
 zzz = open(os.getcwd()+"\\database\\loc.txt",'r')
 download_Directory=str(zzz.readlines()[0])
-e2.insert(0, download_Directory )
 zzz.close()
+
+if os.path.exists(download_Directory):
+    e2.insert(0, download_Directory )
+    print("sdgsd")
+else:
+    print("faf")
+    user=(os.environ['USERPROFILE'])+"\\Downloads"
+    user=user.replace("\\","/")
+    zzz2 = open(os.getcwd()+"\\database\\loc.txt",'w')
+    zzz2.write(user)
+    zzz2.close()
+    zzz = open(os.getcwd()+"\\database\\loc.txt",'r')
+    download_Directory=str(zzz.readlines()[0])
+    e2.insert(0, download_Directory )
+    zzz.close()
 
 
 ex=Entry(tab6,bg="#303135",width=55,bd=0,fg="white",font=('Microsoft Sans Serif',10))
