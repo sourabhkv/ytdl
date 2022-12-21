@@ -21,6 +21,11 @@
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. **This project is only for educational purpose DO NOT SELL . DO NOT 
 plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 
+　　　　　　　　　　　　　　　　　　　　　![python](https://user-images.githubusercontent.com/55890376/208916421-d983d873-8dd8-4d53-949a-16959f9f6df9.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![yt-dlp](https://user-images.githubusercontent.com/55890376/208916592-4cfc3036-6b0b-4ccf-9fa7-5214c9440bc5.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![ffmpeg](https://user-images.githubusercontent.com/55890376/208916616-76aace34-17e9-4865-b73c-bd1777b416bc.png)&nbsp;&nbsp;&nbsp;&nbsp;
+![ps](https://user-images.githubusercontent.com/55890376/208916682-7d245f1a-1881-42dc-b56c-b3ff8fe11939.png)&nbsp;&nbsp;&nbsp;&nbsp;
+
 Update model 3 will built using python 3.8.10 <br>
 Windows 7 support will be dropped in Oct 2024.<br>
 ~~⚠️ ALERT CURRENTLY SUPPORTED VERSIONS WILL NO LONGER RECEIVE UPDATES ,YTDL WILL USE **PYTHON 3.10.7** with latest libraries<br>
