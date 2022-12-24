@@ -1,4 +1,4 @@
-import tkinter as tk
+qimport tkinter as tk
 from tkinter import ttk
 from tkinter.messagebox import showinfo
 import tkinter as tk
@@ -11,7 +11,7 @@ import os
 from yt_dlp import YoutubeDL
 import subprocess,threading,time
 import tkinter.font as tkFont
-import json, urllib,sys
+import json, urllib,sys,pyperclip
 import urllib.request
 import requests,datetime
 from datetime import datetime
@@ -21,7 +21,10 @@ from io import BytesIO
 from zipfile import ZipFile
 from tkinter import scrolledtext
 import webbrowser
-os.chdir(__file__[:__file__.rfind("\\")])
+rloc=str(__file__)
+print(rloc)
+print(rloc[:rloc.rfind("\\")])
+os.chdir(rloc[:rloc.rfind("\\")])
 class App(tk.Tk):
     def __init__(self,*args):
         super().__init__()
@@ -174,14 +177,14 @@ class App(tk.Tk):
 
         self.donatepic = PhotoImage(file = "./images/donatedark.png")
         self.donatepicdark=PhotoImage(file="./images/donatelight.png")
-        self.donate = Button(self, text = "Terminal",fg="blue",bd=0,bg="#383838",image=self.donatepic,command=lambda : self.link("https://github.com/sourabhkv/ytdl#support-us"),activebackground='#383838')
+        self.donate = Button(self, text = "Terminal",fg="blue",bd=0,bg="#383838",image=self.donatepic,command=lambda : webbrowser.open("https://github.com/sourabhkv/ytdl#support-us"),activebackground='#383838')
         self.donate.bind('<Enter>',lambda a: self.changer_red(self.donate,self.donatepicdark))
         self.donate.bind('<Leave>',lambda a: self.changer_blue(self.donate,self.donatepic))
         self.donate.place(x = 216,y = 548)
 
         self.githubpic = PhotoImage(file = "./images/img6.png")
         self.githubpicdark=PhotoImage(file="./images/githubdark.png")
-        self.github = Button(self, text = "Github",fg="blue",bd=0,bg="#383838",image=self.githubpic,command=lambda : self.link('https://github.com/sourabhkv/ytdl/'),activebackground='#383838')
+        self.github = Button(self, text = "Github",fg="blue",bd=0,bg="#383838",image=self.githubpic,command=lambda : webbrowser.open('https://github.com/sourabhkv/ytdl/'),activebackground='#383838')
         self.github.bind('<Enter>',lambda a: self.changer_red(self.github,self.githubpicdark))
         self.github.bind('<Leave>',lambda a: self.changer_blue(self.github,self.githubpic))
         self.github.place(x = 324,y = 548)
@@ -199,7 +202,7 @@ class App(tk.Tk):
 
         self.supwpic = PhotoImage(file = "./images/img7.png")
         self.supwpicdark=PhotoImage(file="./images/supportedwebsitesdark.png")
-        self.supw = Button(self, text = "Supported  Websites",bd=0,fg="blue",bg="#383838",image=self.supwpic,command=lambda : self.link('https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md'),activebackground='#383838')
+        self.supw = Button(self, text = "Supported  Websites",bd=0,fg="blue",bg="#383838",image=self.supwpic,command=lambda : webbrowser.open('https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md'),activebackground='#383838')
         self.supw.bind('<Enter>',lambda a: self.changer_red(self.supw,self.supwpicdark))
         self.supw.bind('<Leave>',lambda a: self.changer_blue(self.supw,self.supwpic))
         self.supw.place(x = 420,y = 548)
@@ -300,6 +303,16 @@ class App(tk.Tk):
         self.plsilabel.set('')
         Label(self.tab3, textvariable=self.plsilabel,fg="white",bg='#525252').place(x=210,y=30)
 
+        self.how_to_use = Label(self.tab6, text = "How to use ?",fg="yellow",cursor="hand2",bg="#525252")
+        self.how_to_use.bind('<Button-1>',lambda e: webbrowser.open("https://github.com/yt-dlp/yt-dlp#usage-and-options"))
+        self.how_to_use.place(x=20,y=210)
+
+        Label(self.tab6, text = "eg. -F <URL>",fg="white",bg="#525252").place(x=530,y=210)
+
+        self.terminal = Label(self.tab6 , text="Terminal" , fg="cyan", bg="#525252", cursor="hand2")
+        self.terminal.bind('<Button-1>',lambda e: subprocess.Popen('start terminal.bat',shell=True))
+        self.terminal.place(x=290,y=210)
+
         self.clr2label=Label(self.tab2, text = "",bg="#525252",fg="#0090FF")
         self.clr2label.bind('<Button-1>',lambda e: self.clrtab2())
         self.clr2label.place(x=530,y=205)
@@ -312,8 +325,15 @@ class App(tk.Tk):
         self.clr3label.bind('<Button-1>',lambda e: self.clrtab3())
         self.clr3label.place(x=530,y=205)
 
+        Label(self, text = "Youtube-dl GUI",bg="#303135",font=('Arial', 18),fg="white").place(x = 230,y = 12)
+        self.ytdlimg = Image.open("./images/logo.png")
+        self.ytdlresize = self.ytdlimg.resize((25, 25))
+        self.imgytdl = ImageTk.PhotoImage(self.ytdlresize)
+        Label(image=self.imgytdl,bg="#303135").place(x=410,y=12)
+
         self.cb = BooleanVar()
         self.ebdth = BooleanVar()
+        self.sp = BooleanVar()
         
 
         self.info={}
@@ -365,6 +385,7 @@ class App(tk.Tk):
         try:
             self.check.destroy()
             self.th.destroy()
+            self.spblock.destroy()
         except:
             pass
         self.vidlabel.set('')
@@ -515,7 +536,7 @@ class App(tk.Tk):
             file.write((os.environ['USERPROFILE']+"\\Downloads").replace("\\","/"))#adding downloads path
             file.close()
             file = open("./database/loc.txt",'r')
-            self.e2.insert(0,self.file.readlines()[0])
+            self.e2.insert(0,file.readlines()[0])
             file.close()
         
         self.loc()
@@ -869,6 +890,8 @@ class App(tk.Tk):
         self.check.place(x=195,y=125)
         self.th=ttk.Checkbutton(self.tab2,text="Embed thumbnail", var=self.ebdth, onvalue=True, offvalue=False)
         self.th.place(x=20,y=205)
+        self.spblock=ttk.Checkbutton(self.tab2,text="Sponserblock", var=self.sp, onvalue=True, offvalue=False)
+        self.spblock.place(x=250,y=205)
         if self.caplst[0]=='no captions available':
             self.cap.set(self.caplst[0])
 
@@ -912,9 +935,9 @@ class App(tk.Tk):
     def paste(self,e1):
         #print(self,e1)
         try:
-            AnnoyingWindow=Tk()
-            ClipBoard = AnnoyingWindow.clipboard_get()
-            AnnoyingWindow.destroy()
+            Clipper=Tk()
+            ClipBoard = Clipper.clipboard_get()
+            Clipper.destroy()
             r=len(e1.get(1.0, "end-1c"))
             if r==0:
                 ele=ClipBoard
@@ -934,8 +957,8 @@ class App(tk.Tk):
     def download_1(self,url):
         
         tb1mus = self.mus.get()
-        tb1stime = self.starttime.get()
-        tb1etime = self.endtime.get()
+        tb1stime = self.starttime.get()#starttime
+        tb1etime = self.endtime.get()#endtime
         tb1merged = self.vidmerged.get()
         tb2vid = self.vid.get()
         tb2cap = self.cap.get()
@@ -985,20 +1008,34 @@ class App(tk.Tk):
             elif tb1mus=="Flac 24 bit Lossless":
                 b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format flac --audio-quality 0 -o \"{}\" '+url).format(dir_)
 
-        elif tb2vid!="" and tb2aud!="" and tb1mus=="" and tb2cap=="" and tb1merged=="":
+        elif tb2vid!="" and tb2aud!="" and tb1mus=="" and tb2cap=="" and tb1merged=="" and tb1stime=="" and tb1etime=="" :
+            print("ET$^TEFD")
             b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\"  --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(tb2vid.split()[-1],tb2aud.split()[-1],dir_)
 
-        elif tb2vid!="" and tb2aud=="" and tb1mus=="" and tb2cap=="" and tb1merged=="":
+        elif tb2vid!="" and tb2aud=="" and tb1mus=="" and tb2cap=="" and tb1merged=="" and tb1stime=="" and tb1etime=="":
+            print("#$%TEFD")
             b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(tb2vid.split()[-1],dir_)
 
-        elif tb2vid!="" and tb2aud!="" and tb1mus=="" and tb2cap!="" and tb1merged=="":
+        elif tb2vid!="" and tb2aud!="" and tb1mus=="" and tb2cap!="" and tb1merged=="" and tb1stime=="" and tb1etime=="":
+            print("Fhfgffz")
             b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --write-srt --sub-lang {} --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(tb2cap.split()[0],tb2vid.split()[-1],tb2aud.split()[-1],dir_)
             
-        elif tb2vid=="" and tb2aud=="" and tb1mus=="" and tb2cap=="" and tb1merged!="" and tb1merged!='best available':
+        elif tb2vid=="" and tb2aud=="" and tb1mus=="" and tb2cap=="" and tb1merged!="" and tb1merged!='best available' and tb1stime=="" and tb1etime=="":
+            print("hfdghdfghdg")
             b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(tb1merged.split()[-1],dir_)
             
         elif tb2vid=="" and tb2aud=="" and tb1mus=="" and tb2cap=="" and tb1merged!="" and tb1merged=='best available':
+            print("fghfdg")
             b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f bv+ba -o \"{}\" "+url).format(dir_)
+
+        elif tb1stime!="" and tb1etime!="" and tb1merged!="" and tb2cap=="" and tb1mus=="" and tb2vid=="" and tb2aud=="":
+            b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" --download-sections \"{}\" "+url).format(tb1merged.split()[-1],dir_,"*"+str(tb1stime)+"-"+str(tb1etime))
+            print(b,"ece")
+
+        #elif tb1stime!="" and tb1etime!="" and tb1merged=="" and tb2cap=="" and tb1mus=="" and tb2vid!="" and tb2aud!="":
+            #b=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" --download-sections \"{}\" "+url).format(tb2vid.split()[-1],tb2aud.split()[-1],dir_,"*"+str(tb1stime)+"-"+str(tb1etime))
+            #print(b,"ece2")  ___________________________________________________separate video ,audio not working_________________________________________________
+            
         if b:
             self.cmd=b
             self.dwstate="Downloading"
@@ -1217,9 +1254,6 @@ class App(tk.Tk):
             e1.insert(1.0, p)
             self.on_change(self.url_box)
 
-    def link(self,url):
-        webbrowser.open(url)
-
     def clr(self,e1):
         e1.delete(1.0,"end")
 
@@ -1261,21 +1295,21 @@ class Window(tk.Toplevel):
         name74 = Label(self, text = "CREDITS :",bg="#303135",fg="white").place(x=40+70,y=290)
         name74 = Label(self, text = "yt-dlp",bg="#303135",fg="#0574FF",cursor="hand2")
         name74.place(x = 135+85,y = 290)
-        name74.bind("<Button-1>", lambda e: link('https://github.com/yt-dlp/yt-dlp'))
+        name74.bind("<Button-1>", lambda e: webbrowser.open('https://github.com/yt-dlp/yt-dlp'))
         name73 = Label(self, text = "ffmpeg",fg="#0574FF",cursor="hand2",bg="#303135")
         name73.place(x = 210+95,y = 290)
-        name73.bind("<Button-1>", lambda e: link('https://www.ffmpeg.org/'))
+        name73.bind("<Button-1>", lambda e: webbrowser.open('https://www.ffmpeg.org/'))
         name75 = Label(self, text = "AtomicParsley",fg="#0574FF",cursor="hand2",bg="#303135")
         name75.place(x = 290+105,y = 290)
-        name75.bind("<Button-1>", lambda e: link('http://atomicparsley.sourceforge.net/'))
+        name75.bind("<Button-1>", lambda e: webbrowser.open('http://atomicparsley.sourceforge.net/'))
         name76 = Label(self, text = "TELEGRAM",fg="orange",cursor="hand2",bg="#303135")
         name76.place(x = 190+145,y = 390)
-        name76.bind("<Button-1>", lambda e: link('https://t.me/ytdlgui'))
+        name76.bind("<Button-1>", lambda e: webbrowser.open('https://t.me/ytdlgui'))
         name77 = Label(self, text = "DONATE",fg="yellow",cursor="hand2",bg="#303135")
         name77.place(x = 190,y = 390)
-        name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#support-us'))
+        name77.bind("<Button-1>", lambda e: webbrowser.open('https://github.com/sourabhkv/ytdl#support-us'))
         name7e = Label(self, text = "Changelog",fg="#0574FF",cursor="hand2",bg="#303135")
-        name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.0808.19'))
+        name7e.bind("<Button-1>", lambda e: webbrowser.open('https://github.com/sourabhkv/ytdl/releases/tag/v22.0808.19'))
         name7e.place(x = 195,y = 315)
         name8e = Label(self, text = "Check for updates",fg="#0574FF",cursor="hand2",bg="#303135")
         name8e.bind("<Button-1>", lambda e: os.startfile("updater.exe"))
@@ -1305,7 +1339,7 @@ class Settings(tk.Toplevel):
         Label(self, text = "Multi video options",bg="#303135",fg="white").place(relx=0.5, rely=0.7,anchor= CENTER)
         dd=Label(self, text = "Update  yt-dlp",fg="#0574FF",cursor="hand2",bg="#303135")
         dd.place(x = 390,y = 460)
-        dd.bind("<Button-1>", lambda e: updateback())
+        #dd.bind("<Button-1>", lambda e: updateback())
         name75 = Label(self, text = "Report issue",fg="#0574FF",cursor="hand2",bg="#303135")
         name75.place(x = 15,y = 460)
         name75.bind("<Button-1>", lambda e: webbrowser.open('https://github.com/sourabhkv/ytdl/issues'))
@@ -1419,6 +1453,7 @@ if __name__ == "__main__":
         file8.close()
         
     lst=sys.argv
+    print(lst,type(lst))
     if len(lst)==2 and ".txt" in lst[1]:
         app = App(lst)
         app.mainloop()
