@@ -62,7 +62,7 @@ Windows 7 support will be dropped in Oct 2024.<br>
 |thumbnail download|yes|no|no|no|
 |Captions support|yes|yes|no|no|
 |Proxy support|yes|no|no|no|
-|Supported website|[1600+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|2|
+|Supported website|[1700+](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)|[11](https://www.4kdownload.com/faq/faq-what-sites-are-supported)|[48](https://www.ytddownloader.com/video_sites.html)|2|
 |Simultaneous downloads |upto 5|Pro|Pro|No|
 |Create custom command|yes|no|no|no|
 |Metadata|yes|no|no|no|
@@ -123,8 +123,8 @@ Wav format for playlist and more.<br>
 ## Roadmap of releases<br>
 :ballot_box_with_check:`Alsina` - Settings menu, history of saved files , auto update(June end)<br>
 :ballot_box_with_check:`Transition release` - Help users with old version to migrate to Meteor release<br>
-:black_square_button:`Meteor` - updater changes stable(July-Aug)<br>
-:black_square_button:`Clang` - Regex support in output template, (Sept-Oct)
+:ballot_box_with_check:`Meteor` - updater changes stable(July-Aug)<br>
+:ballot_box_with_check:`Clang` - Regex support in output template, (Sept-Oct)
 
 <h2>Coming features</h2>
 Better playlist support.<br>
