@@ -21,11 +21,12 @@
 A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio. **This project is only for educational purpose DO NOT SELL . DO NOT 
 plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 
-　　　　　　　　　　　　　　　　　　　　　![python](https://user-images.githubusercontent.com/55890376/208916421-d983d873-8dd8-4d53-949a-16959f9f6df9.png)&nbsp;&nbsp;&nbsp;&nbsp;
+　　　　　　　　　　　　　　　　　　　　![python](https://user-images.githubusercontent.com/55890376/208916421-d983d873-8dd8-4d53-949a-16959f9f6df9.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![yt-dlp](https://user-images.githubusercontent.com/55890376/208916592-4cfc3036-6b0b-4ccf-9fa7-5214c9440bc5.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![ffmpeg](https://user-images.githubusercontent.com/55890376/208916616-76aace34-17e9-4865-b73c-bd1777b416bc.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![ps](https://user-images.githubusercontent.com/55890376/208916682-7d245f1a-1881-42dc-b56c-b3ff8fe11939.png)&nbsp;&nbsp;&nbsp;&nbsp;
 
+**Version 23.xx.yy coming soon....**<br>
 Update model 3 will built using python 3.8.10 <br>
 Windows 7 support will be dropped in Oct 2024.<br>
 ~~⚠️ ALERT CURRENTLY SUPPORTED VERSIONS WILL NO LONGER RECEIVE UPDATES ,YTDL WILL USE **PYTHON 3.10.7** with latest libraries<br>
@@ -273,7 +274,7 @@ Pygame window displays live download progress (for older version).
 
 ## How development started and was carried?<br>
 This project development started with wish to download youtube physics video(Center of mass) at 240p in March,2021 because 240p quality was managable and took decent amount of mobile data compared to 360p.
-Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.
+Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use (started to port yt-dlp/youtube-dl CLI to GUI) ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.
 Initially it was a very basic program which lack many features as time passed encountered many bugs and fixed it ,specially giving the live download progress in main window statusbar took almost 2 months to fix this  removing black console window at startup  was also challenging to fix without using `--noconsole` option.
 
 Threading helped execute many function at same time
