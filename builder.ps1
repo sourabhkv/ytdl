@@ -1,12 +1,22 @@
-pyinstaller --icon=logo.ico -w --hidden-import yt_dlp.compat._legacy "Youtube-dl GUI.py"
-New-Item -Path ".\dist\Youtube-dl GUI\images" -ItemType Directory
-Copy-Item ".\images\*.*" -Destination ".\dist\Youtube-dl GUI\images"
-Copy-Item logo.ico -Destination ".\dist\Youtube-dl GUI"
-.\yt-dlp_x86.exe -U
-Copy-Item yt-dlp_x86.exe -Destination ".\dist\Youtube-dl GUI"
-Copy-Item version.txt -Destination ".\dist\Youtube-dl GUI"
-Copy-Item ffmpeg.exe -Destination ".\dist\Youtube-dl GUI"
-Copy-Item AtomicParsley.exe -Destination ".\dist\Youtube-dl GUI"
-Copy-Item update_starter.bat -Destination ".\dist\Youtube-dl GUI"
-Remove-Item ".\dist\Youtube-dl GUI\websockets-10.3.dist-info"
+mkdir Build_env
+cd Build_env
+virtualenv venv
+venv\Scripts\activate
+pip install Pillow
+pip install Pyinstaller
+pip install requests
+pip install psutil
+pip install --upgrade yt_dlp
+pip install pytube
+Copy-Item "..\class2.81.py" -Destination ".\"
+Copy-Item "..\logo.ico" -Destination ".\"
+pyinstaller --icon=logo.ico -w --hidden-import yt_dlp.compat._legacy ".\class2.81.py"
+New-Item -Path ".\dist\class2.81\images" -ItemType Directory
+Copy-Item "..\images\*.*" -Destination ".\dist\class2.81\images"
+Copy-Item "..\logo.ico" -Destination ".\dist\class2.81"
+Copy-Item "..\yt-dlp_x86.exe" -Destination ".\dist\class2.81"
+.\yt-dlp.exe -U
+Copy-Item "..\ffmpeg.exe" -Destination ".\dist\class2.81"
+Copy-Item "..\AtomicParsley.exe" -Destination ".\dist\class2.81"
+Remove-Item ".\dist\class2.81\websockets-10.4.dist-info"
 read-host “`r`nPress ENTER to continue...”
