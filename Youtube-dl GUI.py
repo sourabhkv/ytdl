@@ -1699,7 +1699,7 @@ def playlister():
         elif "720p" in play.get():
             a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "1080p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a "+link).format("~"+loc+"/"+out_temp)
+            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "best" in play.get():
             a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "worst" in play.get():
