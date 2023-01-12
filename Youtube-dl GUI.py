@@ -97,7 +97,6 @@ def update_handler(link,ver):
     print(ver)
     t2 = threading.Thread(target=popens, args=("yt-dlp_x86 -U",))
     t2.start()
-    CREATE_NO_WINDOW = 0x08000000
     my_dir=os.getcwd()+"\\update"
     for f in os.listdir(my_dir):
         os.remove(os.path.join(my_dir, f))
@@ -121,9 +120,7 @@ def update_handler(link,ver):
     
 
 def popens(cmd):
-    startupinfo = subprocess.STARTUPINFO()
-    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    process = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
     return process.stdout.read()
 
 
@@ -217,8 +214,7 @@ def link(url):
     webbrowser.open(url)
 
 def terminal():
-    t1s = threading.Thread(target=popens, args=("start.bat",))
-    t1s.start()
+    subprocess.Popen('start terminal.bat',shell=True)
 
 def remove_emoji(string):
     import re
@@ -377,7 +373,7 @@ def about():
     resize_image = image.resize((200, 200))
     img = ImageTk.PhotoImage(resize_image)
     streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-    streams2 = Label(root2, text = "Youtube-dl GUI  v22.1119.20",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+    streams2 = Label(root2, text = "Youtube-dl GUI  v23.0111.19",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
     streams2 = Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
     streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
     streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
@@ -398,7 +394,7 @@ def about():
     name77.place(x = 190,y = 390)
     name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#support-us'))
     name7e = Label(root2, text = "Changelog",fg="#0574FF",cursor="hand2",bg="#303135")
-    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v22.1119.20'))
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v23.0111.19'))
     name7e.place(x = 195,y = 315)
     name8e = Label(root2, text = "Check for updates",fg="#0574FF",cursor="hand2",bg="#303135")
     #name8e.bind("<Button-1>", lambda e: os.startfile("updater.exe"))
@@ -761,7 +757,6 @@ def srch(url):
     try:
         with YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=False)
-        #print(info)
         d=""
         tv2z = threading.Thread(target=title, args=(url,))
         tv2z.start()
@@ -1105,8 +1100,10 @@ def run_command4pl(cmd):
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
     file3=open(os.getcwd()+"\\database\\args.txt",'r')
-    if len(file3.readlines())!=0:
-        cmd=cmd+" "+file3.readlines()[0]
+    r=(file3.readlines())
+    print(r)
+    cmd=cmd+" "+r[0]
+    print(cmd)
     file3.close()
     global ext11,ext12fx
     ext12fx.place(x=690+20,y=506)
