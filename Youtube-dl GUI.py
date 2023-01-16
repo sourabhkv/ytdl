@@ -1102,7 +1102,10 @@ def run_command4pl(cmd):
     file3=open(os.getcwd()+"\\database\\args.txt",'r')
     r=(file3.readlines())
     print(r)
-    cmd=cmd+" "+r[0]
+    try:#error temp solution
+        cmd=cmd+" "+r[0]
+    except:
+        pass
     print(cmd)
     file3.close()
     global ext11,ext12fx
