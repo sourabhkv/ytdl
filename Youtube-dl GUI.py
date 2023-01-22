@@ -4,7 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.constants import DISABLED, NORMAL
-import os
+import os,re
 from yt_dlp import YoutubeDL
 import subprocess,threading,time
 import tkinter.font as tkFont
@@ -26,26 +26,18 @@ def check_for_update(a,b=1):
             f=open("version.txt","r")
             curver=int(f.readlines()[0])
             f.close()
-            result=r.text
-            s=0
-            d=""
-            f=result.split("\n")
-            for i in range(30,len(f)):
-                if "Version in support" in f[i]:
-                    s=i
-            for j in range(0,len(f[s])):
-                if f[s][j].isnumeric() or f[s][j]==",":
-                    d=d+f[s][j]
-            supported=d.split(",")
+            
             version=[]
-            for k in range(0,len(supported)):
-                version.append(int(supported[k]))
+            all_num = (re.findall(r'\d\d\.\d\d\d\d\.\d\d',r.text))
+            for i in range(len(all_num)):
+                version.append(int((re.findall("\d+",all_num[i])[0])+(re.findall("\d+",all_num[i])[1])+(re.findall("\d+",all_num[i])[2])))
             #print(version,curver)
+            print(version)
             rs.close()
             rs=open(".\\database\\log.txt","w")
             rs.write(str(time.time()))
             rs.close()
-            print(curver,version[-1])
+            print(curver,version[-1],type(version[-1]))
 
             if curver==version[-1]:
                 messagebox.showinfo("Youtube-dl GUI","Up to date")
@@ -90,8 +82,8 @@ else:
     file7.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     file7.close()
     
-#t1xz = threading.Thread(target=check_for_update, args=("https://sourabhkv.github.io/ytdl",))
-#t1xz.start()
+t1xz = threading.Thread(target=check_for_update, args=("https://sourabhkv.github.io/ytdl",))
+t1xz.start()
 
 def update_handler(link,ver):
     print(ver)
@@ -1101,8 +1093,8 @@ def run_command4pl(cmd):
     file2.close()
     file3=open(os.getcwd()+"\\database\\args.txt",'r')
     r=(file3.readlines())
-    print(r)
-    try:#error temp solution
+    print(r)#error
+    try:
         cmd=cmd+" "+r[0]
     except:
         pass
