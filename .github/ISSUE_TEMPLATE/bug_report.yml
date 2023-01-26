@@ -1,14 +1,14 @@
-name: Feature request
-description: Request a new functionality unrelated to any particular site or extractor
-labels: [triage, enhancement]
-assignees: "sourabhkv"
+name: Bug report
+description: Report a bug unrelated to any particular site or extractor
+labels: [triage, bug]
+assignees: "sourabhkv,perrypinaki"
 body:
   - type: checkboxes
     attributes:
       label: DO NOT REMOVE OR SKIP THE ISSUE TEMPLATE
       description: Fill all fields even if you think it is irrelevant for the issue
       options:
-        - label: I understand that I will be **blocked** if I remove or skip any mandatory\* field & the issue will not be entertained
+        - label: I understand that I will be **blocked** if I remove or skip any mandatory\* field
           required: true
   - type: checkboxes
     id: checklist
@@ -17,11 +17,11 @@ body:
       description: |
         Carefully read and work through this check list in order to prevent the most common mistakes and misuse of yt-dlp:
       options:
-        - label: I'm requesting a feature unrelated to a specific site
+        - label: I'm reporting a bug unrelated to a specific site
           required: true
-        - label: I've looked through the [README](https://github.com/sourabhkv/ytdl#stream-selection)
+        - label: I've verified that I'm running latest version of [ytdl](https://github.com/sourabhkv/ytdl/releases/latest/) ([update instructions](https://github.com/yt-dlp/yt-dlp#update)) or later (specify commit)
           required: true
-        - label: I've verified that I'm running latest version of ytdl  ([update instructions](https://github.com/sourabhkv/ytdl#update-application)) or later (specify commit)
+        - label: I've checked that all provided URLs are playable in a browser with the same IP and same login details
           required: true
         - label: I've searched the [bugtracker](https://github.com/sourabhkv/ytdl/issues?q=) for similar issues **including closed ones**. DO NOT post duplicates
           required: true
