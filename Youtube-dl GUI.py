@@ -58,27 +58,27 @@ def check_for_update(a,b=1):
     else:
         rs.close()
 
-if  os.path.exists(os.getcwd()+"\\database"):
+if  os.path.exists("./database"):
     pass
 else:
-    os.makedirs(os.getcwd()+"\\database", exist_ok=False)
-    os.makedirs(os.getcwd()+"\\update", exist_ok=False)
-    file = open(".\\database\\loc.txt",'w+')
+    os.makedirs("./database", exist_ok=False)
+    os.makedirs("./update", exist_ok=False)
+    file = open("./database/loc.txt",'w+')
     file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
     file.close()
-    file2=open(".\\database\\cookies.txt",'w+')
+    file2=open("./database/cookies.txt",'w+')
     file2.close()
-    file3=open(".\\database\\args.txt",'w+')
+    file3=open("./database/args.txt",'w+')
     file3.close()
-    file4=open(".\\database\\history.txt",'w+')
+    file4=open("./database/history.txt",'w+')
     file4.close()
-    file5=open(".\\database\\log.txt",'w+')
+    file5=open("./database/log.txt",'w+')
     file5.write(str(time.time()))
     file5.close()
-    file6=open(".\\database\\output_temp_vid.txt",'w+')
+    file6=open("./database/output_temp_vid.txt",'w+')
     file6.write("%(title)s.%(ext)s")
     file6.close()
-    file7=open(".\\database\\output_temp_playlist.txt",'w+')
+    file7=open("./database/output_temp_playlist.txt",'w+')
     file7.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     file7.close()
     
@@ -89,7 +89,7 @@ def update_handler(link,ver):
     print(ver)
     t2 = threading.Thread(target=popens, args=("yt-dlp_x86 -U",))
     t2.start()
-    my_dir=os.getcwd()+"\\update"
+    my_dir="./update"
     for f in os.listdir(my_dir):
         os.remove(os.path.join(my_dir, f))
     with urlopen(link) as zipresp:
@@ -125,12 +125,12 @@ def browse():
     global download_Directory,ext12fx,ext11
     download_Directory = filedialog.askdirectory(initialdir="YOUR DIRECTORY PATH")
     if download_Directory=="":
-        file = open(os.getcwd()+"\\database\\loc.txt",'r')
+        file = open("./database/loc.txt",'r')
         download_Directory=file.readlines()[0]
         file.close()
     e2.delete(0,END)
     e2.insert(0,download_Directory)
-    file = open(os.getcwd()+"\\database\\loc.txt",'w+')
+    file = open("./database/loc.txt",'w+')
     file.write(download_Directory)
     file.close()
 
@@ -361,7 +361,7 @@ def about():
     root2.geometry('%dx%d+%d+%d' % (600, 500, x, y))
     root2.title('About Youtube-dl GUI')
     root2.configure(bg='#303135')
-    image = Image.open(os.getcwd()+"/images/"+"logo.png")
+    image = Image.open("./images/logo.png")
     resize_image = image.resize((200, 200))
     img = ImageTk.PhotoImage(resize_image)
     streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
@@ -410,16 +410,16 @@ def save():
     c2=cookiepath.get()
     c3=out_vid.get()
     c4=out_plst.get()
-    file2=open(os.getcwd()+"\\database\\cookies.txt",'w+')
+    file2=open("./database/cookies.txt",'w+')
     file2.write(c2)
     file2.close()
-    file3=open(os.getcwd()+"\\database\\args.txt",'w+')
+    file3=open("./database/args.txt",'w+')
     file3.write(c1)
     file3.close()
-    file4=open(os.getcwd()+"\\database\\output_temp_vid.txt",'w+')
+    file4=open("./database/output_temp_vid.txt",'w+')
     file4.write(c3)
     file4.close()
-    file4=open(os.getcwd()+"\\database\\output_temp_playlist.txt",'w+')
+    file4=open("./database/output_temp_playlist.txt",'w+')
     file4.write(c4)
     file4.close()
     #root4.destroy()
@@ -449,16 +449,16 @@ def reco():
     
     ttk.Button(root3, text ="Save", command = save).place(relx=0.5, rely=0.8,anchor= CENTER)
     global cookiepath,optnentry,out_vid,out_plst
-    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
+    file2=open("./database/cookies.txt",'r')
     data1=file2.readlines()
     file2.close()
-    file3=open(os.getcwd()+"\\database\\args.txt",'r')
+    file3=open("./database/args.txt",'r')
     data2=file3.readlines()
     file3.close()
-    file4=open(os.getcwd()+"\\database\\output_temp_vid.txt",'r')
+    file4=open("./database/output_temp_vid.txt",'r')
     out_temp_vid=file4.readlines()
     file4.close()
-    file5=open(os.getcwd()+"\\database\\output_temp_playlist.txt",'r')
+    file5=open("./database/output_temp_playlist.txt",'r')
     out_temp_plst=file5.readlines()
     file5.close()
     optnentry=ttk.Entry(root3,width=74)
@@ -1014,7 +1014,7 @@ def history():
             title=e3.get()
         else:
             title=""
-    file4=open(os.getcwd()+"\\database\\history.txt",'a')
+    file4=open("./database/history.txt",'a')
     #fmt=cmbmus.get()
     location=download_Directory
     log=title+"^"+url+"^"+dt_string+"^"+location+"^"+"\n"
@@ -1026,11 +1026,11 @@ def history():
     
 def run_command4(cmd):
     #print(cmd)
-    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
+    file2=open("./database/cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
-    file3=open(os.getcwd()+"\\database\\args.txt",'r')
+    file3=open("./database/args.txt",'r')
     if len(file3.readlines())!=0:
         cmd=cmd+" "+file3.readlines()[0]
 
@@ -1087,11 +1087,11 @@ def run_command4(cmd):
     
 def run_command4pl(cmd):
     #print(cmd)
-    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
+    file2=open("./database/cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
-    file3=open(os.getcwd()+"\\database\\args.txt",'r')
+    file3=open("./database/args.txt",'r')
     r=(file3.readlines())
     print(r)#error
     try:
@@ -1128,11 +1128,11 @@ def run_command4pl(cmd):
 
 def run_command4multi(cmd,gg):
     #print(cmd)
-    file2=open(os.getcwd()+"\\database\\cookies.txt",'r')
+    file2=open("./database/cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
     file2.close()
-    file3=open(os.getcwd()+"\\database\\args.txt",'r')
+    file3=open("./database/args.txt",'r')
     if len(file3.readlines())!=0:
         cmd=cmd+" "+file3.readlines()[0]
     file3.close()
@@ -1167,7 +1167,7 @@ def multibuster(z,b,c):
             loc="/"+loc
     except:
         pass
-    file4=open(os.getcwd()+"\\database\\output_temp_vid.txt",'r')
+    file4=open("./database/output_temp_vid.txt",'r')
     out_temp=file4.readlines()[0]
     file4.close()
     if len(b)!=0:
@@ -1547,7 +1547,7 @@ def checkcmbo():
         pass
     otformat=ftbox.get()
     print(otformat)
-    file4=open(os.getcwd()+"\\database\\output_temp_vid.txt",'r')
+    file4=open("./database/output_temp_vid.txt",'r')
     out_temp=file4.readlines()[0]
     file4.close()
     output="~"+loc+"/"+out_temp
@@ -1676,7 +1676,7 @@ def playlister():
             loc="/"+loc
     except:
         pass
-    file7=open(os.getcwd()+"\\database\\output_temp_playlist.txt",'r')
+    file7=open("./database/output_temp_playlist.txt",'r')
     out_temp=file7.readlines()[0]
     file7.close()
     if len(play.get())==0:
@@ -1935,7 +1935,7 @@ style.configure("TCheckbutton", background='#525252',foreground="white",activeba
 
 style.layout("TNotebook", [])
 
-md=PhotoImage(file = os.getcwd()+"/images/"+"Frame 1newer.png")
+md=PhotoImage(file = "./images/Frame 1newer.png")
 canvas1 = Canvas( root, width = 560,height = 1000)
 background_label = Label(image=md,anchor="n")
 background_label.place(x=0, y=-2, relwidth=1, relheight=1)
@@ -1987,7 +1987,7 @@ text_area.grid(column=0, row=2, pady=40, padx=10)
 def clearhistory():
     answer = messagebox.askquestion('Youtube-dl GUI','Are you sure that you want to clear history?')
     if answer=="yes":
-        file4=open(os.getcwd()+"\\database\\history.txt",'w+')
+        file4=open("./database/history.txt",'w+')
         file4.write("")
         file4.close()
         refresh()
@@ -2055,7 +2055,7 @@ def refresh():
     my_game.heading("URL",text="URL",anchor=CENTER)
     my_game.heading("Date time",text="Date time",anchor=CENTER)
     my_game.heading("Location",text="Location",anchor=CENTER)
-    file4=open(os.getcwd()+"\\database\\history.txt",'r')
+    file4=open("./database/history.txt",'r')
     log=file4.readlines()
     file4.close()
     my_game.pack()
@@ -2078,7 +2078,11 @@ def refresh():
 def dir_open():
     #print("explorer /open, "+e2.get().replace("/","\\"))
     if os.path.exists(e2.get().replace("/","\\")):
-        subprocess.Popen(r'explorer /open, '+e2.get().replace("/","\\"))
+        if os.name=='nt':
+            subprocess.Popen(r'explorer /open, '+e2.get().replace("/","\\"))
+        elif os.name=='posix':
+            #subprocess.run(["xdg-open",e2.get()],shell=True)
+            subprocess.Popen(r'xdg-open '+e2.get())
     else:
         messagebox.showerror("Youtube-dl GUI","Path doesn't exist\nPath might be deleted or moved")
 
@@ -2158,7 +2162,10 @@ name3r.place(x = 55,y = 148)
 name = Label(tab2, textvariable = cusvar,bg="#525252",fg="white").place(x = 20,y = 146)
 name = Label(tab2, textvariable = prxy,bg="#525252",fg="white").place(x = 330,y = 146)
 streamsvidto = Label(tab5,textvariable=convertvar,bg="#525252",fg="white").place(x = 485,y = 10)
-userloc=(os.environ['USERPROFILE'])+"\\Downloads"
+if os.name =='nt':
+    userloc=(os.environ['USERPROFILE'])+"\\Downloads"
+elif os.name =='posix':
+    userloc = "/home"+os.environ.get('USERNAME')+"/Downloads"
 userloc=userloc.replace("\\","/")
 status= StringVar()
 status.set(" Help to keep Ytdl active and running by donating "+" "*205+"Join telegram t.me/ytdlgui")
@@ -2237,11 +2244,11 @@ name77.place(x = 530,y = 20)
 name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/blob/main/README.md#ytdl-unlocked-pro'))
 
 imgpst = PhotoImage(file = "./images/paste2.png")
-namepst = Button(tab6, text = "Paste",fg="blue",bd=0,bg="#525252",image=imgpst,command=lambda : paste2(),activebackground='#525252')
+namepst = Button(tab6, text = "Paste",fg="blue",bd=0,bg="#525252",image=imgpst,command=lambda : paste2(),activebackground='#525252',highlightthickness = 0)
 namepst.place(x=480,y=10)
 
 imgclr = PhotoImage(file = "./images/clr2.png")
-nameclr = Button(tab6, text = "Clear",fg="blue",bd=0,bg="#525252",image=imgclr,command=lambda : clr2(),activebackground='#525252')
+nameclr = Button(tab6, text = "Clear",fg="blue",bd=0,bg="#525252",image=imgclr,command=lambda : clr2(),activebackground='#525252',highlightthickness = 0)
 nameclr.place(x=515,y=10)
 
 name7zax = ttk.Button(tab6, text = "RUN",command=lambda : custom())
@@ -2261,37 +2268,37 @@ name75.place(x = 535,y = 210)
 
 
 img3 = PhotoImage(file = "./images/img3.png")
-name7z = Button(root, text = "About",fg="blue",bd=0,bg="#383838",image=img3,command=lambda : about(),activebackground='#383838')
+name7z = Button(root, text = "About",fg="blue",bd=0,bg="#383838",image=img3,command=lambda : about(),activebackground='#383838',highlightthickness = 0)
 name7z.bind('<Enter>',lambda a:changer_red(name7z,aboutd))
 name7z.bind('<Leave>',lambda a:changer_blue(name7z,img3))
 name7z.place(x = 28,y = 510)
 
 img4 = PhotoImage(file = "./images/img4.png")
-name8 = Button(root, text = "Update",fg="blue",bd=0,bg="#383838",image=img4,command=lambda : update(),activebackground='#383838')
+name8 = Button(root, text = "Update",fg="blue",bd=0,bg="#383838",image=img4,command=lambda : update(),activebackground='#383838',highlightthickness = 0)
 name8.bind('<Enter>',lambda a:changer_red(name8,updated))
 name8.bind('<Leave>',lambda a:changer_blue(name8,img4))
 name8.place(x = 120,y = 510)
 
 img5 = PhotoImage(file = "./images/donatedark.png")
-name9 = Button(root, text = "Terminal",fg="blue",bd=0,bg="#383838",image=img5,command=lambda : link("https://github.com/sourabhkv/ytdl#support-us"),activebackground='#383838')
+name9 = Button(root, text = "Terminal",fg="blue",bd=0,bg="#383838",image=img5,command=lambda : link("https://github.com/sourabhkv/ytdl#support-us"),activebackground='#383838',highlightthickness = 0)
 name9.bind('<Enter>',lambda a:changer_red(name9,terminald))
 name9.bind('<Leave>',lambda a:changer_blue(name9,img5))
 name9.place(x = 216,y = 510)
 
 img6 = PhotoImage(file = "./images/img6.png")
-name10 = Button(root, text = "Github",fg="blue",bd=0,bg="#383838",image=img6,command=lambda : link('https://github.com/sourabhkv/ytdl/'),activebackground='#383838')
+name10 = Button(root, text = "Github",fg="blue",bd=0,bg="#383838",image=img6,command=lambda : link('https://github.com/sourabhkv/ytdl/'),activebackground='#383838',highlightthickness = 0)
 name10.bind('<Enter>',lambda a:changer_red(name10,githubd))
 name10.bind('<Leave>',lambda a:changer_blue(name10,img6))
 name10.place(x = 324,y = 510)
 
 img7 = PhotoImage(file = "./images/img7.png")
-name11 = Button(root, text = "Supported  Websites",bd=0,fg="blue",bg="#383838",image=img7,command=lambda : link('https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md'),activebackground='#383838')
+name11 = Button(root, text = "Supported  Websites",bd=0,fg="blue",bg="#383838",image=img7,command=lambda : link('https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md'),activebackground='#383838',highlightthickness = 0)
 name11.bind('<Enter>',lambda a:changer_red(name11,supd))
 name11.bind('<Leave>',lambda a:changer_blue(name11,img7))
 name11.place(x = 420,y = 510)
 
 img14 = PhotoImage(file = "./images/settings.png")
-name7 = Button(root, text = "Options",fg="blue",bd=0,bg="#383838",image=img14,command=lambda : reco(),activebackground='#383838')
+name7 = Button(root, text = "Options",fg="blue",bd=0,bg="#383838",image=img14,command=lambda : reco(),activebackground='#383838',highlightthickness = 0)
 name7.bind('<Enter>',lambda a:changer_red(name7,optionsd))
 name7.bind('<Leave>',lambda a:changer_blue(name7,img14))
 name7.place(x = 585,y = 510)
@@ -2320,22 +2327,22 @@ label1 = Label(image=img,bg="#303135")
 label1.image = img
 label1.place(x=410,y=10)
 img8 = PhotoImage(file ="./images/browse.png")
-browse_B = Button(root,image=img8,bd=0, text="Browse", command=browse,relief="flat",bg="#424242",activebackground='#424242')
+browse_B = Button(root,image=img8,bd=0, text="Browse", command=browse,relief="flat",bg="#424242",activebackground='#424242',highlightthickness = 0)
 browse_B.bind('<Enter>',lambda a:changer_red(browse_B,imgbrowred))
 browse_B.bind('<Leave>',lambda a:changer_blue(browse_B,img8))
 browse_B.place(x=570,y=170)
 img0 = PhotoImage(file = "./images/paste.png")
-ext15=Button(root,bd=0,image=img0,text="Paste",command=paste,relief="flat",bg="#424242",activebackground='#424242')
+ext15=Button(root,bd=0,image=img0,text="Paste",command=paste,relief="flat",bg="#424242",activebackground='#424242',highlightthickness = 0)
 ext15.bind('<Enter>',lambda a:changer_red(ext15,imgpastered))
 ext15.bind('<Leave>',lambda a:changer_blue(ext15,img0))
 ext15.place(x=200,y=134)
 img1 = PhotoImage(file = "./images/clear.png")
-ext16=Button(root,text="Clear",bd=0,image=img1,command=clr,relief="flat",bg="#424242",activebackground='#424242')
+ext16=Button(root,text="Clear",bd=0,image=img1,command=clr,relief="flat",bg="#424242",activebackground='#424242',highlightthickness = 0)
 ext16.bind('<Enter>',lambda a:changer_red(ext16,imgclearred))
 ext16.bind('<Leave>',lambda a:changer_blue(ext16,img1))
 ext16.place(x=300,y=134)
 img2 = PhotoImage(file = "./images/go.png")
-ext17go=Button(root,text="GO",bd=0,image=img2,command=lambda: on_change(e1),bg="#424242",activebackground='#424242')
+ext17go=Button(root,text="GO",bd=0,image=img2,command=lambda: on_change(e1),bg="#424242",activebackground='#424242',highlightthickness = 0)
 ext17go.bind('<Enter>',lambda a:changer_red(ext17go,imggored))
 ext17go.bind('<Leave>',lambda a:changer_blue(ext17go,img2))
 ext17go.place(x=570,y=96)
