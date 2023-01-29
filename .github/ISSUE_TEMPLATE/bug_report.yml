@@ -1,6 +1,7 @@
 name: Bug report
 description: Report a bug unrelated to any particular site or extractor
 labels: [triage, bug]
+assignees: "sourabhkv,perrypinaki"
 body:
   - type: checkboxes
     attributes:
