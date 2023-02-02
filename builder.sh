@@ -1,7 +1,7 @@
 mkdir Build_env
 cd Build_env
 virtualenv venv
-source activate
+venv\Scripts\activate
 pip install Pillow
 pip install pyinstaller==5.6.2
 pip install requests
