@@ -272,6 +272,21 @@ ffmpeg converts it into videos/audios.
 if m4a is selected audio format ffmpeg uses AtomicParsley to write metadata in m4a file.
 Pygame window displays live download progress (for older version).
 
+## CONTRIBUTING
+### Opening an issue
+Bugs and suggestions should be reported at: [/ytdl/issues](https://github.com/sourabhkv/ytdl/issues)
+Select the type of issue
+- `Bug report`
+- `Feature request`
+- `Ask a question`
+
+Please see the issues section before opening issue<br>
+Duplicate issues will not be entertained and make sure you are on latest version<br>
+Adding Screenshots/videos will be helpful.<br>
+
+### Creating Pull request
+Do not include database files, other dependencies in PR.<br>
+
 ## How development started and was carried?<br>
 This project development started with wish to download youtube physics video(Center of mass) at 240p in March,2021 because 240p quality was managable and took decent amount of mobile data compared to 360p.
 Many people don't have technical knowledge of how to use youtube-dl/yt-dlp command line, to make things easier to use (started to port yt-dlp/youtube-dl CLI to GUI) ,I thought of making GUI version of youtube-dl/yt-dlp for those having no knowledge about command line program.
