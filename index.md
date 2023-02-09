@@ -3,10 +3,10 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 <br>
 
 <p align="center">
-<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub"></a>
+<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/downloads/sourabhkv/ytdl/total?logo=GitHub">
 <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/downloads/sourabhkv/ytdl/latest/total?logo=github"> <a href="https://github.com/sourabhkv/ytdl/blob/main/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/sourabhkv/ytdl"></a>
 <a href="https://www.youtube.com/channel/UCdr0BYy90kbqE2AN4GU2-oQ/featured"><img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCdr0BYy90kbqE2AN4GU2-oQ?style=social"></a>
-<a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/c%23-%23239120.svg?style=flat&logo=c-sharp&logoColor=white" ></a> <img alt="Windows" src="https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white" ></a>
+<a href="https://github.com/sourabhkv/ytdl/commits"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/sourabhkv/ytdl?color=red&label=Commit" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54" ></a> <a href="https://python.org"><img alt="python" src="https://img.shields.io/badge/c%23-%23239120.svg?style=flat&logo=c-sharp&logoColor=white" ></a> <img alt="Windows" src="https://img.shields.io/badge/Windows-0078D6?style=flat&logo=windows&logoColor=white" >
 </p>
 <p align="center">
 <a href="https://github.com/sourabhkv/ytdl#support-us"><img alt="python" src="https://img.shields.io/badge/Phonepe-54039A?style=for-the-badge&logo=phonepe&logoColor=white" ></a>
