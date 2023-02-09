@@ -226,6 +226,49 @@ Youtube-dl GUI
 If any updates are available ytdl will clear temp dir contents before downloading.<br>
 After downloading update script.bat will launch to taskill & delete current Youtube-dl GUI.exe and place new Youtube-dl GUI.exe at same location to prior and perform any other task depending upon update.<br>
 
+## Building executable
+### Windows
+
+---
+
+1. Clone this repository
+2. Install the following dependencies
+```
+python >= 3.8.10
+ffmpeg >= 3.3.4
+yt-dlp latest version
+```
+- ffmpeg and yt-dlp should be placed in cloned dir
+Libraries
+```
+pyinstaller==5.6.2
+Pillow==9.4.0
+yt-dlp==2023.1.6
+virtualenv==20.17.1
+pycryptodomex==3.16.0
+requests==2.28.1
+psutil==5.9.4
+pytube==12.1.2
+```
+3. Run the [builder.ps1](https://github.com/sourabhkv/ytdl/blob/main/builder.ps1)
+4. Build will be generated `./dist/Youtube-dl GUI/` folder
+
+### Linux (Still in preview)
+
+---
+
+1. Follow step 1 and 2 as above
+2. Give permission to builder.sh
+```
+chmod +x builder.sh
+```
+- Before compiling change few lines in code which ask for logo.ico
+3. Run the builder.sh
+```
+./builder.sh
+```
+4. Build will be generated `./dist/Youtube-dl GUI/` folder
+
 ## FAQ
 **Youtube-dl GUI not installing**<br>
 *Click on more info then run anyway.*<br>
