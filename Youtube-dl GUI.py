@@ -1424,33 +1424,29 @@ class Settings(tk.Toplevel):
         
 
 if __name__ == "__main__":
-    s=__file__[:__file__.rfind("\\")]+"\\database"
-    if os.path.exists(s):
+    path = os.path.realpath(os.path.abspath(__file__))
+    PATH = (os.path.dirname(path))
+    os.chdir(PATH)
+
+    
+    
+    if os.path.exists("./database"):
         pass
     else:
-        os.makedirs(s,exist_ok=False)
-        os.makedirs(s+"\\update",exist_ok=False)
-        file = open(s+"\\loc.txt",'w+')
-        file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
+        os.makedirs("./database",exist_ok=False)
+        os.makedirs("./database/update",exist_ok=False)
+        file = open("./database/loc.txt",'w+')
+        if os.name=='nt':
+            file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
+        elif os.name=='posix':
+            file.write((os.path.expanduser('~')+"/Downloads"))
         file.close()
-        file2=open(s+"\\cookies.txt",'w+')
-        file2.close()
-        file3=open(s+"\\args.txt",'w+')
-        file3.close()
-        file4=open(s+"\\history.txt",'w+')
-        file4.close()
-        file5=open(s+"\\log.txt",'w+')
-        file5.write(str(time.time()))
-        file5.close()
-        file6=open(s+"\\output_temp_vid.txt",'w+')
-        file6.write("%(title)s.%(ext)s")
-        file6.close()
-        file7=open(s+"\\output_temp_playlist.txt",'w+')
-        file7.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
-        file7.close()
-        file8=open(s+"\\multivideo.txt","w+")
-        file8.write("360p\nwa")
-        file8.close()
+        create = {"./database/cookies.txt":"","./database/args.txt":"","./database/history.txt":"","./database/log.txt":str(time.time()),"./database/output_temp_vid.txt":"%(title)s.%(ext)s","./database/output_temp_playlist.txt":"%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s","./database/multivideo.txt":"360p\nwa"}
+        for i,j in create.items():
+            with open(i, "w+") as file:
+                if len(j)!=0:
+                    file.write(j)
+            print(i,j)
         
     lst=sys.argv
     print(lst,type(lst))
