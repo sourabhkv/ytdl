@@ -23,6 +23,12 @@ A GUI program that runs on top of yt-dlp and ffmpeg to download videos and audio
 |Web Installer |[Youtube-dl GUI Webinstaller.exe](https://github.com/sourabhkv/ytdl/blob/main/Youtube-dl%20Webinstaller.exe)|
 |Portable Installer|[Youtube-dl GUI Portable.zip](https://github.com/sourabhkv/ytdl/releases/latest/download/Youtube-dl.GUI.Portable.zip)|
 
+## Installation using PowerShell
+Execute the following command in powershell
+```powershell
+powershell iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/sourabhkv/ytdl/raw/main/Webinstaller%20CLI.ps1'))
+```
+
 Latest release [`Meteor`](https://github.com/sourabhkv/ytdl/releases/latest)<br>
 [Screenshots](https://github.com/sourabhkv/ytdl/tree/main/screenshots)
 
