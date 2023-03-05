@@ -17,7 +17,6 @@ import shutil
 from io import BytesIO
 from zipfile import ZipFile
 
-
 def check_for_update(a,b=1):
     rs=open(".\\database\\log.txt","r")
     if float(time.time())-float(rs.readlines()[0])>=86400*b:
@@ -82,12 +81,12 @@ else:
     file7.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     file7.close()
     
-t1xz = threading.Thread(target=check_for_update, args=("https://sourabhkv.github.io/ytdl",))
-t1xz.start()
+#t1xz = threading.Thread(target=check_for_update, args=("https://sourabhkv.github.io/ytdl",))
+#t1xz.start()
 
 def update_handler(link,ver):
     print(ver)
-    t2 = threading.Thread(target=popens, args=("yt-dlp_x86 -U",))
+    t2 = threading.Thread(target=popens, args=("yt-dlp -U",))
     t2.start()
     my_dir="./update"
     for f in os.listdir(my_dir):
@@ -141,11 +140,14 @@ def Resume():
 
 def pause():
     global ext12fx,ext11,btn
-    a="taskkill /F /IM ffmpeg.exe"
-    b="taskkill /F /IM yt-dlp_x86.exe"
     ps.append("paused")
-    st=popens(a)
-    sts=popens(b)
+    if os.name=='nt':
+        st=popens("taskkill /F /IM ffmpeg.exe")
+        sts=popens("taskkill /F /IM yt-dlp_x86.exe")
+    elif os.name=='posix':
+        st=popens("killall -KILL ffmpeg".split())
+        sts=popens("killall -KILL yt-dlp".split())
+
     #btn['state'] = DISABLED
     ext12fx.configure(command=Resume,image=img11,text="resume")
     #ext12fx.place(x=650,y=502)
@@ -159,11 +161,12 @@ def cmder(ext11,ext12fx):
 
 def cmderx():
     global btn
-    a="taskkill /F /IM ffmpeg.exe"
-    b="taskkill /F /IM yt-dlp_x86.exe"
-    ps.append('cancelled')
-    st=popens(a)
-    sts=popens(b)
+    if os.name=='nt':
+        st=popens("taskkill /F /IM ffmpeg.exe")
+        sts=popens("taskkill /F /IM yt-dlp_x86.exe")
+    elif os.name=='posix':
+        st=popens("killall -KILL ffmpeg".split())
+        sts=popens("killall -KILL yt-dlp".split())
     btn['state'] = NORMAL
     title=result1.replace("|","_")#title org
     loc=e2.get()
@@ -365,7 +368,7 @@ def about():
     resize_image = image.resize((200, 200))
     img = ImageTk.PhotoImage(resize_image)
     streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-    streams2 = Label(root2, text = "Youtube-dl GUI  v23.0114.19b",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+    streams2 = Label(root2, text = "Youtube-dl GUI  v23.0305.12b",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
     streams2 = Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
     streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
     streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
@@ -386,7 +389,7 @@ def about():
     name77.place(x = 190,y = 390)
     name77.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl#support-us'))
     name7e = Label(root2, text = "Changelog",fg="#0574FF",cursor="hand2",bg="#303135")
-    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v23.0111.19'))
+    name7e.bind("<Button-1>", lambda e: link('https://github.com/sourabhkv/ytdl/releases/tag/v23.0305.12'))
     name7e.place(x = 195,y = 315)
     name8e = Label(root2, text = "Check for updates",fg="#0574FF",cursor="hand2",bg="#303135")
     #name8e.bind("<Button-1>", lambda e: os.startfile("updater.exe"))
@@ -571,7 +574,8 @@ def thumbnail(url):
 
 def dwth():
     global viewbtn
-    viewbtn=Button(root,text="Download thumbnail",image=img13,bd=0,command=thdlrz,activebackground="#202020",highlightthickness = 0)
+    viewbtn=Button(root,text="Download thumbnail",image=img13,bd=0,command=thdlrz,activebackground="#202020",bg="#202020",relief="flat",highlightthickness = 0)
+    #bd=0,relief="flat",bg="#202020",activebackground="#202020",highlightthickness = 0
     viewbtn.bind('<Enter>',lambda a:changer_red(viewbtn,imgthred))
     viewbtn.bind('<Leave>',lambda a:changer_blue(viewbtn,img13))
     viewbtn.place(x=765,y=229)
@@ -1025,7 +1029,7 @@ def history():
     file4.close()
     
 def run_command4(cmd):
-    #print(cmd)
+    print(cmd)
     file2=open("./database/cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
@@ -1042,9 +1046,10 @@ def run_command4(cmd):
     ext17go['state']=DISABLED
     root.title("Youtube-dl GUI  [Downloading...]")
     zen=""
-    startupinfo = subprocess.STARTUPINFO()
-    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    if os.name=='posix':#WARNING no space to be used
+        p = subprocess.Popen(["yt-dlp"]+cmd.split(),  stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1,shell=True)
+    elif os.name=='nt':
+        p = subprocess.Popen("yt-dlp_x86 "+cmd,  stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1,shell=True)
     #print(p.pid)
     for line in iter(p.stdout.readline, b''):
         root.title("Youtube-dl GUI  [Downloading...]")
@@ -1086,7 +1091,7 @@ def run_command4(cmd):
     #print(ps)
     
 def run_command4pl(cmd):
-    #print(cmd)
+    print(cmd)
     file2=open("./database/cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
@@ -1107,9 +1112,10 @@ def run_command4pl(cmd):
     btn['state'] = DISABLED
     ext17go['state']=DISABLED
     root.title("Youtube-dl GUI  [Downloading...]")
-    startupinfo = subprocess.STARTUPINFO()
-    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    if os.name =='nt':
+        p = subprocess.Popen("yt-dlp_x86 "+cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1,shell=True)
+    elif os.name=='posix':
+        p = subprocess.Popen("yt-dlp "+cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1,shell=True)
     for line in iter(p.stdout.readline, b''):
         status.set(" "+line[0:-1]+"                                                                                                                                                                                                           ")
         if "Downloading video" in line and "of" in line:
@@ -1127,7 +1133,7 @@ def run_command4pl(cmd):
     root.title("Youtube-dl GUI")
 
 def run_command4multi(cmd,gg):
-    #print(cmd)
+    print(cmd)
     file2=open("./database/cookies.txt",'r')
     if len(file2.readlines())!=0:
         cmd=cmd+" --cookies "+file2.readlines()[0]
@@ -1138,9 +1144,10 @@ def run_command4multi(cmd,gg):
     file3.close()
     btn['state'] = DISABLED
     ext17go['state']=DISABLED
-    startupinfo = subprocess.STARTUPINFO()
-    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    if os.name=='nt':
+        p = subprocess.Popen("yt-dlp_x86 "+cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1,shell=True)
+    elif os.name=='posix':
+        p = subprocess.Popen("yt-dlp "+cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1,shell=True)        
     for line in iter(p.stdout.readline, b''):
         gg.set(" "+line[0:-1]+"                                                                                                                                                                                                           ")
         if str(line)=="":
@@ -1172,27 +1179,27 @@ def multibuster(z,b,c):
     file4.close()
     if len(b)!=0:
         if "144p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "240p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "360p" in b:
-            a=("yt-dlp --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "480p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "720p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "1080p" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "best" in b:
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "Mp3 320 kbps" in b:
-            a=("yt-dlp --ignore-errors --format bestaudio --audio-quality 0 --extract-audio --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o \"{}\" --yes-playlist "+z).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --audio-quality 0 --extract-audio --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o \"{}\" --yes-playlist "+z).format("~"+loc+"/"+out_temp)
         elif "Mp3 64 kbps" in b:
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --extract-audio --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "M4a High" in b:
-            a=("yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0 -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=("  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0 -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
         elif "Wav Losless" in b:
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --audio-quality 0 --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --extract-audio --audio-quality 0 --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o \"{}\" "+z).format("~"+loc+"/"+out_temp)
 
 
         print(a)
@@ -1510,18 +1517,21 @@ def on_change(e1):
 def checkcmbo():
     global customname,loc
     loc="/"+"Downloads"
-    cpt=userloc+"\\Downloads"
-    user=(os.environ['USERPROFILE'])
-    user=user.replace("\\","/")
-    print(download_Directory)
-    try:
-        loc=download_Directory
-        if "C:" in loc:
-            c=loc.lstrip(user)
-            loc=c.replace("\\","/")
-            loc="/"+loc
-    except:
-        pass
+    if os.name=='nt':
+        cpt=userloc+"\\Downloads"
+        user=(os.environ['USERPROFILE'])
+        user=user.replace("\\","/")
+        print(download_Directory)
+        try:
+            loc=download_Directory
+            if "C:" in loc:
+                c=loc.lstrip(user)
+                loc=c.replace("\\","/")
+                loc="/"+loc
+        except:
+            pass
+    elif os.name=='posix':
+        loc=e2.get()
     
     basicdata=cmbbsc.get()
     advvid=cmb.get()
@@ -1564,8 +1574,8 @@ def checkcmbo():
         output="~"+loc+"/"+customname+".%(ext)s"
 
     global ext12fx,ext11,a
-    ext12fx=Button(root,text="Pause",bd=0,image=img10,command= pause,activebackground="#202020",highlightthickness = 0)
-    ext11=Button(root,text="Cancel",bd=0,image=img12,command=lambda :cmder(ext11,ext12fx),activebackground="#202020",highlightthickness = 0)
+    ext12fx=Button(root,text="Pause",bd=0,image=img10,command= pause,activebackground="#202020",highlightthickness = 0,bg="#202020",relief="flat")
+    ext11=Button(root,text="Cancel",bd=0,image=img12,command=lambda :cmder(ext11,ext12fx),activebackground="#202020",highlightthickness = 0,bg="#202020",relief="flat")
 
     
 
@@ -1574,62 +1584,62 @@ def checkcmbo():
 
     elif len(basicdata)!=0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
         if basicdata=="Best available":
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f bv+ba -o \"{}\" "+url).format(output)
+            a=("--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f bv+ba -o \"{}\" "+url).format(output)
         else:
             w=basicdata.split()
             id1=w[-1]
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f {} -o \"{}\" "+url).format(id1,output)
+            a=("--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --no-restrict-filenames --embed-metadata -f {} -o \"{}\" "+url).format(id1,output)
         #print(a)
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\"  --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(advvid.split()[0],advaud.split()[0],output)
+        a=("--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\"  --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(advvid.split()[0],advaud.split()[0],output)
         #a=a+" --download-sections *1:11-4:40 --newline"
         #print("download section")
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(advvid.split()[0],output)
+        a=("--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(advvid.split()[0],output)
         
 
     elif len(basicdata)==0 and len(advvid)==0 and len(advaud)!=0 and len(advcap)==0 and len(convertaud)==0:
         #print("adv 12")
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(advaud.split()[0],output)
+        a=("--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --add-metadata --no-mtime --embed-metadata -f {} -o \"{}\" "+url).format(advaud.split()[0],output)
         
 
     elif len(basicdata)==0 and len(advvid)!=0 and len(advaud)!=0 and len(advcap)!=0 and len(convertaud)==0:
         #print("adv 123")
         u=advcap.split()[0]
         #print(u)
-        a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --write-srt --sub-lang {} --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(u,advvid.split()[0],advaud.split()[0],output)
+        a=("--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --write-srt --sub-lang {} --add-metadata --no-mtime --embed-metadata -f {}+{} -o \"{}\" "+url).format(u,advvid.split()[0],advaud.split()[0],output)
         
 
     elif len(basicdata)==0 and len(advvid)==0 and len(advaud)==0 and len(advcap)==0 and len(convertaud)!=0:
         if "Mp3 64 kbps" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f ba -x --audio-format mp3 --audio-quality 64K -o \"{}\" '+url).format(output)
+            b=('--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f ba -x --audio-format mp3 --audio-quality 64K -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
             
         elif "Mp3 128 kbps" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format mp3 --audio-quality 128K -o \"{}\" '+url).format(output)
+            b=('--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format mp3 --audio-quality 128K -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "Mp3 320 kbps" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba  -x --audio-format mp3 --audio-quality 320K -o \"{}\" '+url).format(output)
+            b=('--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba  -x --audio-format mp3 --audio-quality 320K -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "M4a High" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0  -o \"{}\" '+url).format(output)
+            b=('--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format m4a --audio-quality 0  -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "Wav Lossless" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format wav --audio-quality 0 -o \"{}\" '+url).format(output)
+            b=('--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format wav --audio-quality 0 -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
         elif "Flac 24 bit Lossless" in convertaud:
-            b=('yt-dlp_x86  --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format flac --audio-quality 0 -o \"{}\" '+url).format(output)
+            b=('--parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"uploader:(?s)(?P<meta_album_artist>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime -f ba -x --audio-format flac --audio-quality 0 -o \"{}\" '+url).format(output)
             tv2w = threading.Thread(target=run_command4, args=(b,))
             tv2w.start()
     if a:
@@ -1684,31 +1694,31 @@ def playlister():
     elif len(play.get())!=0:
         link=url[url.rfind("list=")+5:]
         if "144p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:144,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "240p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:240,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "360p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:360,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "480p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:480,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "720p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:720,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "1080p" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -S height:1080,vext:mp4,aext:m4a -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "best" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+ba -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "worst" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f wv+wa -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f wv+wa -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "Mp3 320 kbps" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --audio-format mp3 --no-mtime --audio-quality 320K -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "Mp3 64 kbps" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --audio-format mp3 --no-mtime --audio-quality 64K -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "bv+wa" in play.get():
-            a=("yt-dlp_x86 --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+wa -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
+            a=(" --parse-metadata \"description:(?s)(?P<meta_comment>.+)\" --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime -f bv+wa -o \"{}\" "+link).format("~"+loc+"/"+out_temp)
         elif "M4a High" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime --audio-format m4a -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --embed-thumbnail --no-mtime --audio-format m4a -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         elif "Wav Losless" in play.get():
-            a=("yt-dlp_x86 --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
+            a=(" --ignore-errors --format bestaudio --extract-audio --parse-metadata \"%(upload_date,release_year).4s:(?P<meta_date>.+)\" --add-metadata --no-mtime --embed-thumbnail --audio-format wav  -o \"{}\" --yes-playlist "+link).format("~"+loc+"/"+out_temp)
         if len(items.get())!=0:
             a=a+" --playlist-items "+str(items.get())
 
@@ -1728,9 +1738,7 @@ def update():
 
 def run_command2(cmd):
     global ext11,ext12fx
-    startupinfo = subprocess.STARTUPINFO()
-    startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    p = subprocess.Popen(cmd, startupinfo=startupinfo, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE,universal_newlines=True, bufsize=1)
     for line in iter(p.stdout.readline, b''):
         root.title("Youtube-dl GUI  [Downloading update...]")
         status.set(" "+line[0:-1]+"                                                                                                                                                                                                           ")
@@ -1872,7 +1880,7 @@ def run_commandcustom(cmd):
 
 def custom():
     if len(ex.get())>0:
-        cmd="yt-dlp_x86 "+ex.get()
+        cmd="yt-dlp "+ex.get()
         t2 = threading.Thread(target=run_commandcustom, args=(cmd,))
         t2.start()
     elif len(ex.get())==0:
@@ -2023,7 +2031,10 @@ def cl2(a):
                 if ".vtt" not in files[i]:
                     d=val[-1]+"/"+files[i]
                     d=d.replace("/","\\")
-                    s=r'explorer /select, "{}" '.format(d)
+                    if os.name=='nt' :
+                        s=r'explorer /select, "{}" '.format(d)
+                    elif os.name=='posix':
+                        s=r'nautilus --select "{}" '.format(d)
                     print(s)
                     subprocess.Popen(s)
                     break
@@ -2077,7 +2088,7 @@ def refresh():
 
 def dir_open():
     #print("explorer /open, "+e2.get().replace("/","\\"))
-    if os.path.exists(e2.get().replace("/","\\")):
+    if os.path.exists(e2.get()):
         if os.name=='nt':
             subprocess.Popen(r'explorer /open, '+e2.get().replace("/","\\"))
         elif os.name=='posix':
