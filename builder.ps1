@@ -6,6 +6,7 @@ pip install requests
 pip install psutil
 pip install --upgrade yt_dlp
 pip install pytube
+.\yt-dlp_X86 -U
 pyinstaller --icon=logo.ico -w --hidden-import yt_dlp.compat._legacy "Youtube-dl GUI.py"
 New-Item -Path ".\dist\Youtube-dl GUI\images" -ItemType Directory
 Copy-Item ".\images\*.*" -Destination ".\dist\Youtube-dl GUI\images"
