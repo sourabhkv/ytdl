@@ -171,7 +171,13 @@ Full installer will not use program files instead will use `{localappdata}` dir,
 ## INSTALLATION
 Currently this is supported only on windows.<br>
 System Requirement : Windows 7 SP1 or above (x86 & x64)<br>
+### Installing via powershell
+Execute the following command in powershell
+```powershell
+iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/sourabhkv/ytdl/main/WebInstaller%20CLI.ps1'))
+```
 
+### Setup
 |Installer Type |Name|
 |---------------|:---: |
 |Full Installer|[Youtube-dl GUI.exe](https://github.com/sourabhkv/ytdl/releases/latest/download/YouTube-dl.GUI.exe)|
