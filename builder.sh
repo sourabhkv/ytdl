@@ -7,7 +7,7 @@ pip install pyinstaller==5.6.2
 pip install requests
 pip install --upgrade yt_dlp
 pip install pytube
-./ytdlp -U
+./yt-dlp -U
 pyinstaller --icon=../logo.ico -w --hidden-import yt_dlp.compat._legacy "../Youtube-dl GUI.py"
 mkdir "./dist/Youtube-dl GUI/images/"
 cp ../images/* "./dist/Youtube-dl GUI/images/"
