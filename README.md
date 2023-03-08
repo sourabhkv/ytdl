@@ -173,8 +173,9 @@ Currently this is supported only on windows.<br>
 System Requirement : Windows 7 SP1 or above (x86 & x64)<br>
 ### Installing via powershell
 Execute the following command in powershell
-powershell
-powershell iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/sourabhkv/ytdl/raw/main/Webinstaller%20CLI.ps1'))
+powershell```
+iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/sourabhkv/ytdl/raw/main/Webinstaller%20CLI.ps1'))
+```
 
 ### Setup
 |Installer Type |Name|
