@@ -29,6 +29,7 @@ plagiarize. USE AT YOUR RISK . I DO NOT PROMOTE ANY ILLEGAL DOWNLOADS .**<br>
 **Version 23.xx.yy coming soon....**<br>
 Update model 3 will built using python 3.8.10 <br>
 Windows 7 support will be dropped in Oct 2024.<br>
+**⚠️UPDATE : [ytdl](https://github.com/sourabhkv/ytdl) will focus on supporting legacy systems till Oct,2024 with little to no compromise on features. [ytdl unlocked](https://github.com/ytdl-official/unlock) will focus on enhancing look and feel, features of application with no compromise, will use higher version of Python 3.11.x and only x64 builds will be developed and maintained**.<br>
 ~~⚠️ ALERT CURRENTLY SUPPORTED VERSIONS WILL NO LONGER RECEIVE UPDATES ,YTDL WILL USE **PYTHON 3.10.7** with latest libraries<br>
 **⚠️ Windows 7 version will be released separately which will be based on python 3.8.10**<br>~~
 
