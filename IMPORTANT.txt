@@ -1,2 +1,0 @@
-NEEDS ATOMICPARSLEY, FFMPEG ,YT-DLP IN SAME DIRECTORY
-To use multi video feature provide more YouTube URL.
