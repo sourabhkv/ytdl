@@ -1,3 +1,5 @@
-from ui import window
-x = window.Window()
-x.root.mainloop()
+from ui import window, env
+if __name__=='__main__':
+    env.Checker()
+    x = window.Window()
+    x.root.mainloop()

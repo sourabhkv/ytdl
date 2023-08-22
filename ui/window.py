@@ -5,13 +5,19 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.constants import DISABLED, NORMAL
 from tkinter import scrolledtext
+from .about import About
+from .pipe import Pipe
 import webbrowser
+import subprocess
+import threading
 
 class Window:
     def __init__(self):
         self.root = tk.Tk()
 
-        self.root.title("YouTube-dl GUI")
+        # initial setup of window
+        self.root.title('YouTube-dl GUI')
+        self.root.iconbitmap('./images/logo.ico')
         self.screen_width = self.root.winfo_screenwidth()
         self.screen_height = self.root.winfo_screenheight()
         _y=int((self.screen_height-640)/2)
@@ -19,23 +25,32 @@ class Window:
         self.root.geometry('%dx%d+%d+%d' % (1030, 580, _x, _y))
         self.root.resizable(False,False)
 
+        # style
         self.root.configure(bg='#303135')
         self.style= ttk.Style()
-        self.style.configure("TCombobox", fieldbackground= "#525252", background= "#525252",foreground="black")
-        self.style.configure("TButton",background="#525252")
-        self.style.configure("TScrollbar",background="#525252",activebackground="#525252")
-        self.style.configure("TNotebook", background='#424242',borderwidth=0)
-        self.style.configure("TCheckbutton", background='#525252',foreground="white",activebackground="#525252",borderwidth=0)
+        self.style.configure('TCombobox', fieldbackground= '#525252', background= '#525252',foreground='black')
+        self.style.configure('TButton',background='#525252')
+        self.style.configure('TScrollbar',background='#525252',activebackground='#525252')
+        self.style.configure('TNotebook', background='#424242',borderwidth=0)
+        self.style.configure('TCheckbutton', background='#525252',foreground='white',activebackground='#525252',borderwidth=0)
+        self.style.layout("TNotebook", [])
 
+        # frame1 newer
+        self.md=PhotoImage(file = './images/Frame 1newer.png')
+        self.canvas1 = Canvas( self.root, width = 560,height = 1000)
+        background_label = Label(image=self.md,anchor='n')
+        background_label.place(x=0, y=-2, relwidth=1, relheight=1)
+        self.canvas1.pack()
+
+        # tab control
         self.tabControl = ttk.Notebook(self.root,height=236,width=624)
-
-        self.tab1 = Frame(self.tabControl,background="#525252")
-        self.tab2 = Frame(self.tabControl,background="#525252")
-        self.tab3 = Frame(self.tabControl,background="#525252")
-        self.tab4 = Frame(self.tabControl,background="#525252")
-        self.tab5 = Frame(self.tabControl,background="#525252")
-        self.tab6 = Frame(self.tabControl,background="#525252")
-        self.tab7 = Frame(self.tabControl,background="#525252")
+        self.tab1 = Frame(self.tabControl,background='#525252')
+        self.tab2 = Frame(self.tabControl,background='#525252')
+        self.tab3 = Frame(self.tabControl,background='#525252')
+        self.tab4 = Frame(self.tabControl,background='#525252')
+        self.tab5 = Frame(self.tabControl,background='#525252')
+        self.tab6 = Frame(self.tabControl,background='#525252')
+        self.tab7 = Frame(self.tabControl,background='#525252')
 
         self.tabControl.add(self.tab1, text ='  Basic  ')
         self.tabControl.add(self.tab2, text ='  Advanced ')
@@ -47,20 +62,200 @@ class Window:
         self.tabControl.place(x=35,y=215)#275
 
 
+        Label(self.root, text = 'Youtube-dl GUI',bg='#303135',font=('Arial', 18),fg='white').place(x = 230,y = 10)
+        _logo_image =  Image.open('./images/logo.png')
+        _resize_image = _logo_image.resize((25, 25))
+        _img = ImageTk.PhotoImage(_resize_image)
+        _label1 = Label(self.root, image=_img,bg='#303135')
+        _label1.image = _img
+        _label1.place(x=410,y=10)
+
+        _explore = Label(self.root, text = 'Explore  ytdl  Unlocked',fg='yellow',cursor='hand2',bg='#303135')
+        _explore.place(x = 530,y = 20)
+        _explore.bind('<Button-1>', lambda e: webbrowser.open('https://github.com/sourabhkv/ytdl/blob/main/README.md#ytdl-unlocked-pro'))
 
 
-        
+        # statusbar
+        self.status = StringVar()
+        self.status.set('')
+        self.statusbar = tk.Label(self.root, textvariable=self.status ,width=150, bd=2,fg='white', relief=tk.SUNKEN, anchor=tk.W,bg='#202125')
+        self.statusbar.place(x=-1,y=560)
 
+        # url textfield
+        self.url_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
+        self.url_box.place(x=60,y=103)
 
-        Label(self.root, text = "Youtube-dl GUI",bg="#303135",font=('Arial', 18),fg="white").place(x = 230,y = 10) 
+        # location field
+        self.location_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
+        with open('./config/loc.txt') as file:
+            self.download_Directory = file.readlines()[0]
+        self.location_box.insert(0,self.download_Directory)
+        self.location_box.place(x=60,y=179)
 
-        self.ex=Entry(self.tab6,bg="#303135",width=55,bd=0,fg="white",font=('Microsoft Sans Serif',10))
-        self.ex.place(x=82,y=10)
+        # go button
+        self.go_button_image = PhotoImage(file = './images/go.png')
+        self.go_button_red_image = PhotoImage(file = './images/gored.png')
+        self.go_button = Button(self.root,text='GO',bd=0,image=self.go_button_image,command=lambda: self.on_change(),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.go_button.bind('<Enter>',lambda a:self.color_changer(self.go_button, self.go_button_red_image))
+        self.go_button.bind('<Leave>',lambda a:self.color_changer(self.go_button, self.go_button_image))
+        self.go_button.place(x=570,y=96)
 
-        name77 = Label(self.root, text = "Explore  ytdl  Unlocked",fg="yellow",cursor="hand2",bg="#303135")
-        name77.place(x = 530,y = 20)
-        name77.bind("<Button-1>", lambda e: webbrowser.open('https://github.com/sourabhkv/ytdl/blob/main/README.md#ytdl-unlocked-pro'))
+        # paste button
+        self.paste_button_image = PhotoImage(file = './images/paste.png')
+        self.paste_button_red_image = PhotoImage(file = './images/pastered.png')
+        self.paste_button = Button(self.root,text='Paste',bd=0,image=self.paste_button_image,command=lambda: self.paste_on_text(),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.paste_button.bind('<Enter>',lambda a:self.color_changer(self.paste_button, self.paste_button_red_image))
+        self.paste_button.bind('<Leave>',lambda a:self.color_changer(self.paste_button, self.paste_button_image))
+        self.paste_button.place(x=200,y=134)
 
-        imgpst = PhotoImage(file = "./images/paste2.png")
-        namepst = Button(self.tab6, text = "Paste",fg="blue",bd=0,bg="#525252",image=imgpst,command=lambda : self.paste2(),activebackground='#525252',highlightthickness = 0)
-        namepst.place(x=480,y=10)
+        # clear button
+        self.clear_button_image = PhotoImage(file = './images/clear.png')
+        self.clear_button_red_image = PhotoImage(file = './images/clearred.png')
+        self.clear_button = Button(self.root,text='clear',bd=0,image=self.clear_button_image,command=lambda: self.url_box.delete(0,END),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.clear_button.bind('<Enter>',lambda a:self.color_changer(self.clear_button, self.clear_button_red_image))
+        self.clear_button.bind('<Leave>',lambda a:self.color_changer(self.clear_button, self.clear_button_image))
+        self.clear_button.place(x=300,y=134)
+
+        # browse button
+        self.browse_button_image = PhotoImage(file = './images/browse.png')
+        self.browse_button_red_image = PhotoImage(file = './images/browred.png')
+        self.browse_button = Button(self.root,text='browse',bd=0,image=self.browse_button_image,command=lambda: self.browse_location(),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.browse_button.bind('<Enter>',lambda a:self.color_changer(self.browse_button, self.browse_button_red_image))
+        self.browse_button.bind('<Leave>',lambda a:self.color_changer(self.browse_button, self.browse_button_image))
+        self.browse_button.place(x=570,y=174)
+
+        # About button
+        self.about_button_image = PhotoImage(file = './images/img3.png')
+        self.about_button_red_image = PhotoImage(file = './images/aboutdark.png')
+        self.about_button = Button(self.root,text='about',bd=0,image=self.about_button_image,command=lambda: self.about_project(),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.about_button.bind('<Enter>',lambda a:self.color_changer(self.about_button, self.about_button_red_image))
+        self.about_button.bind('<Leave>',lambda a:self.color_changer(self.about_button, self.about_button_image))
+        self.about_button.place(x=28,y=510)
+
+        # update button
+        self.update_button_image = PhotoImage(file = './images/img4.png')
+        self.update_button_red_image = PhotoImage(file = './images/updatedark.png')
+        self.update_button = Button(self.root,text='update',bd=0,image=self.update_button_image,command=lambda: self.update_project(),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.update_button.bind('<Enter>',lambda a:self.color_changer(self.update_button, self.update_button_red_image))
+        self.update_button.bind('<Leave>',lambda a:self.color_changer(self.update_button, self.update_button_image))
+        self.update_button.place(x=120,y=510)
+
+        # donate button
+        self.donate_button_image = PhotoImage(file = './images/donatelight.png')
+        self.donate_button_red_image = PhotoImage(file = './images/donatedark.png')
+        self.donate_button = Button(self.root,text='donate',bd=0,image=self.donate_button_image,command=lambda: webbrowser.open("https://github.com/sourabhkv/ytdl#support-us"),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.donate_button.bind('<Enter>',lambda a:self.color_changer(self.donate_button, self.donate_button_red_image))
+        self.donate_button.bind('<Leave>',lambda a:self.color_changer(self.donate_button, self.donate_button_image))
+        self.donate_button.place(x=216,y=510)
+
+        # GitHub button
+        self.Github_button_image = PhotoImage(file = './images/img6.png')
+        self.Github_button_red_image = PhotoImage(file = './images/Githubdark.png')
+        self.Github_button = Button(self.root,text='Github',bd=0,image=self.Github_button_image,command=lambda: webbrowser.open("https://github.com/sourabhkv/ytdl"),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.Github_button.bind('<Enter>',lambda a:self.color_changer(self.Github_button, self.Github_button_red_image))
+        self.Github_button.bind('<Leave>',lambda a:self.color_changer(self.Github_button, self.Github_button_image))
+        self.Github_button.place(x=324,y=510)
+
+        # Supported websites button
+        self.supported_web_button_image = PhotoImage(file = './images/img7.png')
+        self.supported_web_button_red_image = PhotoImage(file = './images/supportedwebsitesdark.png')
+        self.supported_web_button = Button(self.root,text='supported_web',bd=0,image=self.supported_web_button_image,command=lambda: webbrowser.open("https://supported_web.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.supported_web_button.bind('<Enter>',lambda a:self.color_changer(self.supported_web_button, self.supported_web_button_red_image))
+        self.supported_web_button.bind('<Leave>',lambda a:self.color_changer(self.supported_web_button, self.supported_web_button_image))
+        self.supported_web_button.place(x=420,y=510)
+
+        # settings button
+        self.settings_button_image = PhotoImage(file = './images/settings.png')
+        self.settings_button_red_image = PhotoImage(file = './images/settingsdark.png')
+        self.settings_button = Button(self.root,text='settings',bd=0,image=self.settings_button_image,command=lambda: webbrowser.open("https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.settings_button.bind('<Enter>',lambda a:self.color_changer(self.settings_button, self.settings_button_red_image))
+        self.settings_button.bind('<Leave>',lambda a:self.color_changer(self.settings_button, self.settings_button_image))
+        self.settings_button.place(x=585,y=510)
+
+        # Custom command page
+        Label(self.tab6, text="yt-dlp ARGS",fg="white",bg="#525252").place(x=8,y=10)
+        Label(self.tab6, text = "eg. -F <URL>",fg="white",bg="#525252").place(x = 535,y = 210)
+
+        self.custom_cmd=Entry(self.tab6,bg='#303135',width=55,bd=0,fg='white',font=('Microsoft Sans Serif',10))
+        self.custom_cmd.place(x=82,y=10)
+
+        self.text_area = scrolledtext.ScrolledText(self.tab6, wrap=tk.WORD,width=83, height=11,font=('Microsoft Sans Serif',9),background="#404040",fg="white",highlightthickness=0,relief=FLAT)
+        self.text_area.grid(column=0, row=2, pady=40, padx=10)
+
+        _terminal_label = Label(self.tab6, text = "Terminal",fg="cyan",cursor="hand2",bg="#525252")
+        _terminal_label.bind("<Button-1>", lambda e : subprocess.Popen('start terminal.bat',shell=True) )
+        _terminal_label.place(x = 290,y = 210)
+
+        _help_label = Label(self.tab6, text = "How to use ?",fg="orange",cursor="hand2",bg="#525252")
+        _help_label.bind("<Button-1>", lambda e: webbrowser.open('https://github.com/yt-dlp/yt-dlp#usage-and-options'))
+        _help_label.place(x = 10,y = 210)
+
+        _run_button = ttk.Button(self.tab6, text = "RUN",command=lambda : self.custom())
+        _run_button.config(width=8)
+        _run_button.place(x=553,y=10)
+
+        self.imgpst = PhotoImage(file = "./images/paste2.png")
+        self.paste_custom = Button(self.tab6, text = "Paste",fg="blue",bd=0,bg="#525252",image=self.imgpst,command=lambda : self.paste2_on_text() ,activebackground='#525252',highlightthickness = 0)
+        self.paste_custom.place(x=480,y=10)
+
+        self.imgclr = PhotoImage(file = "./images/clr2.png")
+        self.clear_custom = Button(self.tab6, text = "Clear",fg="blue",bd=0,bg="#525252",image=self.imgclr,command=lambda : self.custom_cmd.delete(0,END) ,activebackground='#525252',highlightthickness = 0)
+        self.clear_custom.place(x=515,y=10)
+
+        # other class declaration
+        self.custom_class = Pipe()
+    
+    def color_changer(self,b,a):
+        b.config(image=a)
+    
+    def on_change(self):
+        _text = self.url_box.get()
+        if not len(_text):
+            messagebox.showerror('Youtube-dl GUI','Enter URL')
+    
+    def paste_on_text(self):
+        try:
+            _AnnoyingWindow=Tk()
+            _ClipBoard = _AnnoyingWindow.clipboard_get()
+            _AnnoyingWindow.destroy()
+            _ele=_ClipBoard
+            self.url_box.insert(END, ' '+_ele )
+
+        except:
+            _AnnoyingWindow.destroy()
+            messagebox.showerror('Youtube-dl GUI','URL should be in text')
+    
+    def paste2_on_text(self):
+        try:
+            _AnnoyingWindow=Tk()
+            _ClipBoard = _AnnoyingWindow.clipboard_get()
+            _AnnoyingWindow.destroy()
+            _ele=_ClipBoard
+            self.custom_cmd.insert(END, ' '+_ele )
+            print(self.custom_cmd.get())
+
+        except:
+            _AnnoyingWindow.destroy()
+            messagebox.showerror('Youtube-dl GUI','URL should be in text')
+    
+    def browse_location(self):
+        self.download_Directory = filedialog.askdirectory(initialdir='YOUR DIRECTORY PATH')
+        if self.download_Directory=='':
+            with open('./config/loc.txt','r') as file:
+                self.download_Directory=file.readlines()[0]
+
+        self.location_box.delete(0,END)
+        self.location_box.insert(0,self.download_Directory)
+        with open('./config/loc.txt','w+') as file:
+            file.write(self.download_Directory)
+    
+    def about_project(self):
+        About(self.screen_height, self.screen_width)
+    
+    def custom(self):
+        if len(self.custom_cmd.get()) > 0:
+            _cmd="yt-dlp "+self.custom_cmd.get()
+            t2 = threading.Thread(target=self.custom_class.run_commandcustom, args=(_cmd,))#bug self not working
+            t2.start()
+        else:
+            messagebox.showerror("Youtube-dl GUI","Enter command")
