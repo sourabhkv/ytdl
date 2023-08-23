@@ -10,6 +10,8 @@ from .pipe import Pipe
 import webbrowser
 import subprocess
 import threading
+import os
+from .settings import Settings
 
 class Window:
     def __init__(self):
@@ -34,6 +36,7 @@ class Window:
         self.style.configure('TNotebook', background='#424242',borderwidth=0)
         self.style.configure('TCheckbutton', background='#525252',foreground='white',activebackground='#525252',borderwidth=0)
         self.style.layout("TNotebook", [])
+
 
         # frame1 newer
         self.md=PhotoImage(file = './images/Frame 1newer.png')
@@ -84,6 +87,21 @@ class Window:
         # url textfield
         self.url_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
         self.url_box.place(x=60,y=103)
+
+        # URL text
+        self._URL_text_var = StringVar()
+        self._URL_text_var.set("URL")
+        self._url_label = Label(self.root, textvariable = self._URL_text_var ,bg="#424242",fg="white")
+        self._url_label.place(x = 55,y = 76)
+
+        # Output text
+        self._output_text_var = StringVar()
+        self._output_text_var.set("Output")
+        self._output_label = Label(self.root, textvariable = self._output_text_var,bg="#424242",fg="white",cursor='hand2')
+        self._output_label.bind('<Enter>',lambda a: self._output_label.config(fg="#0574FF"))
+        self._output_label.bind('<Leave>',lambda a: self._output_label.config(fg="white"))
+        self._output_label.bind("<Button-1>", lambda e: self.open_dir())
+        self._output_label.place(x = 55,y = 148)
 
         # location field
         self.location_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
@@ -167,7 +185,7 @@ class Window:
         # settings button
         self.settings_button_image = PhotoImage(file = './images/settings.png')
         self.settings_button_red_image = PhotoImage(file = './images/settingsdark.png')
-        self.settings_button = Button(self.root,text='settings',bd=0,image=self.settings_button_image,command=lambda: webbrowser.open("https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.settings_button = Button(self.root,text='settings',bd=0,image=self.settings_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.settings_button.bind('<Enter>',lambda a:self.color_changer(self.settings_button, self.settings_button_red_image))
         self.settings_button.bind('<Leave>',lambda a:self.color_changer(self.settings_button, self.settings_button_image))
         self.settings_button.place(x=585,y=510)
@@ -199,11 +217,12 @@ class Window:
         self.paste_custom.place(x=480,y=10)
 
         self.imgclr = PhotoImage(file = "./images/clr2.png")
-        self.clear_custom = Button(self.tab6, text = "Clear",fg="blue",bd=0,bg="#525252",image=self.imgclr,command=lambda : self.custom_cmd.delete(0,END) ,activebackground='#525252',highlightthickness = 0)
+        self.clear_custom = Button(self.tab6, text = "Clear",fg="blue",bd=0,bg="#525252",image=self.imgclr,command=lambda : self.clear_custom_cmd_box() ,activebackground='#525252',highlightthickness = 0)
         self.clear_custom.place(x=515,y=10)
 
         # other class declaration
         self.custom_class = Pipe()
+        self.settings_class = Settings()
     
     def color_changer(self,b,a):
         b.config(image=a)
@@ -238,6 +257,10 @@ class Window:
             _AnnoyingWindow.destroy()
             messagebox.showerror('Youtube-dl GUI','URL should be in text')
     
+    def clear_custom_cmd_box(self):
+        self.custom_cmd.delete(0,END)
+        self.text_area.delete(0.0,END)
+    
     def browse_location(self):
         self.download_Directory = filedialog.askdirectory(initialdir='YOUR DIRECTORY PATH')
         if self.download_Directory=='':
@@ -252,10 +275,16 @@ class Window:
     def about_project(self):
         About(self.screen_height, self.screen_width)
     
+    def open_dir(self):
+        if os.path.exists(self.location_box.get()):
+            subprocess.Popen(r'explorer /open, '+self.location_box.get().replace("/","\\"))
+        else:
+            messagebox.showerror("Youtube-dl GUI","Path doesn't exist\nPath might be deleted or moved")
+    
     def custom(self):
         if len(self.custom_cmd.get()) > 0:
             _cmd="yt-dlp "+self.custom_cmd.get()
-            t2 = threading.Thread(target=self.custom_class.run_commandcustom, args=(_cmd,))#bug self not working
+            t2 = threading.Thread(target=self.custom_class.run_commandcustom, args=(self.root,self.text_area,_cmd,))#bug self not working
             t2.start()
         else:
             messagebox.showerror("Youtube-dl GUI","Enter command")
