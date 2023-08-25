@@ -5,6 +5,7 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 from tkinter.constants import DISABLED, NORMAL
 from tkinter import scrolledtext
+import tkinter.font as tkFont
 from .about import About
 from .pipe import Pipe
 import webbrowser
@@ -15,16 +16,17 @@ from .settings import Settings
 
 class Window:
     def __init__(self):
-        self.root = tk.Tk()
 
         # initial setup of window
-        self.root.title('YouTube-dl GUI')
-        self.root.iconbitmap('./images/logo.ico')
+        self.root = tk.Tk()
         self.screen_width = self.root.winfo_screenwidth()
         self.screen_height = self.root.winfo_screenheight()
         _y=int((self.screen_height-640)/2)
         _x=int((self.screen_width-1000)/2)
         self.root.geometry('%dx%d+%d+%d' % (1030, 580, _x, _y))
+        self.root.title('YouTube-dl GUI')
+        self.root.iconbitmap('./images/logo.ico')
+        
         self.root.resizable(False,False)
 
         # style
@@ -190,6 +192,34 @@ class Window:
         self.settings_button.bind('<Leave>',lambda a:self.color_changer(self.settings_button, self.settings_button_image))
         self.settings_button.place(x=585,y=510)
 
+        # download thumbnail button
+        self.download_thumbnail_button_image = PhotoImage(file = './images/img13.png')
+        self.download_thumbnail_button_red_image = PhotoImage(file = './images/thred.png')
+        self.download_thumbnail_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_thumbnail_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.download_thumbnail_button.bind('<Enter>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_red_image))
+        self.download_thumbnail_button.bind('<Leave>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_image))
+        self.download_thumbnail_button.place(x=765,y=229)
+
+        # download button
+        self.download_button_image = PhotoImage(file = './images/img9.png')
+        self.download_button_red_image = PhotoImage(file = './images/dwred.png')
+        self.download_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.download_button.bind('<Enter>',lambda a:self.color_changer(self.download_button, self.download_button_red_image))
+        self.download_button.bind('<Leave>',lambda a:self.color_changer(self.download_button, self.download_button_image))
+        self.download_button.place(x=805,y=506)
+
+
+        # description box
+        self.frame1=Frame(self.root,bg = "#303135",width=280,height=200)
+        self.frame1.place(x=708,y=275)
+        self.sb_ver= ttk.Scrollbar(self.frame1)
+        self.description_box = Text(self.frame1,height=13,width=41,highlightthickness=0,relief=FLAT,yscrollcommand=self.sb_ver.set)
+        self.description_box.config(font= tkFont.Font(family="Arial", size=10),state= NORMAL,background="#404040",fg="grey")#404040
+        self.sb_ver.config(command=self.description_box.yview)
+        self.sb_ver.pack(side=RIGHT, fill=Y)
+        self.description_box.config(state=DISABLED)
+        self.description_box.pack(side=LEFT)
+
         # Custom command page
         Label(self.tab6, text="yt-dlp ARGS",fg="white",bg="#525252").place(x=8,y=10)
         Label(self.tab6, text = "eg. -F <URL>",fg="white",bg="#525252").place(x = 535,y = 210)
@@ -223,6 +253,107 @@ class Window:
         # other class declaration
         self.custom_class = Pipe()
         self.settings_class = Settings()
+
+        # list declaration
+        self.basic_formats: list = []
+        self.audio_formats: list = ["Mp3 64 kbps","Mp3 128 kbps","Mp3 320 kbps","M4A high","Wav Lossless","Flac Lossless"]
+        self.video_streams: list = []
+        self.audio_streams: list = []
+        self.captions     : list = []
+        self.playlist_format: list =[]
+
+
+        # tab elements area
+        
+        # tab1
+        self.video_quality_var = StringVar()
+        self.video_quality_var.set("Select video Quality")
+        Label(self.tab1, textvariable = self.video_quality_var,bg="#525252",fg="white").place(x = 20,y = 20)
+
+        self.basic_combobox = ttk.Combobox(self.tab1, width="90", values=self.basic_formats,state="readonly")
+        self.basic_combobox.place(x=20,y=47)
+
+        self.ischecked_music = BooleanVar()
+        self.ischecked_music.set(False)
+        self.check_music=ttk.Checkbutton(self.tab1,text = "Convert to music", var=self.ischecked_music, onvalue=True, offvalue=False, command=self.isChecked)
+        self.check_music.place(x=3,y=85)
+
+        self.music_combobox =  ttk.Combobox(self.tab1, width="45", values=self.audio_formats,state="readonly")
+        self.music_combobox.place(x=20,y=110)
+
+        #tab2
+        self.video_streams_var = StringVar()
+        self.video_streams_var.set("Video  Streams")
+        Label(self.tab2, textvariable = self.video_streams_var ,bg="#525252",fg="white").place(x = 20,y = 10)
+
+        self.video_streams_combobox = ttk.Combobox(self.tab2, width="95", values=self.video_streams,state="readonly")
+        self.video_streams_combobox.place(x=15,y=32)
+
+        self.audio_streams_var = StringVar()
+        self.audio_streams_var.set("Audio  Streams")
+        Label(self.tab2, textvariable = self.audio_streams_var ,bg="#525252",fg="white").place(x = 20,y = 55)
+
+        self.audio_streams_combobox = ttk.Combobox(self.tab2, width="95", values=self.audio_streams,state="readonly")
+        self.audio_streams_combobox.place(x=15,y=77)
+
+        self.captions_var = StringVar()
+        self.captions_var.set("Subtitles")
+        Label(self.tab2, textvariable = self.captions_var ,bg="#525252",fg="white").place(x = 20,y = 100)
+
+        self.captions_combobox = ttk.Combobox(self.tab2, width="37", values=self.captions ,state="readonly")
+        self.captions_combobox.place(x=15,y=122)
+
+        self.format_var = StringVar()
+        self.format_var.set("Format")
+        Label(self.tab2, textvariable = self.format_var,bg="#525252",fg="white").place(x = 280,y = 100)
+
+        self.format_checkbox=ttk.Combobox(self.tab2, width="20", values=["auto-detect","mp4","mkv","webm"],state="readonly")
+        self.format_checkbox.set("auto-detect")
+        self.format_checkbox.place(x=327-50,y=122)
+
+        self.ratelim_var = StringVar()
+        self.ratelim_var.set("Rate limit(eg. 50K or 4.2M)")
+        Label(self.tab2, textvariable = self.ratelim_var ,bg="#525252",fg="white").place(x = 442,y = 100)
+
+        self.ratelim_entry=ttk.Entry(self.tab2,width=27)
+        self.ratelim_entry.place(x=437,y=122)
+
+        self.custom_filename_var = StringVar()
+        self.custom_filename_var.set("Custom Filename")
+        Label(self.tab2, textvariable = self.custom_filename_var,bg="#525252",fg="white").place(x = 20,y = 146)
+
+        self.customfile_entry = ttk.Entry(self.tab2,width=46)
+        self.customfile_entry.place(x=17,y=169)
+
+        self.proxy_var = StringVar()
+        self.proxy_var.set("Proxy URL")
+        Label(self.tab2, textvariable = self.proxy_var,bg="#525252",fg="white").place(x = 330,y = 146)
+
+        self.proxy_entry = ttk.Entry(self.tab2,width=46)
+        self.proxy_entry.place(x=323,y=169)
+
+        self.embdth_var = BooleanVar()
+        self.embdth_var.set(False)
+        self.embdth=ttk.Checkbutton(self.tab2,text="Embed thumbnail", var=self.embdth_var, onvalue=True, offvalue=False)
+        self.embdth.place(x=17,y=199)
+
+        #tab3
+        self.playlist_format_var = StringVar()
+        self.playlist_format_var.set("Select format")
+        Label(self.tab3, textvariable = self.playlist_format_var,bg="#525252",fg="white").place(x = 170,y = 20)
+
+        self.playlist_format = ttk.Combobox(self.tab3, width="45", values=self.playlist_format,state="readonly")
+        self.playlist_format.place(x=170,y=45)
+
+        self.playlist_items_var = StringVar()
+        self.playlist_items_var.set("Select items")
+        Label(self.tab3, textvariable = self.playlist_items_var,bg="#525252",fg="white").place(x = 170,y = 70)
+
+        self.playlist_items = ttk.Entry(self.tab3,width=47)
+        self.playlist_items.place(x=170,y=95)
+
+
+
     
     def color_changer(self,b,a):
         b.config(image=a)
@@ -231,6 +362,9 @@ class Window:
         _text = self.url_box.get()
         if not len(_text):
             messagebox.showerror('Youtube-dl GUI','Enter URL')
+
+    def isChecked(self):
+        print("hello")
     
     def paste_on_text(self):
         try:
@@ -284,7 +418,7 @@ class Window:
     def custom(self):
         if len(self.custom_cmd.get()) > 0:
             _cmd="yt-dlp "+self.custom_cmd.get()
-            t2 = threading.Thread(target=self.custom_class.run_commandcustom, args=(self.root,self.text_area,_cmd,))#bug self not working
+            t2 = threading.Thread(target=self.custom_class.run_commandcustom, args=(self.root,self.text_area,_cmd,))
             t2.start()
         else:
             messagebox.showerror("Youtube-dl GUI","Enter command")
