@@ -33,16 +33,16 @@ class Settings:
         
         #self.x = ttk.Button(self.root, text ="Save", command = self.save())
         #self.x.place(relx=0.5, rely=0.8,anchor= CENTER)
-        file2=open("./config/cookies.txt",'r')
+        file2=open("./ytdl/config/cookies.txt",'r')
         data1=file2.readlines()
         file2.close()
-        file3=open("./config/args.txt",'r')
+        file3=open("./ytdl/config/args.txt",'r')
         data2=file3.readlines()
         file3.close()
-        file4=open("./config/output_temp_vid.txt",'r')
+        file4=open("./ytdl/config/output_temp_vid.txt",'r')
         out_temp_vid=file4.readlines()
         file4.close()
-        file5=open("./config/output_temp_playlist.txt",'r')
+        file5=open("./ytdl/config/output_temp_playlist.txt",'r')
         out_temp_plst=file5.readlines()
         file5.close()
         
@@ -69,16 +69,16 @@ class Settings:
         c2=self.cookiepath.get()
         c3=self.out_vid.get()
         c4=self.out_plst.get()
-        with open("./config/cookies.txt",'w+') as file:
+        with open("./ytdl/config/cookies.txt",'w+') as file:
             file.write(c2)
 
-        with open("./config/args.txt",'w+') as file:
+        with open("./ytdl/config/args.txt",'w+') as file:
             file.write(c1)
 
-        with open("./config/output_temp_vid.txt",'w+') as file:
+        with open("./ytdl/config/output_temp_vid.txt",'w+') as file:
             file.write(c3)
         
-        with open("./config/output_temp_playlist.txt",'w+') as file:
+        with open("./ytdl/config/output_temp_playlist.txt",'w+') as file:
             file.write(c4)
         
         #root4.destroy()

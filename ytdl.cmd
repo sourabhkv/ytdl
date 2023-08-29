@@ -1,0 +1,1 @@
+@py -bb -Werror -Xdev "%~dp0ytdl\__main__.py" %*

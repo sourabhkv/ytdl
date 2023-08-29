@@ -48,5 +48,5 @@ class About:
         streams2 = Label(root2, text = "Developed by sourabhkv",bg="#303135",fg="green").place(relx=.5, rely=.93,anchor= CENTER)
         #webbrowser.open final2 https://drive.google.com/file/d/1CWW5YTK7MjIQ3ZyQdsN7TSNu_K-F3hxN/view?usp=sharing
         root2.resizable(False, False)
-        root2.iconbitmap(r'logo.ico')
+        root2.iconbitmap(r'./ytdl/images/logo.ico')
         root2.mainloop()

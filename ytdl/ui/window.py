@@ -25,7 +25,7 @@ class Window:
         _x=int((self.screen_width-1000)/2)
         self.root.geometry('%dx%d+%d+%d' % (1030, 580, _x, _y))
         self.root.title('YouTube-dl GUI')
-        self.root.iconbitmap('./images/logo.ico')
+        self.root.iconbitmap('./ytdl/images/logo.ico')
         
         self.root.resizable(False,False)
 
@@ -41,7 +41,7 @@ class Window:
 
 
         # frame1 newer
-        self.md=PhotoImage(file = './images/Frame 1newer.png')
+        self.md=PhotoImage(file = './ytdl/images/Frame 1newer.png')
         self.canvas1 = Canvas( self.root, width = 560,height = 1000)
         background_label = Label(image=self.md,anchor='n')
         background_label.place(x=0, y=-2, relwidth=1, relheight=1)
@@ -68,7 +68,7 @@ class Window:
 
 
         Label(self.root, text = 'Youtube-dl GUI',bg='#303135',font=('Arial', 18),fg='white').place(x = 230,y = 10)
-        _logo_image =  Image.open('./images/logo.png')
+        _logo_image =  Image.open('./ytdl/images/logo.png')
         _resize_image = _logo_image.resize((25, 25))
         _img = ImageTk.PhotoImage(_resize_image)
         _label1 = Label(self.root, image=_img,bg='#303135')
@@ -107,102 +107,102 @@ class Window:
 
         # location field
         self.location_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
-        with open('./config/loc.txt') as file:
+        with open('./ytdl/config/loc.txt') as file:
             self.download_Directory = file.readlines()[0]
         self.location_box.insert(0,self.download_Directory)
         self.location_box.place(x=60,y=179)
 
         # go button
-        self.go_button_image = PhotoImage(file = './images/go.png')
-        self.go_button_red_image = PhotoImage(file = './images/gored.png')
+        self.go_button_image = PhotoImage(file = './ytdl/images/go.png')
+        self.go_button_red_image = PhotoImage(file = './ytdl/images/gored.png')
         self.go_button = Button(self.root,text='GO',bd=0,image=self.go_button_image,command=lambda: self.on_change(),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.go_button.bind('<Enter>',lambda a:self.color_changer(self.go_button, self.go_button_red_image))
         self.go_button.bind('<Leave>',lambda a:self.color_changer(self.go_button, self.go_button_image))
         self.go_button.place(x=570,y=96)
 
         # paste button
-        self.paste_button_image = PhotoImage(file = './images/paste.png')
-        self.paste_button_red_image = PhotoImage(file = './images/pastered.png')
+        self.paste_button_image = PhotoImage(file = './ytdl/images/paste.png')
+        self.paste_button_red_image = PhotoImage(file = './ytdl/images/pastered.png')
         self.paste_button = Button(self.root,text='Paste',bd=0,image=self.paste_button_image,command=lambda: self.paste_on_text(),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.paste_button.bind('<Enter>',lambda a:self.color_changer(self.paste_button, self.paste_button_red_image))
         self.paste_button.bind('<Leave>',lambda a:self.color_changer(self.paste_button, self.paste_button_image))
         self.paste_button.place(x=200,y=134)
 
         # clear button
-        self.clear_button_image = PhotoImage(file = './images/clear.png')
-        self.clear_button_red_image = PhotoImage(file = './images/clearred.png')
+        self.clear_button_image = PhotoImage(file = './ytdl/images/clear.png')
+        self.clear_button_red_image = PhotoImage(file = './ytdl/images/clearred.png')
         self.clear_button = Button(self.root,text='clear',bd=0,image=self.clear_button_image,command=lambda: self.url_box.delete(0,END),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.clear_button.bind('<Enter>',lambda a:self.color_changer(self.clear_button, self.clear_button_red_image))
         self.clear_button.bind('<Leave>',lambda a:self.color_changer(self.clear_button, self.clear_button_image))
         self.clear_button.place(x=300,y=134)
 
         # browse button
-        self.browse_button_image = PhotoImage(file = './images/browse.png')
-        self.browse_button_red_image = PhotoImage(file = './images/browred.png')
+        self.browse_button_image = PhotoImage(file = './ytdl/images/browse.png')
+        self.browse_button_red_image = PhotoImage(file = './ytdl/images/browred.png')
         self.browse_button = Button(self.root,text='browse',bd=0,image=self.browse_button_image,command=lambda: self.browse_location(),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.browse_button.bind('<Enter>',lambda a:self.color_changer(self.browse_button, self.browse_button_red_image))
         self.browse_button.bind('<Leave>',lambda a:self.color_changer(self.browse_button, self.browse_button_image))
         self.browse_button.place(x=570,y=174)
 
         # About button
-        self.about_button_image = PhotoImage(file = './images/img3.png')
-        self.about_button_red_image = PhotoImage(file = './images/aboutdark.png')
+        self.about_button_image = PhotoImage(file = './ytdl/images/img3.png')
+        self.about_button_red_image = PhotoImage(file = './ytdl/images/aboutdark.png')
         self.about_button = Button(self.root,text='about',bd=0,image=self.about_button_image,command=lambda: self.about_project(),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.about_button.bind('<Enter>',lambda a:self.color_changer(self.about_button, self.about_button_red_image))
         self.about_button.bind('<Leave>',lambda a:self.color_changer(self.about_button, self.about_button_image))
         self.about_button.place(x=28,y=510)
 
         # update button
-        self.update_button_image = PhotoImage(file = './images/img4.png')
-        self.update_button_red_image = PhotoImage(file = './images/updatedark.png')
+        self.update_button_image = PhotoImage(file = './ytdl/images/img4.png')
+        self.update_button_red_image = PhotoImage(file = './ytdl/images/updatedark.png')
         self.update_button = Button(self.root,text='update',bd=0,image=self.update_button_image,command=lambda: self.update_project(),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.update_button.bind('<Enter>',lambda a:self.color_changer(self.update_button, self.update_button_red_image))
         self.update_button.bind('<Leave>',lambda a:self.color_changer(self.update_button, self.update_button_image))
         self.update_button.place(x=120,y=510)
 
         # donate button
-        self.donate_button_image = PhotoImage(file = './images/donatelight.png')
-        self.donate_button_red_image = PhotoImage(file = './images/donatedark.png')
+        self.donate_button_image = PhotoImage(file = './ytdl/images/donatelight.png')
+        self.donate_button_red_image = PhotoImage(file = './ytdl/images/donatedark.png')
         self.donate_button = Button(self.root,text='donate',bd=0,image=self.donate_button_image,command=lambda: webbrowser.open("https://github.com/sourabhkv/ytdl#support-us"),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.donate_button.bind('<Enter>',lambda a:self.color_changer(self.donate_button, self.donate_button_red_image))
         self.donate_button.bind('<Leave>',lambda a:self.color_changer(self.donate_button, self.donate_button_image))
         self.donate_button.place(x=216,y=510)
 
         # GitHub button
-        self.Github_button_image = PhotoImage(file = './images/img6.png')
-        self.Github_button_red_image = PhotoImage(file = './images/Githubdark.png')
+        self.Github_button_image = PhotoImage(file = './ytdl/images/img6.png')
+        self.Github_button_red_image = PhotoImage(file = './ytdl/images/Githubdark.png')
         self.Github_button = Button(self.root,text='Github',bd=0,image=self.Github_button_image,command=lambda: webbrowser.open("https://github.com/sourabhkv/ytdl"),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.Github_button.bind('<Enter>',lambda a:self.color_changer(self.Github_button, self.Github_button_red_image))
         self.Github_button.bind('<Leave>',lambda a:self.color_changer(self.Github_button, self.Github_button_image))
         self.Github_button.place(x=324,y=510)
 
         # Supported websites button
-        self.supported_web_button_image = PhotoImage(file = './images/img7.png')
-        self.supported_web_button_red_image = PhotoImage(file = './images/supportedwebsitesdark.png')
+        self.supported_web_button_image = PhotoImage(file = './ytdl/images/img7.png')
+        self.supported_web_button_red_image = PhotoImage(file = './ytdl/images/supportedwebsitesdark.png')
         self.supported_web_button = Button(self.root,text='supported_web',bd=0,image=self.supported_web_button_image,command=lambda: webbrowser.open("https://supported_web.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.supported_web_button.bind('<Enter>',lambda a:self.color_changer(self.supported_web_button, self.supported_web_button_red_image))
         self.supported_web_button.bind('<Leave>',lambda a:self.color_changer(self.supported_web_button, self.supported_web_button_image))
         self.supported_web_button.place(x=420,y=510)
 
         # settings button
-        self.settings_button_image = PhotoImage(file = './images/settings.png')
-        self.settings_button_red_image = PhotoImage(file = './images/settingsdark.png')
+        self.settings_button_image = PhotoImage(file = './ytdl/images/settings.png')
+        self.settings_button_red_image = PhotoImage(file = './ytdl/images/settingsdark.png')
         self.settings_button = Button(self.root,text='settings',bd=0,image=self.settings_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.settings_button.bind('<Enter>',lambda a:self.color_changer(self.settings_button, self.settings_button_red_image))
         self.settings_button.bind('<Leave>',lambda a:self.color_changer(self.settings_button, self.settings_button_image))
         self.settings_button.place(x=585,y=510)
 
         # download thumbnail button
-        self.download_thumbnail_button_image = PhotoImage(file = './images/img13.png')
-        self.download_thumbnail_button_red_image = PhotoImage(file = './images/thred.png')
+        self.download_thumbnail_button_image = PhotoImage(file = './ytdl/images/img13.png')
+        self.download_thumbnail_button_red_image = PhotoImage(file = './ytdl/images/thred.png')
         self.download_thumbnail_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_thumbnail_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.download_thumbnail_button.bind('<Enter>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_red_image))
         self.download_thumbnail_button.bind('<Leave>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_image))
         self.download_thumbnail_button.place(x=765,y=229)
 
         # download button
-        self.download_button_image = PhotoImage(file = './images/img9.png')
-        self.download_button_red_image = PhotoImage(file = './images/dwred.png')
+        self.download_button_image = PhotoImage(file = './ytdl/images/img9.png')
+        self.download_button_red_image = PhotoImage(file = './ytdl/images/dwred.png')
         self.download_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.download_button.bind('<Enter>',lambda a:self.color_changer(self.download_button, self.download_button_red_image))
         self.download_button.bind('<Leave>',lambda a:self.color_changer(self.download_button, self.download_button_image))
@@ -242,11 +242,11 @@ class Window:
         _run_button.config(width=8)
         _run_button.place(x=553,y=10)
 
-        self.imgpst = PhotoImage(file = "./images/paste2.png")
+        self.imgpst = PhotoImage(file = "./ytdl/images/paste2.png")
         self.paste_custom = Button(self.tab6, text = "Paste",fg="blue",bd=0,bg="#525252",image=self.imgpst,command=lambda : self.paste2_on_text() ,activebackground='#525252',highlightthickness = 0)
         self.paste_custom.place(x=480,y=10)
 
-        self.imgclr = PhotoImage(file = "./images/clr2.png")
+        self.imgclr = PhotoImage(file = "./ytdl/images/clr2.png")
         self.clear_custom = Button(self.tab6, text = "Clear",fg="blue",bd=0,bg="#525252",image=self.imgclr,command=lambda : self.clear_custom_cmd_box() ,activebackground='#525252',highlightthickness = 0)
         self.clear_custom.place(x=515,y=10)
 
@@ -398,12 +398,12 @@ class Window:
     def browse_location(self):
         self.download_Directory = filedialog.askdirectory(initialdir='YOUR DIRECTORY PATH')
         if self.download_Directory=='':
-            with open('./config/loc.txt','r') as file:
+            with open('./ytdl/config/loc.txt','r') as file:
                 self.download_Directory=file.readlines()[0]
 
         self.location_box.delete(0,END)
         self.location_box.insert(0,self.download_Directory)
-        with open('./config/loc.txt','w+') as file:
+        with open('./ytdl/config/loc.txt','w+') as file:
             file.write(self.download_Directory)
     
     def about_project(self):
