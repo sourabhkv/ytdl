@@ -6,3 +6,5 @@ brotlicffi; platform_python_implementation!='CPython'
 certifi
 Pillow
 requests
+psutil
+pytube
