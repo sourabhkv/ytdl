@@ -1,7 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox,filedialog
 from tkinter import *
-from tkinter import ttk
 from PIL import Image, ImageTk
 import webbrowser
 
@@ -14,14 +12,14 @@ class About:
         root2.geometry('%dx%d+%d+%d' % (600, 500, x, y))
         root2.title('About Youtube-dl GUI')
         root2.configure(bg='#303135')
-        image = Image.open("./images/logo.png")
+        image = Image.open("./ytdl/images/logo.png")
         resize_image = image.resize((200, 200))
         img = ImageTk.PhotoImage(resize_image)
-        streams = tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-        streams2 = Label(root2, text = "Youtube-dl GUI  v23.0305.12b",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
-        streams2 = Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
-        streams2 = Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
-        streams3 = Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
+        tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
+        Label(root2, text = "Youtube-dl GUI  v23.0305.12b",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+        Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
+        Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
+        Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)
         name74 = Label(root2, text = "CREDITS :",bg="#303135",fg="white").place(x=40+70,y=290)
         name74 = Label(root2, text = "yt-dlp",bg="#303135",fg="#0574FF",cursor="hand2")
         name74.place(x = 135+85,y = 290)

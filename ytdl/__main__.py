@@ -10,4 +10,4 @@ if __package__ is None:
 import ytdl
 
 if __name__=="__main__":
-    ytdl.main()
+    ytdl.main(sys.argv)

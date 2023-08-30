@@ -15,7 +15,7 @@ import os
 from .settings import Settings
 
 class Window:
-    def __init__(self):
+    def __init__(self,args):
 
         # initial setup of window
         self.root = tk.Tk()
@@ -87,7 +87,10 @@ class Window:
         self.statusbar.place(x=-1,y=560)
 
         # url textfield
-        self.url_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
+        self.url_box = Entry(self.root,bg='#A1A1A1',width=80,bd=0,fg='black')
+        if len(args)>=2:
+            temp_args = args[1:]
+            self.url_box.insert(END," ".join(temp_args))
         self.url_box.place(x=60,y=103)
 
         # URL text
@@ -106,7 +109,7 @@ class Window:
         self._output_label.place(x = 55,y = 148)
 
         # location field
-        self.location_box = Entry(self.root,bg='#A1A1A1',width=69,bd=0,fg='black')
+        self.location_box = Entry(self.root,bg='#A1A1A1',width=80,bd=0,fg='black')
         with open('./ytdl/config/loc.txt') as file:
             self.download_Directory = file.readlines()[0]
         self.location_box.insert(0,self.download_Directory)

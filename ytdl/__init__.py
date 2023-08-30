@@ -1,7 +1,9 @@
 import os
 from .ui import window
+from .update import _update_checker
 
 __license__ = 'Public Domain'
+
 
 class maker:
     
@@ -30,7 +32,8 @@ class maker:
         
 cleaner = maker()    
 
+_update_checker.check_for_update(url = "https://api.github.com/repos/sourabhkv/ytdl/releases/latest" )
 
 def main(args=None):
-    x = window.Window()
+    x = window.Window(args)
     x.root.mainloop()
