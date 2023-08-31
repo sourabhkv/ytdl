@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 import webbrowser
+from version import __version__
 
 class About:
     def __init__(self,sh,sw) -> None:
@@ -16,7 +17,7 @@ class About:
         resize_image = image.resize((200, 200))
         img = ImageTk.PhotoImage(resize_image)
         tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
-        Label(root2, text = "Youtube-dl GUI  v23.0305.12b",bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
+        Label(root2, text = "Youtube-dl GUI  v"+__version__,bg="#303135",font=('Arial', 12),fg="white").place(relx=.5, rely=.5,anchor= CENTER)
         Label(root2, text = "Released under MIT License",bg="#303135",fg="white").place(relx=.5, rely=.56,anchor= CENTER)
         Label(root2, text = "This is project is based on yt-dlp , ffmpeg , atomic parsley",bg="#303135",fg="white").place(relx=.5, rely=.69,anchor= CENTER)
         Label(root2, text = "THIS IS ONLY FOR EDUCATIONAL PURPOSE.",font=('Arial', 9,'bold'),fg="red",bg="#303135").place(relx=.5, rely=.75,anchor= CENTER)

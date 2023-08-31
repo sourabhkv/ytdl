@@ -13,7 +13,7 @@ import subprocess
 import threading
 import os
 from .settings import Settings
-
+from ..extractor.extractor import extract_info
 class Window:
     def __init__(self,args):
 
@@ -91,6 +91,7 @@ class Window:
         if len(args)>=2:
             temp_args = args[1:]
             self.url_box.insert(END," ".join(temp_args))
+            self.on_go()
         self.url_box.place(x=60,y=103)
 
         # URL text
@@ -110,7 +111,7 @@ class Window:
 
         # location field
         self.location_box = Entry(self.root,bg='#A1A1A1',width=80,bd=0,fg='black')
-        with open('./ytdl/config/loc.txt') as file:
+        with open('./config/loc.txt') as file:
             self.download_Directory = file.readlines()[0]
         self.location_box.insert(0,self.download_Directory)
         self.location_box.place(x=60,y=179)
@@ -118,7 +119,7 @@ class Window:
         # go button
         self.go_button_image = PhotoImage(file = './ytdl/images/go.png')
         self.go_button_red_image = PhotoImage(file = './ytdl/images/gored.png')
-        self.go_button = Button(self.root,text='GO',bd=0,image=self.go_button_image,command=lambda: self.on_change(),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.go_button = Button(self.root,text='GO',bd=0,image=self.go_button_image,command=lambda: self.on_go(),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.go_button.bind('<Enter>',lambda a:self.color_changer(self.go_button, self.go_button_red_image))
         self.go_button.bind('<Leave>',lambda a:self.color_changer(self.go_button, self.go_button_image))
         self.go_button.place(x=570,y=96)
@@ -354,9 +355,12 @@ class Window:
 
         self.playlist_items = ttk.Entry(self.tab3,width=47)
         self.playlist_items.place(x=170,y=95)
+    
 
-
-
+    def on_go(self):
+        _info = extract_info(self)
+        tv2 = threading.Thread(target=_info.search,args=(self,))
+        tv2.start()
     
     def color_changer(self,b,a):
         b.config(image=a)
@@ -375,7 +379,7 @@ class Window:
             _ClipBoard = _AnnoyingWindow.clipboard_get()
             _AnnoyingWindow.destroy()
             _ele=_ClipBoard
-            self.url_box.insert(END, ' '+_ele )
+            self.url_box.insert(END, _ele )
 
         except:
             _AnnoyingWindow.destroy()
@@ -408,6 +412,12 @@ class Window:
         self.location_box.insert(0,self.download_Directory)
         with open('./ytdl/config/loc.txt','w+') as file:
             file.write(self.download_Directory)
+
+    def description_modifier(self,_data):
+        self.description_box.config(state=NORMAL)
+        self.description_box.delete(1.0,"end")
+        self.description_box.insert(1.0, _data)
+        self.description_box.configure(state=DISABLED)
     
     def about_project(self):
         About(self.screen_height, self.screen_width)

@@ -3,7 +3,7 @@ from ..version import __version__
 from .updater import *
 
 
-def check_for_update(url):
+def check_for_update(url: str):
     response = requests.get(url)
     data = response.json()
     latest_tag = data["tag_name"]
