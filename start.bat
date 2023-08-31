@@ -1,1 +1,0 @@
-start terminal.bat
