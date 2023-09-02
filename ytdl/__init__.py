@@ -1,6 +1,6 @@
 import os
 from .ui import window
-from .update.update_checker import check_for_update
+from .update._update_checker import check_for_update
 from threading import Thread
 
 __license__ = 'Public Domain'
@@ -31,7 +31,7 @@ class maker:
             with  open("./config/output_temp_plst.txt",'w+') as file:
                 file.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     
-cleaner = maker()    
+cleaner = maker()
 
 mythread = Thread(target=check_for_update,args=("https://api.github.com/repos/sourabhkv/ytdl/releases/latest",))
 mythread.start()

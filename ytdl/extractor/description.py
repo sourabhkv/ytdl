@@ -37,3 +37,4 @@ class Description:
         x.description_box.delete(1.0,"end")
         x.description_box.insert(1.0, self._data)
         x.description_box.configure(state=DISABLED)
+        x.status.set('')
