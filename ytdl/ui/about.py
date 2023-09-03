@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image, ImageTk
 import webbrowser
-from version import __version__
+from ..version import __version__
 
 class About:
     def __init__(self,sh,sw) -> None:
@@ -13,7 +13,7 @@ class About:
         root2.geometry('%dx%d+%d+%d' % (600, 500, x, y))
         root2.title('About Youtube-dl GUI')
         root2.configure(bg='#303135')
-        image = Image.open("./ytdl/images/logo.png")
+        image = Image.open("./images/logo.png")
         resize_image = image.resize((200, 200))
         img = ImageTk.PhotoImage(resize_image)
         tk.Label(master=root2, text = "",image=img,bg="#303135",font=('Arial', 16),fg="white").place(relx=0.5, rely=0.25,anchor= CENTER)
@@ -47,5 +47,5 @@ class About:
         streams2 = Label(root2, text = "Developed by sourabhkv",bg="#303135",fg="green").place(relx=.5, rely=.93,anchor= CENTER)
         #webbrowser.open final2 https://drive.google.com/file/d/1CWW5YTK7MjIQ3ZyQdsN7TSNu_K-F3hxN/view?usp=sharing
         root2.resizable(False, False)
-        root2.iconbitmap(r'./ytdl/images/logo.ico')
+        root2.iconbitmap(r'./images/logo.ico')
         root2.mainloop()

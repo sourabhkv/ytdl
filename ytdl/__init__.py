@@ -104,8 +104,8 @@ cleaner = maker()
 cleaner.download_dependency()
 
 
-mythread = Thread(target=check_for_update,args=("https://api.github.com/repos/sourabhkv/ytdl/releases/latest",))
-mythread.start()
+#mythread = Thread(target=check_for_update,args=("https://api.github.com/repos/sourabhkv/ytdl/releases/latest",))
+#mythread.start()
 
 def main(args=None):
     if _dependency_status:

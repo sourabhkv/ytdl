@@ -1,0 +1,1 @@
+exec "${PYTHON:-python3}" -bb -Werror -Xdev "$(dirname "$(realpath "$0")")/ytdl/__main__.py" "$@"

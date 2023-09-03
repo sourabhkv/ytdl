@@ -374,7 +374,25 @@ class Window:
         self.clrtab3.bind("<Button-1>", lambda g: self.clearselection3())
         self.clrtab3.place(x = 515,y = 200)
         
+    def clearselection1(self):
+        self.music_combobox.set("")
+        self.basic_combobox.set("")
+        self.ischecked_music.set(False)
     
+    def clearselection2(self):
+        self.video_streams_combobox.set("")
+        self.audio_streams_combobox.set("")
+        self.captions_combobox.set("")
+        self.format_checkbox.set("auto-detect")
+        self.ratelim_entry.delete(0,END)
+        self.customfile_entry.delete(0,END)
+        self.proxy_entry.delete(0,END)
+        self.embdth_var.set(False)
+    
+    def clearselection3(self):
+        self.playlist_format.set("")
+        self.playlist_items.delete(0,END)
+
 
     def on_go(self):
         _info = extract_info(self)
@@ -391,7 +409,10 @@ class Window:
             messagebox.showerror('Youtube-dl GUI','Enter URL')
 
     def isChecked(self):
-        print("hello")
+        if self.ischecked_music.get()==False:
+            self.music_combobox.config(state=DISABLED)
+        else:
+            self.music_combobox.config(state=NORMAL)
     
     def paste_on_text(self):
         try:
