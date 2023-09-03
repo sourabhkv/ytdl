@@ -7,3 +7,5 @@ certifi
 Pillow
 requests
 pytube
+yt_dlp
+virtualenv
