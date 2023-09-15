@@ -3,8 +3,8 @@ from datetime import timedelta
 from pprint import pprint
 
 class Downloader:
-    def __init__(self) -> None:
-        pass
+    def __init__(self,x) -> None:
+        self.y = x
 
     def cli_to_api(self,opts):
         default = yt_dlp.parse_options([]).ydl_opts
@@ -22,21 +22,18 @@ class Downloader:
     def my_hook(self,d):
         try:
             if d['status'] == 'finished':
-                print('Done downloading, now post-processing ...')
-                print(d['filename'])
+                self.y.status.set('Done downloading, now post-processing ...')
+                self.y.status.set(d['filename'])
             if d['status'] == 'downloading':
-                if d['eta']:
-                    print(str(timedelta(seconds=d['eta'])),"%0.2f" %(d['downloaded_bytes']/d['total_bytes']))
-                else:
-                    print('-:-:- ',"%0.2f" %(d['downloaded_bytes']/d['total_bytes']))
+                self.y.status.set('[download] '+d['_default_template'])
             else:
-                print('Download complete')
+                self.y.status.set('Download complete')
         except:
             pass
     
-    def start_download(self,ydl_opts,x):
+    def start_download(self,ydl_opts):
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([x.url_box.get()])
+            ydl.download([self.y.url_box.get()])
 
 class MyLogger:
     def debug(self, msg):

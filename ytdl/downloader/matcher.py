@@ -1,11 +1,13 @@
 from tkinter import messagebox
 from .downloader import Downloader
+from threading import Thread
 class Match_case:
     def __init__(self) -> None:
         self.my_opts = [
             '--no-mtime',
             '--no-restrict-filenames',
             '--add-metadata',
+            '--color','no_color',
         ]
     
     def checking(self, x):
@@ -83,9 +85,10 @@ class Match_case:
         if x.format_checkbox.get()!='auto-detect':
             self.my_opts.append('--merge-output-format '+x.format_checkbox.get())
         
-        dl = Downloader()
+        dl = Downloader(x)
         print(self.my_opts)
         self.my_opts = tuple(self.my_opts)
         _res = dl.cli_to_api(self.my_opts)
         print(_res)
-        dl.start_download(_res,x)
+        _mythread = Thread(target=dl.start_download , args=(_res,))
+        _mythread.start()
