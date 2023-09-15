@@ -14,6 +14,8 @@ import threading
 import os
 from .settings import Settings
 from ..extractor.extractor import extract_info
+from ..downloader.matcher import Match_case
+
 class Window:
     def __init__(self,args):
 
@@ -207,7 +209,7 @@ class Window:
         # download button
         self.download_button_image = PhotoImage(file = './images/img9.png')
         self.download_button_red_image = PhotoImage(file = './images/dwred.png')
-        self.download_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.download_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_button_image,command=lambda: self.match_downloader.checking(self),bg='#424242',activebackground='#424242',highlightthickness = 0)
         self.download_button.bind('<Enter>',lambda a:self.color_changer(self.download_button, self.download_button_red_image))
         self.download_button.bind('<Leave>',lambda a:self.color_changer(self.download_button, self.download_button_image))
         self.download_button.place(x=805,y=506)
@@ -257,6 +259,7 @@ class Window:
         # other class declaration
         self.custom_class = Pipe()
         self.settings_class = Settings()
+        self.match_downloader = Match_case()
 
         # list declaration
         self.basic_formats = []
@@ -288,6 +291,7 @@ class Window:
 
         self.music_combobox =  ttk.Combobox(self.tab1, width="45", values=self.audio_formats,state="readonly")
         self.music_combobox.place(x=20,y=110)
+        self.music_combobox.config(state=DISABLED)
 
         self.clrtab1 = Label(self.tab1, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
         self.clrtab1.bind("<Button-1>", lambda g: self.clearselection1())
@@ -375,24 +379,18 @@ class Window:
         self.clrtab3.place(x = 515,y = 200)
         
     def clearselection1(self):
-        self.music_combobox.set("")
         self.basic_combobox.set("")
+        self.music_combobox.set("")
         self.ischecked_music.set(False)
     
     def clearselection2(self):
         self.video_streams_combobox.set("")
         self.audio_streams_combobox.set("")
         self.captions_combobox.set("")
-        self.format_checkbox.set("auto-detect")
-        self.ratelim_entry.delete(0,END)
-        self.customfile_entry.delete(0,END)
-        self.proxy_entry.delete(0,END)
-        self.embdth_var.set(False)
     
-    def clearselection3(self):
+    def clearselection2(self):
         self.playlist_format.set("")
         self.playlist_items.delete(0,END)
-
 
     def on_go(self):
         _info = extract_info(self)
@@ -409,10 +407,13 @@ class Window:
             messagebox.showerror('Youtube-dl GUI','Enter URL')
 
     def isChecked(self):
-        if self.ischecked_music.get()==False:
-            self.music_combobox.config(state=DISABLED)
-        else:
+        if self.ischecked_music.get():
             self.music_combobox.config(state=NORMAL)
+            self.music_combobox.config(state='readonly')
+            self.music_combobox.focus_force()
+        else:
+            self.music_combobox.config(state='readonly')
+            self.music_combobox.config(state=DISABLED)
     
     def paste_on_text(self):
         try:
