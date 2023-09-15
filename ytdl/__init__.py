@@ -20,20 +20,20 @@ class maker:
             pass
         else:
             os.makedirs("./config",exist_ok=False)
-            with  open("./config/loc.txt",'w+') as file:
+            with  open("./config/loc.txt",'w') as file:
                 file.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
             
-            with open("./config/history.txt",'w+') as file1:
-                with  open("./config/log.txt",'w+') as file2:
-                    with  open("./config/cookies.txt",'w+') as file3:
-                        with  open("./config/args.txt",'w+') as file4:
-                            with open("./config/loc.txt",'w+') as file5:
+            with open("./config/history.txt",'w') as file1:
+                with  open("./config/log.txt",'w') as file2:
+                    with  open("./config/cookies.txt",'w') as file3:
+                        with  open("./config/args.txt",'w') as file4:
+                            with open("./config/loc.txt",'w') as file5:
                                 file5.write((os.path.expanduser('~')+"\\Downloads").replace("\\","/"))
             
-            with  open("./config/output_temp_vid.txt",'w+') as file:
+            with  open("./config/output_temp_vid.txt",'w') as file:
                 file.write("%(title)s.%(ext)s")
             
-            with  open("./config/output_temp_plst.txt",'w+') as file:
+            with  open("./config/output_temp_plst.txt",'w') as file:
                 file.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     
     def download_dependency(self):

@@ -1,6 +1,8 @@
 from tkinter import messagebox
 from .downloader import Downloader
 from threading import Thread
+import os
+
 class Match_case:
     def __init__(self) -> None:
         self.my_opts = [
@@ -57,7 +59,8 @@ class Match_case:
                 self.my_opts.extend(__temp)
             elif x.video_streams_combobox.get() and x.audio_streams_combobox.get() and x.captions_combobox.get():
                 __temp = [
-                    '-f ' + x.audio_streams_combobox.get().split()[0] + "+" + x.video_streams_combobox.get().split()[0],'--write-srt --sub-lang {}'.format(x.captions_combobox.get().split()[0]),
+                    '-f ' + x.audio_streams_combobox.get().split()[0] + "+" + x.video_streams_combobox.get().split()[0],\
+                        '--write-srt --sub-lang {}'.format(x.captions_combobox.get().split()[0]),
                     ]
                 self.my_opts.extend(__temp)
             elif x.video_streams_combobox.get():
@@ -76,9 +79,21 @@ class Match_case:
             self.my_opts.append('-r '+x.ratelim_entry.get())
 
         if x.customfile_entry.get():
-            self.my_opts.append('-o '+x.customfile_entry.get()+'.%(ext)s')
+            _user_path = os.path.expanduser('~').replace('\\','/')
+            if _user_path in x.download_Directory:
+                x.download_Directory = '/'+x.download_Directory.lstrip( _user_path )
+            if x.download_Directory[-1]=='/':
+                x.download_Directory = x.download_Directory[:-1]
+            _temp_loc = ['-o','~'+x.download_Directory + '/' + x.customfile_entry.get() + '.%(ext)s']
+            self.my_opts.extend(_temp_loc)
         else:
-            self.my_opts.append('-o '+'%(title)s.%(ext)s')
+            _user_path = os.path.expanduser('~').replace('\\','/')
+            if _user_path in x.download_Directory:
+                x.download_Directory = '/'+x.download_Directory.lstrip( _user_path )
+            if x.download_Directory[-1]=='/':
+                x.download_Directory = x.download_Directory[:-1]
+            _temp_loc = ['-o','~'+x.download_Directory + '/'+'%(title)s.%(ext)s']
+            self.my_opts.extend(_temp_loc)
         
         if x.proxy_entry.get():
             self.my_opts.append('--proxy '+x.proxy_entry.get())

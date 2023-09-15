@@ -447,12 +447,12 @@ class Window:
     def browse_location(self):
         self.download_Directory = filedialog.askdirectory(initialdir='YOUR DIRECTORY PATH')
         if self.download_Directory=='':
-            with open('./ytdl/config/loc.txt','r') as file:
+            with open('./config/loc.txt','r') as file:
                 self.download_Directory=file.readlines()[0]
 
         self.location_box.delete(0,END)
         self.location_box.insert(0,self.download_Directory)
-        with open('./ytdl/config/loc.txt','w+') as file:
+        with open('./config/loc.txt','w+') as file:
             file.write(self.download_Directory)
 
     def description_modifier(self,_data):

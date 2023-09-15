@@ -22,12 +22,12 @@ class Downloader:
     def my_hook(self,d):
         try:
             if d['status'] == 'finished':
-                self.y.status.set('Done downloading, now post-processing ...')
+                self.y.status.set(' Done downloading, now post-processing ...')
                 self.y.status.set(d['filename'])
             if d['status'] == 'downloading':
                 self.y.status.set('[download] '+d['_default_template'])
             else:
-                self.y.status.set('Download complete')
+                self.y.status.set(' Download complete')
         except:
             pass
     
