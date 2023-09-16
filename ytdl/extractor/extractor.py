@@ -63,6 +63,11 @@ class extract_info:
                 for j in _x:
                     if str(j) in tasker:
                         t[tasker[j]] = info['formats'][i][j]
+                    elif 'filesize_approx' in str(j):
+                        print("apppp")
+                        t[tasker['filesize']] = info['formats'][i][j]
+                    elif not t[tasker['format_note']] and str(j)=='height':
+                        t[tasker['format_note']] = str(info['formats'][i]['height']) + 'p'
                 
                 #print(t)
                 counter = 0
@@ -157,6 +162,8 @@ class extract_info:
         x.captions = self.subs
         x._init_tab1()
         x._init_tab2()
+        x._init_download_button()
+        x._init_download_image_button()
 
 
 

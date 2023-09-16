@@ -94,6 +94,7 @@ class Window:
             temp_args = args[1:]
             self.url_box.insert(END," ".join(temp_args))
             self.on_go()
+        self.url_box.bind('<Return>', lambda e:self.on_go())
         self.url_box.place(x=60,y=103)
 
         # URL text
@@ -197,23 +198,6 @@ class Window:
         self.settings_button.bind('<Enter>',lambda a:self.color_changer(self.settings_button, self.settings_button_red_image))
         self.settings_button.bind('<Leave>',lambda a:self.color_changer(self.settings_button, self.settings_button_image))
         self.settings_button.place(x=585,y=510)
-
-        # download thumbnail button
-        self.download_thumbnail_button_image = PhotoImage(file = './images/img13.png')
-        self.download_thumbnail_button_red_image = PhotoImage(file = './images/thred.png')
-        self.download_thumbnail_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_thumbnail_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
-        self.download_thumbnail_button.bind('<Enter>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_red_image))
-        self.download_thumbnail_button.bind('<Leave>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_image))
-        self.download_thumbnail_button.place(x=765,y=229)
-
-        # download button
-        self.download_button_image = PhotoImage(file = './images/img9.png')
-        self.download_button_red_image = PhotoImage(file = './images/dwred.png')
-        self.download_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_button_image,command=lambda: self.match_downloader.checking(self),bg='#424242',activebackground='#424242',highlightthickness = 0)
-        self.download_button.bind('<Enter>',lambda a:self.color_changer(self.download_button, self.download_button_red_image))
-        self.download_button.bind('<Leave>',lambda a:self.color_changer(self.download_button, self.download_button_image))
-        self.download_button.place(x=805,y=506)
-
 
         # description box
         self.frame1=Frame(self.root,bg = "#303135",width=280,height=200)
@@ -377,6 +361,24 @@ class Window:
         self.clrtab3 = Label(self.tab3, text = "Clear selection",fg="#0090FF",cursor="hand2",bg="#525252")
         self.clrtab3.bind("<Button-1>", lambda g: self.clearselection3())
         self.clrtab3.place(x = 515,y = 200)
+        
+    # download thumbnail button
+    def _init_download_button(self):
+        self.download_thumbnail_button_image = PhotoImage(file = './images/img13.png')
+        self.download_thumbnail_button_red_image = PhotoImage(file = './images/thred.png')
+        self.download_thumbnail_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_thumbnail_button_image,command=lambda: self.settings_class.Settings_page(self.screen_height,self.screen_width),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.download_thumbnail_button.bind('<Enter>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_red_image))
+        self.download_thumbnail_button.bind('<Leave>',lambda a:self.color_changer(self.download_thumbnail_button, self.download_thumbnail_button_image))
+        self.download_thumbnail_button.place(x=765,y=229)
+
+    # download button
+    def _init_download_image_button(self):
+        self.download_button_image = PhotoImage(file = './images/img9.png')
+        self.download_button_red_image = PhotoImage(file = './images/dwred.png')
+        self.download_button = Button(self.root,text='download thumbnail',bd=0,image=self.download_button_image,command=lambda: self.match_downloader.checking(self),bg='#424242',activebackground='#424242',highlightthickness = 0)
+        self.download_button.bind('<Enter>',lambda a:self.color_changer(self.download_button, self.download_button_red_image))
+        self.download_button.bind('<Leave>',lambda a:self.color_changer(self.download_button, self.download_button_image))
+        self.download_button.place(x=805,y=506)
         
     def clearselection1(self):
         self.basic_combobox.set("")

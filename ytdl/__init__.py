@@ -33,7 +33,7 @@ class maker:
             with  open("./config/output_temp_vid.txt",'w') as file:
                 file.write("%(title)s.%(ext)s")
             
-            with  open("./config/output_temp_plst.txt",'w') as file:
+            with  open("./config/output_temp_playlist.txt",'w') as file:
                 file.write("%(playlist_title)s %(playlist_index)s %(title)s.%(ext)s")
     
     def download_dependency(self):

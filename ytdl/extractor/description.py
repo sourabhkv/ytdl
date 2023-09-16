@@ -8,8 +8,10 @@ class Description:
         if "youtube" in x.URL or "youtu.be" in x.URL:
             try:
                 _length = str(self.info['duration_string'])
+                _desc = str(self.info['description_string'])
             except:
                 _length = ''
+                _desc = ''
             
             _desc = str(self.info['description'])
             _title = str(self.info['title'])
@@ -26,12 +28,15 @@ class Description:
                 pass
         
         else:
+            _desc = ''
+            _length = ''
             try:
-                _title = self.info['title']
-                _length = self.info['duration_string']
-                _desc = self.info['description_string']
+                _title = str(self.info['title'])
+                _length = str(self.info['duration_string'])
+                _desc = str(self.info['description_string'])
+                self._data = _title+'\n\nDuration: '+_length+'\n\nDescription:\n'+_desc
             except:
-                pass
+                self._data = _title+'\n\nDuration: '+_length+'\n\nDescription:\n'+_desc
 
         x.description_box.config(state=NORMAL)
         x.description_box.delete(1.0,"end")
