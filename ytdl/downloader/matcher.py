@@ -65,7 +65,7 @@ class Match_case:
                 self.my_opts.extend(__temp)
             elif x.video_streams_combobox.get():
                 __temp = [ 
-                    '-f ' + x.audio_streams_combobox.get().split()[0] + "+" + x.video_streams_combobox.get().split()[0],
+                    '-f ' + x.video_streams_combobox.get().split()[0],
                     ]
                 self.my_opts.extend(__temp)
         

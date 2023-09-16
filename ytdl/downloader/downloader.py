@@ -13,7 +13,7 @@ class Downloader:
             diff['postprocessors'] = [pp for pp in diff['postprocessors'] if pp not in default['postprocessors']]
         
         myopts_opts = {
-            'logger': MyLogger(),
+            'logger': MyLogger(self.y),
             'progress_hooks': [self.my_hook],
         }
         ydl_opts = {**myopts_opts, **diff}
@@ -36,6 +36,9 @@ class Downloader:
             ydl.download([self.y.url_box.get()])
 
 class MyLogger:
+    def __init__(self,y) -> None:
+        self.z = y
+        
     def debug(self, msg):
         # For compatibility with youtube-dl, both debug and info are passed into debug
         # You can distinguish them by the prefix '[debug] '
@@ -51,4 +54,4 @@ class MyLogger:
         pass
 
     def error(self, msg):
-        print(msg)
+        self.z.status.set(' '+msg)

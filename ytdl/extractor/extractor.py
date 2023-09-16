@@ -76,14 +76,18 @@ class extract_info:
                     counter+=1
                 _temp = ""
                 
+                
                 if len(t)>0  and t[3]!='mhtml':
+                    #print(t)
                     if t[4]=='none':
                         t[4]=None
                     if t[5]=='none':
                         t[5]=None
                     _temp=""
+                    if t[0] is None:
+                        continue
                     #print(t[4],t[5],type(t[4]),type(t[5]),"afeter",t[4] is None,t[5] is None)
-                    if t[4] is None and t[5] is not None:#only video
+                    if (t[4] is None and t[5] is not None) or (t[4] is None and t[5] is None):#only video
                         if t[0] and t[0]!='none':
                             _temp = t[0]
                         if t[1] and t[1]!='none':
